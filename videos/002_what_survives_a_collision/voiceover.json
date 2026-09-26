@@ -1,0 +1,5 @@
+{
+  "service": "edge-tts",
+  "voice": "en-IN-NeerjaNeural",
+  "options": {}
+}

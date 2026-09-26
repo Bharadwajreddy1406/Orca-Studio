@@ -168,6 +168,28 @@ def run_ffmpeg(arguments: list[str], root: Path) -> None:
     )
 
 
+def find_native_video(
+    root: Path,
+    scene_file: Path,
+    scene_name: str,
+    preset: str,
+) -> Path:
+    """Find the newest render for a preset, including portrait output folders."""
+    _, quality_directory = PRESETS[preset]
+    scene_media_directory = root / "media" / "videos" / scene_file.stem
+    expected_video = scene_media_directory / quality_directory / f"{scene_name}.mp4"
+
+    frame_rate = preset.rsplit("p", maxsplit=1)[-1]
+    candidates = [
+        path
+        for path in scene_media_directory.glob(f"*/{scene_name}.mp4")
+        if path.parent.name.endswith(f"p{frame_rate}")
+    ]
+    if not candidates:
+        raise FileNotFoundError(f"Rendered video not found: {expected_video}")
+    return max(candidates, key=lambda path: path.stat().st_mtime_ns)
+
+
 def export_scene_assets(
     root: Path,
     project_dir: Path,
@@ -177,11 +199,8 @@ def export_scene_assets(
     merge: bool,
     voiceover_enabled: bool,
 ) -> list[Path]:
-    _, quality_directory = PRESETS[preset]
-    native_directory = root / "media" / "videos" / scene_file.stem / quality_directory
-    native_video = native_directory / f"{scene_name}.mp4"
-    if not native_video.is_file():
-        raise FileNotFoundError(f"Rendered video not found: {native_video}")
+    native_video = find_native_video(root, scene_file, scene_name, preset)
+    native_directory = native_video.parent
 
     export_directory = root / "media" / "exports" / project_dir.name / preset
     export_directory.mkdir(parents=True, exist_ok=True)
