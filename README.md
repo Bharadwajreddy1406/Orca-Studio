@@ -1,6 +1,6 @@
-# Manima
+# Orca Studio
 
-Manima is a workspace for building mathematical and technical explainer videos
+Orca Studio is a workspace for building mathematical and technical explainer videos
 with Manim Community Edition. Each video has its own numbered folder containing
 the narration script, visual storyboard, Manim scene, and local assets.
 

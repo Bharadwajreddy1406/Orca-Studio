@@ -128,11 +128,11 @@ def create_speech_service(config_path: Path | None = None) -> SpeechService:
     """Create the configured Edge TTS or external speech service."""
     config = load_voiceover_config(config_path)
     service_name = os.getenv(
-        "MANIMA_VOICE_SERVICE", str(config.get("service", "edge-tts"))
+        "ORCA_VOICE_SERVICE", str(config.get("service", "edge-tts"))
     ).casefold()
     configured_voice = config.get("voice")
     voice = os.getenv(
-        "MANIMA_VOICE",
+        "ORCA_VOICE",
         configured_voice if isinstance(configured_voice, str) else "",
     )
     configured_options = config.get("options", {})

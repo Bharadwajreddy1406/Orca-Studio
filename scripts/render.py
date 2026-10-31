@@ -63,7 +63,7 @@ def load_scene_module(scene_file: Path) -> ModuleType:
     if root_string not in sys.path:
         sys.path.insert(0, root_string)
 
-    module_name = f"_manima_scene_{scene_file.parent.name}"
+    module_name = f"_orca_studio_scene_{scene_file.parent.name}"
     spec = importlib.util.spec_from_file_location(module_name, scene_file)
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not load scene module: {scene_file}")
@@ -384,9 +384,9 @@ def main() -> int:
 
     environment = os.environ.copy()
     if args.voice_service:
-        environment["MANIMA_VOICE_SERVICE"] = args.voice_service
+        environment["ORCA_VOICE_SERVICE"] = args.voice_service
     if args.voice:
-        environment["MANIMA_VOICE"] = args.voice
+        environment["ORCA_VOICE"] = args.voice
 
     print(f"Project: {project_dir.name}")
     print(f"Scenes: {', '.join(scene_names)}")

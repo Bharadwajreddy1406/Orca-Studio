@@ -1,0 +1,26 @@
+{
+  "name": "orca-studio",
+  "version": "1.0.0",
+  "description": "Orca Studio is a workspace for building mathematical and technical explainer videos with Manim Community Edition. Each video has its own numbered folder containing the narration script, visual storyboard, Manim scene, and local assets.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bharadwajreddy1406/Manim-Video-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bharadwajreddy1406/Manim-Video-Generator/issues"
+  },
+  "homepage": "https://github.com/Bharadwajreddy1406/Manim-Video-Generator#readme",
+  "dependencies": {
+    "three": "^0.187.0"
+  }
+}
