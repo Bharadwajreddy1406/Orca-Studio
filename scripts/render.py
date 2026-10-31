@@ -266,7 +266,6 @@ def export_scene_assets(
                     "48000",
                     "-ac",
                     "2",
-                    "-shortest",
                     "-movflags",
                     "+faststart",
                     str(merged_video),
@@ -325,8 +324,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     parser.add_argument(
         "--merge",
-        action="store_true",
-        help="Create a final MP4 by merging the exported video and audio tracks.",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Create the final MP4 with video and audio merged (default: on).",
     )
     parser.add_argument(
         "--preview",

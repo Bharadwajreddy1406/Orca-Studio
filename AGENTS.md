@@ -73,7 +73,7 @@ On Windows PowerShell, run them from the repository root:
 .\create "Project Name"
 .\create
 .\render 034
-.\render 034_project_name --1080p60 --merge
+.\render 034_project_name --1080p60
 ```
 
 `create` scans the numeric prefixes under `videos/`, selects the next number, and copies `videos/_template`. A supplied name is normalized to snake_case. With no name, it generates `auto_` followed by six numeric digits.
@@ -82,7 +82,7 @@ On Windows PowerShell, run them from the repository root:
 
 The default render preset is `--480p15`. The explicit presets are `--480p15`, `--720p30`, `--1080p60`, and `--2160p60`; `--108060p` and `--4k60` are supported aliases. The older `--quality low|medium|high|4k` syntax remains supported. Use `--preview` only when an interactive preview is wanted.
 
-After every successful render, the utility exports a silent video track, a combined WAV narration track when audio exists, and the SRT file when available under `media/exports/<project>/<preset>/`. With `--merge`, it additionally remuxes the exported video and audio into `<Scene>_merged.mp4`. Do not remove Manim's native output in `media/videos/`.
+After every successful render, the utility exports a silent video track, a combined WAV narration track when audio exists, the SRT file when available, and `<Scene>_merged.mp4`, the final video with audio, under `media/exports/<project>/<preset>/`. Pass `--no-merge` to skip the merged file. Do not remove Manim's native output in `media/videos/`.
 
 The command logic lives in `scripts/create.py` and `scripts/render.py`; `create.cmd` and `render.cmd` are only Windows launchers. Do not duplicate their numbering, lookup, or rendering logic elsewhere without a concrete need.
 
@@ -379,7 +379,7 @@ Manim's default `media/` output directory can grow large and disorganized across
 * Let Manim's default `media/` structure stand (`media/videos/<scene_file>/<quality>/`); do not manually relocate rendered files unless asked.
 * `media/` should be gitignored at the repository root. Verify this exists; add it if missing.
 * Prefer `.\render <project>` for routine project renders so scene discovery, quality selection, output location, and voiceover cache handling stay consistent.
-* Treat `media/exports/<project>/<preset>/` as the organized delivery directory. It contains separate video/audio/subtitle assets and, when requested with `--merge`, the final merged MP4.
+* Treat `media/exports/<project>/<preset>/` as the organized delivery directory. It contains separate video/audio/subtitle assets and the final merged MP4.
 * Low-quality development renders (`-pql`) are disposable — do not treat them as deliverables and do not reference them in commits or documentation.
 * When a render is intended as a final deliverable, say so explicitly and note the exact output path so the user can find it without searching.
 * Do not delete previous renders unless asked. Old renders are useful for comparison during iteration.

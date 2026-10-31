@@ -58,10 +58,10 @@ After rendering, separate delivery assets are written to
 - `<Scene>_audio.wav`: combined narration track for voiceover scenes;
 - `<Scene>.srt`: generated subtitles, when available.
 
-Add `--merge` to remux the separate video and audio tracks into a final MP4:
+Every render also remuxes the separate video and audio tracks into a final `<Scene>_merged.mp4`. Add `--no-merge` to skip it:
 
 ```powershell
-.\render 001 --1080p60 --merge
+.\render 001 --1080p60 --no-merge
 # -> media/exports/001_derivative_intuition/1080p60/
 ```
 
@@ -149,7 +149,7 @@ Then configure `voiceover.json`:
 Configuration can be overridden for one render:
 
 ```powershell
-.\render 001 --voice-service openai --voice alloy --1080p60 --merge
+.\render 001 --voice-service openai --voice alloy --1080p60
 ```
 
 Provider-specific settings belong in `options`. API keys must remain in

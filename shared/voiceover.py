@@ -11,6 +11,10 @@ from edge_tts import Communicate
 from manim_voiceover._typing import VoiceoverData
 from manim_voiceover.helper import remove_bookmarks
 from manim_voiceover.services.base import PathLike, SpeechService, path_to_string
+from pydub import AudioSegment
+from pydub.silence import detect_leading_silence
+
+TRIMMED_TAIL_MS = 120
 
 
 class EdgeTtsSpeechService(SpeechService):
@@ -22,6 +26,7 @@ class EdgeTtsSpeechService(SpeechService):
         rate: str = "+0%",
         volume: str = "+0%",
         pitch: str = "+0Hz",
+        trim_trailing_silence: bool = False,
         **kwargs: object,
     ) -> None:
         super().__init__(**kwargs)
@@ -29,6 +34,7 @@ class EdgeTtsSpeechService(SpeechService):
         self.rate = rate
         self.volume = volume
         self.pitch = pitch
+        self.trim_trailing_silence = trim_trailing_silence
 
     def generate_from_text(
         self,
@@ -47,6 +53,8 @@ class EdgeTtsSpeechService(SpeechService):
             "volume": self.volume,
             "pitch": self.pitch,
         }
+        if self.trim_trailing_silence:
+            input_data["trim_trailing_silence"] = True
 
         cached_result = self.get_cached_result(input_data, cache_dir)
         if cached_result is not None:
@@ -66,12 +74,22 @@ class EdgeTtsSpeechService(SpeechService):
             volume=self.volume,
             pitch=self.pitch,
         ).save_sync(str(output_path))
+        if self.trim_trailing_silence:
+            self.trim_tail(output_path)
 
         return {
             "input_text": input_text,
             "input_data": input_data,
             "original_audio": audio_path,
         }
+
+    @staticmethod
+    def trim_tail(audio_path: Path) -> None:
+        """Cut the padding Edge TTS appends, which tracker durations would include."""
+        audio = AudioSegment.from_file(audio_path)
+        silent_tail_ms = detect_leading_silence(audio.reverse(), silence_threshold=-45)
+        kept_ms = len(audio) - max(0, silent_tail_ms - TRIMMED_TAIL_MS)
+        audio[:kept_ms].export(audio_path, format="mp3")
 
 
 EXTERNAL_SERVICES = {
