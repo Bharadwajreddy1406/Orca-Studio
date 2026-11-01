@@ -1,0 +1,59 @@
+1
+00:00:00,176 --> 00:00:04,267
+Let's understand sequential chaining. Imagine you're running a coffee shop and want
+
+2
+00:00:04,347 --> 00:00:06,994
+AI to create an Instagram campaign for your new coffee.
+
+3
+00:00:07,491 --> 00:00:11,084
+You could have given ChatGPT one massive prompt asking it to understand your
+
+4
+00:00:11,084 --> 00:00:14,629
+audience, come up with ideas, write captions, and review everything.
+
+5
+00:00:15,271 --> 00:00:18,094
+But what if you broke that task into smaller steps instead?
+
+6
+00:00:18,415 --> 00:00:22,891
+First, ask AI to identify your target audience and the coffee's key selling points.
+
+7
+00:00:23,436 --> 00:00:26,901
+Take that output and pass it to the next prompt to create a content outline.
+
+8
+00:00:27,383 --> 00:00:30,162
+Then use that outline to write an engaging caption.
+
+9
+00:00:30,596 --> 00:00:32,748
+Finally, send that caption for a quality check.
+
+10
+00:00:33,327 --> 00:00:36,668
+Did you notice something? Every step builds on the result of the previous one.
+
+11
+00:00:37,262 --> 00:00:41,279
+This is called sequential chaining— breaking complex tasks into smaller prompts
+
+12
+00:00:41,584 --> 00:00:43,945
+where the output of one becomes the input of the next.
+
+13
+00:00:44,074 --> 00:00:48,636
+It's easier to manage, debug, improve. But be careful, a single mistake in an early
+
+14
+00:00:48,668 --> 00:00:52,138
+step can affect the entire process. That is sequential chaining for you.
+
+15
+00:00:52,363 --> 00:00:54,178
+In the next reel, we'll see about parallel chaining.

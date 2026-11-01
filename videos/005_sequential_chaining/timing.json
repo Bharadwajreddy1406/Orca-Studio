@@ -1,0 +1,970 @@
+{
+ "source": "005_seq chain audio-enhanced-v2.wav",
+ "lines": [
+  {
+   "text": "Let's understand sequential chaining.",
+   "words": [
+    {
+     "word": "let's",
+     "start": 0.171,
+     "end": 0.351
+    },
+    {
+     "word": "understand",
+     "start": 0.412,
+     "end": 0.892
+    },
+    {
+     "word": "sequential",
+     "start": 1.113,
+     "end": 1.553
+    },
+    {
+     "word": "chaining",
+     "start": 1.593,
+     "end": 1.914
+    }
+   ],
+   "start": 0.171,
+   "end": 1.914
+  },
+  {
+   "text": "Imagine you're running a coffee shop and want AI to create an Instagram campaign for your new coffee.",
+   "words": [
+    {
+     "word": "imagine",
+     "start": 2.374,
+     "end": 2.695
+    },
+    {
+     "word": "you're",
+     "start": 2.715,
+     "end": 2.855
+    },
+    {
+     "word": "running",
+     "start": 2.875,
+     "end": 3.055
+    },
+    {
+     "word": "a",
+     "start": 3.116,
+     "end": 3.156
+    },
+    {
+     "word": "coffee",
+     "start": 3.196,
+     "end": 3.416
+    },
+    {
+     "word": "shop",
+     "start": 3.456,
+     "end": 3.716
+    },
+    {
+     "word": "and",
+     "start": 3.837,
+     "end": 3.937
+    },
+    {
+     "word": "want",
+     "start": 3.997,
+     "end": 4.197
+    },
+    {
+     "word": "ai",
+     "start": 4.337,
+     "end": 4.638
+    },
+    {
+     "word": "to",
+     "start": 4.698,
+     "end": 4.778
+    },
+    {
+     "word": "create",
+     "start": 4.838,
+     "end": 5.098
+    },
+    {
+     "word": "an",
+     "start": 5.118,
+     "end": 5.179
+    },
+    {
+     "word": "instagram",
+     "start": 5.219,
+     "end": 5.679
+    },
+    {
+     "word": "campaign",
+     "start": 5.719,
+     "end": 6.16
+    },
+    {
+     "word": "for",
+     "start": 6.24,
+     "end": 6.36
+    },
+    {
+     "word": "your",
+     "start": 6.38,
+     "end": 6.48
+    },
+    {
+     "word": "new",
+     "start": 6.521,
+     "end": 6.661
+    },
+    {
+     "word": "coffee",
+     "start": 6.701,
+     "end": 7.021
+    }
+   ],
+   "start": 2.374,
+   "end": 7.021
+  },
+  {
+   "text": "You could have given ChatGPT one massive prompt asking it to understand your audience, come up with ideas, write captions, and review everything.",
+   "words": [
+    {
+     "word": "you",
+     "start": 7.502,
+     "end": 7.582
+    },
+    {
+     "word": "could",
+     "start": 7.622,
+     "end": 7.742
+    },
+    {
+     "word": "have",
+     "start": 7.762,
+     "end": 7.842
+    },
+    {
+     "word": "chatgpt",
+     "start": 8.043,
+     "end": 8.604
+    },
+    {
+     "word": "one",
+     "start": 8.764,
+     "end": 8.884
+    },
+    {
+     "word": "massive",
+     "start": 8.944,
+     "end": 9.265
+    },
+    {
+     "word": "prompt",
+     "start": 9.325,
+     "end": 9.685
+    },
+    {
+     "word": "asking",
+     "start": 9.845,
+     "end": 10.086
+    },
+    {
+     "word": "to",
+     "start": 10.226,
+     "end": 10.286
+    },
+    {
+     "word": "understand",
+     "start": 10.406,
+     "end": 10.847
+    },
+    {
+     "word": "your",
+     "start": 10.887,
+     "end": 11.007
+    },
+    {
+     "word": "audience",
+     "start": 11.087,
+     "end": 11.488
+    },
+    {
+     "word": "come",
+     "start": 11.668,
+     "end": 11.868
+    },
+    {
+     "word": "up",
+     "start": 11.908,
+     "end": 11.989
+    },
+    {
+     "word": "with",
+     "start": 12.029,
+     "end": 12.209
+    },
+    {
+     "word": "ideas",
+     "start": 12.289,
+     "end": 12.69
+    },
+    {
+     "word": "write",
+     "start": 12.85,
+     "end": 13.07
+    },
+    {
+     "word": "captions",
+     "start": 13.17,
+     "end": 13.671
+    },
+    {
+     "word": "and",
+     "start": 13.811,
+     "end": 13.891
+    },
+    {
+     "word": "review",
+     "start": 13.951,
+     "end": 14.212
+    },
+    {
+     "word": "everything",
+     "start": 14.292,
+     "end": 14.612
+    }
+   ],
+   "start": 7.502,
+   "end": 14.612
+  },
+  {
+   "text": "But what if you broke that task into smaller steps instead?",
+   "words": [
+    {
+     "word": "but",
+     "start": 15.253,
+     "end": 15.414
+    },
+    {
+     "word": "what",
+     "start": 15.634,
+     "end": 15.794
+    },
+    {
+     "word": "if",
+     "start": 15.834,
+     "end": 15.874
+    },
+    {
+     "word": "you",
+     "start": 15.894,
+     "end": 16.014
+    },
+    {
+     "word": "broke",
+     "start": 16.054,
+     "end": 16.275
+    },
+    {
+     "word": "that",
+     "start": 16.315,
+     "end": 16.455
+    },
+    {
+     "word": "task",
+     "start": 16.515,
+     "end": 16.775
+    },
+    {
+     "word": "into",
+     "start": 16.855,
+     "end": 17.036
+    },
+    {
+     "word": "smaller",
+     "start": 17.076,
+     "end": 17.456
+    },
+    {
+     "word": "steps",
+     "start": 17.476,
+     "end": 17.697
+    },
+    {
+     "word": "instead",
+     "start": 17.757,
+     "end": 18.097
+    }
+   ],
+   "start": 15.253,
+   "end": 18.097
+  },
+  {
+   "text": "First, ask AI to identify your target audience and the coffee's key selling points.",
+   "words": [
+    {
+     "word": "first",
+     "start": 18.478,
+     "end": 18.798
+    },
+    {
+     "word": "ask",
+     "start": 19.038,
+     "end": 19.219
+    },
+    {
+     "word": "ai",
+     "start": 19.359,
+     "end": 19.599
+    },
+    {
+     "word": "to",
+     "start": 19.639,
+     "end": 19.739
+    },
+    {
+     "word": "identify",
+     "start": 19.819,
+     "end": 20.34
+    },
+    {
+     "word": "your",
+     "start": 20.38,
+     "end": 20.5
+    },
+    {
+     "word": "target",
+     "start": 20.56,
+     "end": 20.841
+    },
+    {
+     "word": "audience",
+     "start": 20.901,
+     "end": 21.241
+    },
+    {
+     "word": "and",
+     "start": 21.421,
+     "end": 21.522
+    },
+    {
+     "word": "the",
+     "start": 21.542,
+     "end": 21.622
+    },
+    {
+     "word": "coffee's",
+     "start": 21.662,
+     "end": 21.962
+    },
+    {
+     "word": "key",
+     "start": 22.002,
+     "end": 22.162
+    },
+    {
+     "word": "selling",
+     "start": 22.202,
+     "end": 22.483
+    },
+    {
+     "word": "points",
+     "start": 22.523,
+     "end": 22.803
+    }
+   ],
+   "start": 18.478,
+   "end": 22.803
+  },
+  {
+   "text": "Take that output and pass it to the next prompt to create a content outline.",
+   "words": [
+    {
+     "word": "take",
+     "start": 23.364,
+     "end": 23.544
+    },
+    {
+     "word": "that",
+     "start": 23.564,
+     "end": 23.704
+    },
+    {
+     "word": "output",
+     "start": 23.765,
+     "end": 24.125
+    },
+    {
+     "word": "and",
+     "start": 24.205,
+     "end": 24.285
+    },
+    {
+     "word": "pass",
+     "start": 24.345,
+     "end": 24.566
+    },
+    {
+     "word": "it",
+     "start": 24.606,
+     "end": 24.666
+    },
+    {
+     "word": "to",
+     "start": 24.686,
+     "end": 24.766
+    },
+    {
+     "word": "the",
+     "start": 24.786,
+     "end": 24.866
+    },
+    {
+     "word": "next",
+     "start": 24.926,
+     "end": 25.086
+    },
+    {
+     "word": "prompt",
+     "start": 25.186,
+     "end": 25.527
+    },
+    {
+     "word": "to",
+     "start": 25.647,
+     "end": 25.747
+    },
+    {
+     "word": "create",
+     "start": 25.787,
+     "end": 26.048
+    },
+    {
+     "word": "a",
+     "start": 26.068,
+     "end": 26.108
+    },
+    {
+     "word": "content",
+     "start": 26.148,
+     "end": 26.488
+    },
+    {
+     "word": "outline",
+     "start": 26.548,
+     "end": 26.889
+    }
+   ],
+   "start": 23.364,
+   "end": 26.889
+  },
+  {
+   "text": "Then use that outline to write an engaging caption.",
+   "words": [
+    {
+     "word": "then",
+     "start": 27.409,
+     "end": 27.59
+    },
+    {
+     "word": "use",
+     "start": 28.01,
+     "end": 28.15
+    },
+    {
+     "word": "that",
+     "start": 28.19,
+     "end": 28.351
+    },
+    {
+     "word": "outline",
+     "start": 28.411,
+     "end": 28.751
+    },
+    {
+     "word": "to",
+     "start": 28.791,
+     "end": 28.871
+    },
+    {
+     "word": "write",
+     "start": 28.931,
+     "end": 29.192
+    },
+    {
+     "word": "an",
+     "start": 29.232,
+     "end": 29.292
+    },
+    {
+     "word": "engaging",
+     "start": 29.392,
+     "end": 29.813
+    },
+    {
+     "word": "caption",
+     "start": 29.833,
+     "end": 30.233
+    }
+   ],
+   "start": 27.409,
+   "end": 30.233
+  },
+  {
+   "text": "Finally, send that caption for a quality check.",
+   "words": [
+    {
+     "word": "finally",
+     "start": 30.634,
+     "end": 31.014
+    },
+    {
+     "word": "send",
+     "start": 31.214,
+     "end": 31.435
+    },
+    {
+     "word": "that",
+     "start": 31.475,
+     "end": 31.595
+    },
+    {
+     "word": "caption",
+     "start": 31.635,
+     "end": 31.955
+    },
+    {
+     "word": "for",
+     "start": 31.995,
+     "end": 32.096
+    },
+    {
+     "word": "a",
+     "start": 32.136,
+     "end": 32.156
+    },
+    {
+     "word": "quality",
+     "start": 32.216,
+     "end": 32.596
+    },
+    {
+     "word": "check",
+     "start": 32.616,
+     "end": 32.837
+    }
+   ],
+   "start": 30.634,
+   "end": 32.837
+  },
+  {
+   "text": "Did you notice something?",
+   "words": [
+    {
+     "word": "did",
+     "start": 33.317,
+     "end": 33.437
+    },
+    {
+     "word": "you",
+     "start": 33.457,
+     "end": 33.537
+    },
+    {
+     "word": "notice",
+     "start": 33.577,
+     "end": 33.777
+    },
+    {
+     "word": "something",
+     "start": 33.797,
+     "end": 34.078
+    }
+   ],
+   "start": 33.317,
+   "end": 34.078
+  },
+  {
+   "text": "Every step builds on the result of the previous one.",
+   "words": [
+    {
+     "word": "every",
+     "start": 34.418,
+     "end": 34.638
+    },
+    {
+     "word": "step",
+     "start": 34.718,
+     "end": 35.018
+    },
+    {
+     "word": "builds",
+     "start": 35.138,
+     "end": 35.358
+    },
+    {
+     "word": "on",
+     "start": 35.398,
+     "end": 35.458
+    },
+    {
+     "word": "the",
+     "start": 35.478,
+     "end": 35.538
+    },
+    {
+     "word": "result",
+     "start": 35.558,
+     "end": 35.879
+    },
+    {
+     "word": "of",
+     "start": 35.919,
+     "end": 35.979
+    },
+    {
+     "word": "the",
+     "start": 36.019,
+     "end": 36.099
+    },
+    {
+     "word": "previous",
+     "start": 36.159,
+     "end": 36.519
+    },
+    {
+     "word": "one",
+     "start": 36.599,
+     "end": 36.699
+    }
+   ],
+   "start": 34.418,
+   "end": 36.699
+  },
+  {
+   "text": "This is called sequential chaining, breaking complex tasks into smaller prompts where the output of one becomes the input of the next.",
+   "words": [
+    {
+     "word": "this",
+     "start": 37.219,
+     "end": 37.36
+    },
+    {
+     "word": "is",
+     "start": 37.44,
+     "end": 37.5
+    },
+    {
+     "word": "called",
+     "start": 37.58,
+     "end": 37.82
+    },
+    {
+     "word": "sequential",
+     "start": 37.86,
+     "end": 38.32
+    },
+    {
+     "word": "chaining",
+     "start": 38.34,
+     "end": 38.6
+    },
+    {
+     "word": "breaking",
+     "start": 38.921,
+     "end": 39.201
+    },
+    {
+     "word": "complex",
+     "start": 39.241,
+     "end": 39.621
+    },
+    {
+     "word": "tasks",
+     "start": 39.681,
+     "end": 40.001
+    },
+    {
+     "word": "into",
+     "start": 40.061,
+     "end": 40.221
+    },
+    {
+     "word": "smaller",
+     "start": 40.281,
+     "end": 40.642
+    },
+    {
+     "word": "prompts",
+     "start": 40.682,
+     "end": 41.142
+    },
+    {
+     "word": "where",
+     "start": 41.522,
+     "end": 41.682
+    },
+    {
+     "word": "the",
+     "start": 41.702,
+     "end": 41.782
+    },
+    {
+     "word": "output",
+     "start": 41.862,
+     "end": 42.142
+    },
+    {
+     "word": "of",
+     "start": 42.162,
+     "end": 42.223
+    },
+    {
+     "word": "one",
+     "start": 42.383,
+     "end": 42.503
+    },
+    {
+     "word": "becomes",
+     "start": 42.643,
+     "end": 42.903
+    },
+    {
+     "word": "the",
+     "start": 42.963,
+     "end": 43.083
+    },
+    {
+     "word": "input",
+     "start": 43.123,
+     "end": 43.343
+    },
+    {
+     "word": "of",
+     "start": 43.383,
+     "end": 43.443
+    },
+    {
+     "word": "the",
+     "start": 43.463,
+     "end": 43.523
+    },
+    {
+     "word": "next",
+     "start": 43.583,
+     "end": 43.803
+    }
+   ],
+   "start": 37.219,
+   "end": 43.803
+  },
+  {
+   "text": "It's easier to manage, debug, improve.",
+   "words": [
+    {
+     "word": "it's",
+     "start": 44.024,
+     "end": 44.124
+    },
+    {
+     "word": "easier",
+     "start": 44.204,
+     "end": 44.464
+    },
+    {
+     "word": "to",
+     "start": 44.484,
+     "end": 44.564
+    },
+    {
+     "word": "manage",
+     "start": 44.604,
+     "end": 44.984
+    },
+    {
+     "word": "debug",
+     "start": 45.384,
+     "end": 45.805
+    },
+    {
+     "word": "improve",
+     "start": 45.985,
+     "end": 46.365
+    }
+   ],
+   "start": 44.024,
+   "end": 46.365
+  },
+  {
+   "text": "But be careful, a single mistake in an early step can affect the entire process.",
+   "words": [
+    {
+     "word": "but",
+     "start": 46.685,
+     "end": 46.805
+    },
+    {
+     "word": "be",
+     "start": 46.845,
+     "end": 46.945
+    },
+    {
+     "word": "careful",
+     "start": 46.965,
+     "end": 47.326
+    },
+    {
+     "word": "a",
+     "start": 47.446,
+     "end": 47.486
+    },
+    {
+     "word": "single",
+     "start": 47.526,
+     "end": 47.786
+    },
+    {
+     "word": "mistake",
+     "start": 47.846,
+     "end": 48.246
+    },
+    {
+     "word": "in",
+     "start": 48.266,
+     "end": 48.306
+    },
+    {
+     "word": "an",
+     "start": 48.326,
+     "end": 48.366
+    },
+    {
+     "word": "early",
+     "start": 48.406,
+     "end": 48.626
+    },
+    {
+     "word": "step",
+     "start": 48.646,
+     "end": 48.887
+    },
+    {
+     "word": "can",
+     "start": 48.967,
+     "end": 49.087
+    },
+    {
+     "word": "affect",
+     "start": 49.127,
+     "end": 49.347
+    },
+    {
+     "word": "the",
+     "start": 49.387,
+     "end": 49.487
+    },
+    {
+     "word": "entire",
+     "start": 49.547,
+     "end": 49.887
+    },
+    {
+     "word": "process",
+     "start": 49.947,
+     "end": 50.327
+    }
+   ],
+   "start": 46.685,
+   "end": 50.327
+  },
+  {
+   "text": "That is sequential chaining for you.",
+   "words": [
+    {
+     "word": "that",
+     "start": 50.928,
+     "end": 51.048
+    },
+    {
+     "word": "is",
+     "start": 51.108,
+     "end": 51.168
+    },
+    {
+     "word": "sequential",
+     "start": 51.188,
+     "end": 51.568
+    },
+    {
+     "word": "chaining",
+     "start": 51.588,
+     "end": 51.828
+    },
+    {
+     "word": "for",
+     "start": 51.848,
+     "end": 51.928
+    },
+    {
+     "word": "you",
+     "start": 51.968,
+     "end": 52.069
+    }
+   ],
+   "start": 50.928,
+   "end": 52.069
+  },
+  {
+   "text": "In the next reel, we'll see about parallel chaining.",
+   "words": [
+    {
+     "word": "in",
+     "start": 52.289,
+     "end": 52.349
+    },
+    {
+     "word": "the",
+     "start": 52.369,
+     "end": 52.429
+    },
+    {
+     "word": "next",
+     "start": 52.469,
+     "end": 52.629
+    },
+    {
+     "word": "reel",
+     "start": 52.689,
+     "end": 52.909
+    },
+    {
+     "word": "we'll",
+     "start": 52.989,
+     "end": 53.189
+    },
+    {
+     "word": "see",
+     "start": 53.229,
+     "end": 53.329
+    },
+    {
+     "word": "about",
+     "start": 53.369,
+     "end": 53.569
+    },
+    {
+     "word": "parallel",
+     "start": 53.609,
+     "end": 53.89
+    },
+    {
+     "word": "chaining",
+     "start": 53.91,
+     "end": 54.21
+    }
+   ],
+   "start": 52.289,
+   "end": 54.21
+  }
+ ]
+}

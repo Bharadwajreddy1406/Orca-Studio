@@ -1,0 +1,126 @@
+"""Mix the effects under the user's recording, and master the soundtrack.
+
+Run with earshot's Python, from the repository root:
+  <earshot venv>/Scripts/python.exe videos/005_sequential_chaining/build_mix.py
+Reads cues.json from build_timeline.py. Writes assets/audio/soundtrack.wav.
+"""
+
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+import numpy as np
+import soundfile as sf
+import soxr
+
+PROJECT = Path(__file__).parent
+AUDIO = PROJECT / "assets" / "audio"
+ROOT = PROJECT.parents[1]
+LIBRARY = ROOT / "shared" / "sound_effects"
+RECORDING = AUDIO / "recording" / "005_seq chain audio-enhanced-v2.wav"
+MASTER_SCRIPT = ROOT / ".claude" / "skills" / "real-sound" / "scripts" / "master.py"
+RATE = 48000
+TARGET_LUFS = "-14"
+FADE_SECONDS = 0.05
+
+# name: (library file, seconds to its hit, seconds kept). Cue times mark the hit, not the
+# file's start, so a sound with a long wind-up still lands exactly on its word.
+SHARED = {
+    "tear": ("Swish - Shortnoise", 0.0, 0.6),
+    "whip": ("Short - Swish", 0.42, 0.56),
+    "slide": ("Swish - Flicker Shoosh", 0.24, 0.8),
+    "pop": ("Short - Ploppy Plop", 0.0, 0.21),
+    "step": ("Punch - Sploop", 0.16, 0.47),
+    "sparkle": ("Short - Digital Crystal", 0.06, 0.8),
+    "thud": ("Punch - Splok", 0.39, 0.73),
+    "impact": ("Impact - Low Blow", 0.06, 1.3),
+    "shatter": ("Impact - Jaw Breaker", 0.9, 1.6),
+    "stamp": ("Punch - Whack A Bot", 0.26, 0.85),
+    "sweep": ("Swish - Nice And Clean", 1.12, 2.5),
+    "malfunction": ("Short - Digital Malfunction", 0.24, 1.1),
+    "squish": ("Punch - Pop", 0.21, 0.6),
+    "slam": ("Impact - Dubby Slam", 0.63, 2.0),
+    "respawn": ("Retro - Magic Respawn", 0.18, 1.1),
+    "arrive": ("Retro - Now You See It", 1.58, 1.95),
+}
+# The library has no typing, small metal clinks, or single notes, so these come from the bank.
+BANK = {
+    "clink": ("mallet/celesta", ["--pitch", "A6"]),
+    "key": ("typing_key/light", []),
+    "rising0": ("mallet/marimba", ["--pitch", "C5"]),
+    "rising1": ("mallet/marimba", ["--pitch", "E5"]),
+    "rising2": ("mallet/marimba", ["--pitch", "G5"]),
+    "rising3": ("mallet/marimba", ["--pitch", "C6"]),
+    "end": ("mallet/glock", ["--pitch", "C6"]),
+}
+
+
+def resampled(samples: np.ndarray, rate: int) -> np.ndarray:
+    return samples if rate == RATE else soxr.resample(samples, rate, RATE)
+
+
+def load_stereo(path: Path) -> np.ndarray:
+    samples, rate = sf.read(path, always_2d=True, dtype="float64")
+    if samples.shape[1] == 1:
+        samples = np.repeat(samples, 2, axis=1)
+    return resampled(samples[:, :2], rate)
+
+
+def shared_effect(file: str, keep: float) -> np.ndarray:
+    """A library sound, cut where it has died away, so a tail never sits on the next line."""
+    samples = load_stereo(LIBRARY / f"{file}.wav")[: int(keep * RATE)]
+    fade = min(int(FADE_SECONDS * RATE), len(samples))
+    samples[-fade:] *= np.linspace(1, 0, fade)[:, None]
+    return samples
+
+
+def bank_effect(name: str, sound: str, options: list[str], folder: Path) -> np.ndarray:
+    target = folder / f"{name}.wav"
+    if not target.exists():
+        subprocess.run(
+            [sys.executable, "-m", "earshot", "sfx", "render", sound, "-o", str(target)] + options,
+            check=True,
+            capture_output=True,
+        )
+    return load_stereo(target)
+
+
+def main() -> None:
+    plan = json.loads((PROJECT / "cues.json").read_text(encoding="utf-8"))
+    effects_dir = AUDIO / "effects"
+    effects_dir.mkdir(parents=True, exist_ok=True)
+
+    leads = {name: entry[1] for name, entry in SHARED.items()}
+    sounds = {name: shared_effect(file, keep) for name, (file, _, keep) in SHARED.items()}
+    for name, (sound, options) in BANK.items():
+        sounds[name] = bank_effect(name, sound, options, effects_dir)
+    sounds["voice"] = load_stereo(RECORDING)
+
+    mix = np.zeros((int((plan["duration"] + 3) * RATE), 2))
+    for cue in plan["cues"]:
+        clip = sounds[cue["effect"]]
+        begin = max(0, int((cue["t"] - leads.get(cue["effect"], 0)) * RATE))
+        gain = 10 ** (cue["gain"] / 20)
+        mix[begin : begin + len(clip)] += clip[: len(mix) - begin] * gain
+
+    premaster = AUDIO / "premaster.wav"
+    soundtrack = AUDIO / "soundtrack.wav"
+    length = int(plan["duration"] * RATE)
+    sf.write(premaster, mix[:length], RATE, subtype="FLOAT")
+    subprocess.run(
+        [
+            sys.executable,
+            "-I",
+            str(MASTER_SCRIPT),
+            str(premaster),
+            str(soundtrack),
+            f"--lufs={TARGET_LUFS}",
+        ],
+        check=True,
+    )
+    print(f"wrote {soundtrack}")
+
+
+if __name__ == "__main__":
+    main()

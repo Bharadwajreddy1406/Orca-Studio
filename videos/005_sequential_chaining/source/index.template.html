@@ -1,0 +1,214 @@
+<!doctype html>
+<!--
+  Sequential Chaining, built on the Brad & Prad kit. One continuous Three.js world, with every
+  frame computed from time alone. build_timeline.py writes timeline.js, and index.html from
+  this template with the times measured from the recording.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Sequential Chaining</title>
+    <link rel="stylesheet" href="brand/brand.css" />
+    <script src="brand/vendor/gsap.min.js"></script>
+    <script src="brand/stickman/stickman.js"></script>
+    <script src="brand/brand-kit.js"></script>
+    <script src="timeline.js"></script>
+    <script type="importmap">{ "imports": { "three": "./lib/three.module.js" } }</script>
+    <style>
+      #root { position: absolute; inset: 0; overflow: hidden; }
+      #world, #figures, #labels { position: absolute; inset: 0; }
+      #world canvas { display: block; }
+      #labels > * { position: absolute; left: 0; top: 0; opacity: 0; will-change: transform; }
+      .line { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 84px; line-height: 1.04; opacity: 0; }
+      #line-hook { font-size: 112px; }
+
+      .slab-label { width: 590px; margin-left: -295px; margin-top: -30px; text-align: center; font-size: 46px; line-height: 60px; }
+      .step-number { width: 90px; margin-left: -45px; margin-top: -40px; text-align: center; font-size: 72px; line-height: 80px; }
+      #shop-sign { width: 340px; margin-left: -170px; margin-top: -48px; text-align: center; color: var(--brand-background); font-size: 80px; line-height: 96px; }
+      #bot-name { width: 240px; margin-left: -120px; margin-top: -24px; text-align: center; font-size: 42px; }
+      .tick, #xmark, #bug, #arrow { width: 96px; height: 96px; margin-left: -48px; margin-top: -48px; }
+      #handoff { width: 300px; margin-left: -150px; margin-top: -44px; padding: 14px 0 16px; background: var(--brand-ink); color: var(--brand-background); text-align: center; font-size: 52px; line-height: 60px; }
+
+      .prompt { position: absolute; top: 270px; left: 120px; width: 840px; min-height: 212px; padding: 22px 26px 24px 142px; background: var(--brand-background); border: 4px solid var(--brand-ink); opacity: 0; }
+      .prompt-number { position: absolute; left: 34px; top: 24px; font-size: 136px; line-height: 150px; }
+      .prompt-chip { display: inline-block; padding: 3px 16px 5px; margin-bottom: 8px; background: var(--brand-ink); color: var(--brand-background); font-size: 36px; line-height: 44px; }
+      .prompt-text { font-size: 40px; line-height: 50px; min-height: 100px; }
+      .prompt-caret { display: inline-block; width: 18px; height: 34px; margin-left: 3px; background: var(--brand-ink); vertical-align: -5px; }
+
+      .art { position: absolute; left: 556px; top: 526px; width: 404px; height: 516px; padding: 24px 26px; background: var(--brand-background); border: 4px solid var(--brand-ink); transform-origin: 50% 100%; opacity: 0; }
+      .art-title { font-size: 36px; line-height: 44px; padding-bottom: 8px; margin-bottom: 14px; border-bottom: 3px solid var(--brand-ink); }
+      .crowd { display: flex; justify-content: center; height: 172px; }
+      .crowd svg { width: 172px; height: 172px; margin: 0 -38px; }
+      .art-big { font-size: 42px; line-height: 50px; text-align: center; margin: 6px 0 14px; }
+      .tags { display: flex; flex-direction: column; gap: 8px; align-items: center; }
+      .tag { padding: 2px 18px 4px; border: 3px solid var(--brand-ink); font-size: 34px; line-height: 42px; }
+      .row { display: flex; align-items: center; gap: 14px; margin-top: 22px; font-size: 40px; line-height: 48px; }
+      .row b { display: flex; align-items: center; justify-content: center; flex: none; width: 58px; height: 58px; border-radius: 50%; background: var(--brand-ink); color: var(--brand-background); font-weight: 500; }
+      .row-bars { height: 8px; margin: 12px 0 0 72px; background: var(--brand-ink-faint); transform-origin: 0 50%; }
+      .quote { font-size: 68px; line-height: 1.06; margin-top: 18px; }
+      .underline { display: block; width: 300px; height: 26px; margin-top: 24px; }
+      #stamp { position: absolute; left: 52px; bottom: 34px; padding: 6px 22px 10px; border: 7px solid var(--brand-accent); color: var(--brand-accent); font-size: 66px; line-height: 72px; transform: rotate(-9deg); opacity: 0; }
+
+      #phone { position: absolute; left: 668px; top: 590px; width: 292px; height: 548px; padding: 16px 12px; border-radius: 40px; background: var(--brand-ink); opacity: 0; transform-origin: 50% 50%; }
+      #screen { position: relative; width: 100%; height: 100%; border-radius: 26px; background: var(--brand-background); overflow: hidden; padding: 16px 14px; }
+      #post-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+      #post-head i { display: block; width: 32px; height: 32px; border-radius: 50%; background: var(--brand-accent); }
+      #post-head u { display: block; width: 110px; height: 11px; background: var(--brand-ink); text-decoration: none; }
+      #post-image { position: relative; width: 100%; height: 224px; border: 3px dashed var(--brand-ink); display: flex; align-items: center; justify-content: center; }
+      #post-empty { font-size: 96px; line-height: 1; }
+      #post-cup { position: absolute; inset: 0; background: var(--brand-ink); opacity: 0; }
+      #post-cup svg { position: absolute; inset: 12px; width: calc(100% - 24px); height: calc(100% - 24px); }
+      #post-lines { margin-top: 14px; }
+      #post-lines u { display: block; height: 11px; margin-top: 12px; background: var(--brand-ink-faint); text-decoration: none; }
+      #post-caption { position: absolute; left: 14px; right: 14px; top: 330px; font-size: 34px; line-height: 40px; opacity: 0; }
+      #heart { position: absolute; left: 14px; bottom: 16px; width: 62px; height: 62px; opacity: 0; }
+
+      #benefits { position: absolute; left: 90px; right: 90px; top: 290px; display: flex; justify-content: center; gap: 30px; }
+      .benefit { font-size: 74px; line-height: 84px; opacity: 0; }
+      #chat-bar { position: absolute; left: 120px; right: 120px; top: 376px; padding: 18px 26px 20px; border: 4px solid var(--brand-ink); background: var(--brand-background); opacity: 0; }
+      #chat-text { font-size: 40px; line-height: 48px; }
+      #art-3 .quote { font-size: 58px; }
+
+      #end-title { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 168px; line-height: 1; }
+      #end-handle { position: absolute; top: 372px; left: 0; right: 0; text-align: center; }
+      #end-logo-slot { position: absolute; top: 470px; left: 50%; width: 280px; height: 280px; margin-left: -140px; }
+      #end-stage svg { position: absolute; inset: 0; overflow: visible; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="__DURATION__" data-width="1080" data-height="1920" data-fps="60">
+      <div id="paper" class="clip" data-start="0" data-duration="__DURATION__" data-track-index="0">
+        <div class="paper-sheet bp-paper is-quiet"></div>
+        <div class="paper-sheet bp-paper"></div>
+        <div class="paper-sheet bp-paper is-folded"></div>
+      </div>
+
+      <div id="scene" class="clip" data-start="0" data-duration="__SCENE_LENGTH__" data-track-index="1">
+        <div id="world"></div>
+        <svg id="figures" viewBox="0 0 1080 1920" width="1080" height="1920" style="overflow: visible; pointer-events: none">
+          <g id="steam" fill="none" stroke="var(--brand-ink)" stroke-width="5" stroke-linecap="round"><path /><path /><path /></g>
+        </svg>
+        <div id="labels">
+          <div id="shop-sign" data-layout-allow-overflow class="bp-headline">Coffee</div>
+          <div data-layout-allow-overflow class="slab-label bp-caption">Understand your audience</div>
+          <div data-layout-allow-overflow class="slab-label bp-caption">Come up with ideas</div>
+          <div data-layout-allow-overflow class="slab-label bp-caption">Write captions</div>
+          <div data-layout-allow-overflow class="slab-label bp-caption">Review everything</div>
+          <div id="bot-name" data-layout-allow-overflow class="bp-caption">ChatGPT</div>
+          <div data-layout-allow-overflow data-layout-allow-overlap class="step-number bp-headline">1</div>
+          <div data-layout-allow-overflow data-layout-allow-overlap class="step-number bp-headline">2</div>
+          <div data-layout-allow-overflow data-layout-allow-overlap class="step-number bp-headline">3</div>
+          <div data-layout-allow-overflow data-layout-allow-overlap class="step-number bp-headline">4</div>
+          <svg class="tick" viewBox="0 0 96 96"><circle cx="48" cy="48" r="42" fill="var(--brand-background)" stroke="var(--brand-ink)" stroke-width="7" /><path d="M27 50 L42 65 L70 32" fill="none" stroke="var(--brand-ink)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <svg class="tick" viewBox="0 0 96 96"><circle cx="48" cy="48" r="42" fill="var(--brand-background)" stroke="var(--brand-ink)" stroke-width="7" /><path d="M27 50 L42 65 L70 32" fill="none" stroke="var(--brand-ink)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <svg class="tick" viewBox="0 0 96 96"><circle cx="48" cy="48" r="42" fill="var(--brand-background)" stroke="var(--brand-ink)" stroke-width="7" /><path d="M27 50 L42 65 L70 32" fill="none" stroke="var(--brand-ink)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <svg class="tick" viewBox="0 0 96 96"><circle cx="48" cy="48" r="42" fill="var(--brand-background)" stroke="var(--brand-ink)" stroke-width="7" /><path d="M27 50 L42 65 L70 32" fill="none" stroke="var(--brand-ink)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <svg id="bug" viewBox="0 0 96 96"><ellipse cx="48" cy="54" rx="22" ry="28" fill="var(--brand-accent)" /><circle cx="48" cy="24" r="12" fill="var(--brand-accent)" /><path d="M26 42 L10 32 M24 58 L8 58 M28 74 L14 86 M70 42 L86 32 M72 58 L88 58 M68 74 L82 86 M42 14 L34 4 M54 14 L62 4" stroke="var(--brand-accent)" stroke-width="6" stroke-linecap="round" fill="none" /><path d="M48 30 L48 80" stroke="var(--brand-background)" stroke-width="3" /></svg>
+          <svg id="arrow" viewBox="0 0 96 96"><path d="M48 90 L48 16 M18 44 L48 12 L78 44" fill="none" stroke="var(--brand-accent)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <svg id="xmark" viewBox="0 0 96 96"><path d="M14 14 L82 82 M82 14 L14 82" fill="none" stroke="var(--brand-accent)" stroke-width="18" stroke-linecap="round" /></svg>
+          <div id="handoff" data-layout-allow-overflow class="bp-caption"><span id="handoff-output">Output</span><span id="handoff-input" style="display: none">Input</span></div>
+        </div>
+
+        <div data-layout-allow-overflow class="prompt" id="prompt-0">
+          <div class="prompt-number bp-headline bp-accent">1</div>
+          <div class="prompt-text bp-code" data-text="Identify the target audience and key selling points."></div>
+        </div>
+        <div data-layout-allow-overflow class="prompt" id="prompt-1">
+          <div class="prompt-number bp-headline bp-accent">2</div>
+          <div class="prompt-chip bp-code">Step 1 output</div>
+          <div class="prompt-text bp-code" data-text="Create a content outline."></div>
+        </div>
+        <div data-layout-allow-overflow class="prompt" id="prompt-2">
+          <div class="prompt-number bp-headline bp-accent">3</div>
+          <div class="prompt-chip bp-code">Step 2 output</div>
+          <div class="prompt-text bp-code" data-text="Write an engaging caption."></div>
+        </div>
+        <div data-layout-allow-overflow class="prompt" id="prompt-3">
+          <div class="prompt-number bp-headline bp-accent">4</div>
+          <div class="prompt-chip bp-code">Step 3 output</div>
+          <div class="prompt-text bp-code" data-text="Check its quality."></div>
+        </div>
+
+        <div class="art" id="art-0">
+          <div class="art-title bp-caption">Audience + selling points</div>
+          <div class="crowd" id="crowd"></div>
+          <div class="art-big bp-caption" id="art-who">Busy commuters</div>
+          <div class="tags">
+            <span class="tag bp-caption">Bold roast</span>
+            <span class="tag bp-caption">Smooth finish</span>
+          </div>
+        </div>
+        <div class="art" id="art-1">
+          <div class="art-title bp-caption">Content outline</div>
+          <div class="row bp-caption"><b>1</b>Hook</div><div class="row-bars"></div>
+          <div class="row bp-caption"><b>2</b>Story</div><div class="row-bars"></div>
+          <div class="row bp-caption"><b>3</b>Call to action</div><div class="row-bars"></div>
+        </div>
+        <div class="art" id="art-2">
+          <div class="art-title bp-caption">Caption</div>
+          <div class="quote bp-headline"><span>Your </span><span>mornings </span><span>just </span><span>got </span><span>bolder.</span></div>
+          <svg class="underline" viewBox="0 0 300 26"><path d="M4 16 C60 4 110 24 170 12 S270 8 296 14" fill="none" stroke="var(--brand-accent)" stroke-width="7" stroke-linecap="round" /></svg>
+        </div>
+        <div class="art" id="art-3">
+          <div class="art-title bp-caption">Quality check</div>
+          <div class="quote bp-headline">Your mornings just got bolder.</div>
+          <div id="stamp" class="bp-headline">Passed</div>
+        </div>
+
+        <div id="phone" data-layout-allow-overflow>
+          <div id="screen">
+            <div id="post-head"><i></i><u></u></div>
+            <div id="post-image">
+              <div id="post-empty" class="bp-headline">?</div>
+              <div id="post-cup">
+                <svg viewBox="0 0 200 180"><path d="M64 44 L136 44 L126 164 L74 164 Z" fill="var(--brand-background)" /><path d="M68 84 L132 84 L128 128 L72 128 Z" fill="var(--brand-accent)" /><path d="M56 30 L144 30 L140 44 L60 44 Z" fill="var(--brand-background)" /><path d="M84 18 C76 8 92 4 84 -6 M116 18 C108 8 124 4 116 -6" stroke="var(--brand-background)" stroke-width="5" fill="none" stroke-linecap="round" /></svg>
+              </div>
+            </div>
+            <div id="post-lines"><u></u><u style="width: 80%"></u><u style="width: 60%"></u></div>
+            <div id="post-caption" data-layout-allow-overlap class="bp-caption">Your mornings just got bolder.</div>
+            <svg id="heart" viewBox="0 0 60 60"><path d="M30 54 C8 38 4 24 8 16 C13 6 26 8 30 18 C34 8 47 6 52 16 C56 24 52 38 30 54 Z" fill="var(--brand-accent)" stroke="var(--brand-ink)" stroke-width="3" stroke-linejoin="round" /></svg>
+          </div>
+        </div>
+
+        <div class="bp-safe">
+          <div id="line-hook" class="line bp-headline">Sequential <span class="bp-accent">chaining</span></div>
+          <div id="line-shop" class="line bp-headline">Your new coffee<br />needs a <span class="bp-accent">campaign</span></div>
+          <div id="line-massive" class="line bp-headline">One <span class="bp-accent">massive</span> prompt</div>
+          <div id="line-smaller" class="line bp-headline">Or <span class="bp-accent">smaller</span> steps?</div>
+          <div id="line-notice" class="line bp-headline">Did you <span class="bp-accent">notice?</span></div>
+          <div id="line-builds" class="line bp-headline">Each step builds<br />on the <span class="bp-accent">last</span></div>
+          <div id="line-name" class="line bp-headline">Sequential <span class="bp-accent">chaining</span></div>
+          <div id="line-handoff" class="line bp-headline">One's output,<br />the next one's <span class="bp-accent">input</span></div>
+          <div id="line-mistake" class="line bp-headline">One early <span class="bp-accent">mistake</span><br />hits everything</div>
+          <div id="line-again" class="line bp-headline">Sequential <span class="bp-accent">chaining</span></div>
+          <div id="line-next" class="line bp-headline">Next: <span class="bp-accent">parallel</span><br />chaining</div>
+        </div>
+        <div id="chat-bar"><div id="chat-text" class="bp-code" data-text="Do everything, all at once."></div></div>
+        <div id="benefits">
+          <div id="benefit-manage" class="benefit bp-headline">Manage</div>
+          <div id="benefit-debug" class="benefit bp-headline">Debug</div>
+          <div id="benefit-improve" class="benefit bp-headline bp-accent">Improve</div>
+        </div>
+      </div>
+
+      <div id="end-card" class="clip" data-start="__END_START__" data-duration="__END_LENGTH__" data-track-index="2">
+        <div class="bp-safe">
+          <div id="end-title" class="bp-headline bp-accent">Follow for more</div>
+          <div id="end-handle" class="bp-caption">@BradAndPrad</div>
+          <div id="end-logo-slot"></div>
+        </div>
+        <div id="end-stage"></div>
+      </div>
+
+      <div id="sheet-top" class="clip bp-torn-top" data-start="0" data-duration="1.3" data-track-index="3"></div>
+      <div id="sheet-bottom" class="clip bp-torn-bottom" data-start="0" data-duration="1.3" data-track-index="4"></div>
+    </div>
+
+    <script type="module">
+      import { timeline } from "./source/main.js";
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = timeline;
+    </script>
+  </body>
+</html>

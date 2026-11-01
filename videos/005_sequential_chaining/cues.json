@@ -1,0 +1,645 @@
+{
+ "duration": 57.81,
+ "cues": [
+  {
+   "effect": "tear",
+   "t": 0.05,
+   "gain": -14
+  },
+  {
+   "effect": "clink",
+   "t": 0.941,
+   "gain": -19
+  },
+  {
+   "effect": "clink",
+   "t": 1.106,
+   "gain": -19
+  },
+  {
+   "effect": "clink",
+   "t": 1.272,
+   "gain": -19
+  },
+  {
+   "effect": "clink",
+   "t": 1.437,
+   "gain": -19
+  },
+  {
+   "effect": "clink",
+   "t": 1.602,
+   "gain": -19
+  },
+  {
+   "effect": "clink",
+   "t": 1.767,
+   "gain": -19
+  },
+  {
+   "effect": "clink",
+   "t": 1.932,
+   "gain": -19
+  },
+  {
+   "effect": "clink",
+   "t": 2.098,
+   "gain": -14
+  },
+  {
+   "effect": "whip",
+   "t": 2.874,
+   "gain": -18
+  },
+  {
+   "effect": "pop",
+   "t": 2.924,
+   "gain": -21
+  },
+  {
+   "effect": "pop",
+   "t": 3.124,
+   "gain": -21
+  },
+  {
+   "effect": "pop",
+   "t": 3.344,
+   "gain": -21
+  },
+  {
+   "effect": "pop",
+   "t": 3.504,
+   "gain": -21
+  },
+  {
+   "effect": "pop",
+   "t": 3.624,
+   "gain": -21
+  },
+  {
+   "effect": "slide",
+   "t": 5.769,
+   "gain": -18
+  },
+  {
+   "effect": "sparkle",
+   "t": 5.989,
+   "gain": -24
+  },
+  {
+   "effect": "whip",
+   "t": 8.002,
+   "gain": -18
+  },
+  {
+   "effect": "thud",
+   "t": 10.956,
+   "gain": -16
+  },
+  {
+   "effect": "thud",
+   "t": 12.218,
+   "gain": -14
+  },
+  {
+   "effect": "thud",
+   "t": 13.4,
+   "gain": -12
+  },
+  {
+   "effect": "impact",
+   "t": 14.501,
+   "gain": -15
+  },
+  {
+   "effect": "shatter",
+   "t": 16.604,
+   "gain": -9
+  },
+  {
+   "effect": "step",
+   "t": 17.104,
+   "gain": -18
+  },
+  {
+   "effect": "step",
+   "t": 17.184,
+   "gain": -18
+  },
+  {
+   "effect": "step",
+   "t": 17.264,
+   "gain": -18
+  },
+  {
+   "effect": "step",
+   "t": 17.344,
+   "gain": -18
+  },
+  {
+   "effect": "whip",
+   "t": 18.978,
+   "gain": -17
+  },
+  {
+   "effect": "key",
+   "t": 19.108,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 19.221,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 19.298,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 19.411,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 19.488,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 19.601,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 19.678,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 19.791,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 19.868,
+   "gain": -25
+  },
+  {
+   "effect": "whip",
+   "t": 23.864,
+   "gain": -17
+  },
+  {
+   "effect": "clink",
+   "t": 23.714,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 23.769,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 23.824,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 23.879,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 23.934,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 23.989,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 24.044,
+   "gain": -23
+  },
+  {
+   "effect": "pop",
+   "t": 24.134,
+   "gain": -19
+  },
+  {
+   "effect": "key",
+   "t": 23.994,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 24.107,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 24.184,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 24.297,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 24.374,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 24.487,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 24.564,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 24.677,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 24.754,
+   "gain": -25
+  },
+  {
+   "effect": "whip",
+   "t": 27.909,
+   "gain": -17
+  },
+  {
+   "effect": "clink",
+   "t": 27.759,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 27.814,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 27.869,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 27.924,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 27.979,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 28.034,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 28.089,
+   "gain": -23
+  },
+  {
+   "effect": "pop",
+   "t": 28.179,
+   "gain": -19
+  },
+  {
+   "effect": "key",
+   "t": 28.039,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 28.152,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 28.229,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 28.342,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 28.419,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 28.532,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 28.609,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 28.722,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 28.799,
+   "gain": -25
+  },
+  {
+   "effect": "whip",
+   "t": 31.134,
+   "gain": -17
+  },
+  {
+   "effect": "clink",
+   "t": 30.984,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 31.039,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 31.094,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 31.149,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 31.204,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 31.259,
+   "gain": -23
+  },
+  {
+   "effect": "clink",
+   "t": 31.314,
+   "gain": -23
+  },
+  {
+   "effect": "pop",
+   "t": 31.404,
+   "gain": -19
+  },
+  {
+   "effect": "key",
+   "t": 31.264,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 31.377,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 31.454,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 31.567,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 31.644,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 31.757,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 31.834,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 31.947,
+   "gain": -25
+  },
+  {
+   "effect": "key",
+   "t": 32.024,
+   "gain": -25
+  },
+  {
+   "effect": "pop",
+   "t": 20.369,
+   "gain": -20
+  },
+  {
+   "effect": "pop",
+   "t": 24.414,
+   "gain": -20
+  },
+  {
+   "effect": "pop",
+   "t": 28.359,
+   "gain": -20
+  },
+  {
+   "effect": "pop",
+   "t": 31.544,
+   "gain": -20
+  },
+  {
+   "effect": "sparkle",
+   "t": 21.451,
+   "gain": -19
+  },
+  {
+   "effect": "sparkle",
+   "t": 27.098,
+   "gain": -19
+  },
+  {
+   "effect": "sparkle",
+   "t": 30.383,
+   "gain": -19
+  },
+  {
+   "effect": "sparkle",
+   "t": 22.752,
+   "gain": -22
+  },
+  {
+   "effect": "stamp",
+   "t": 33.166,
+   "gain": -15
+  },
+  {
+   "effect": "sweep",
+   "t": 33.667,
+   "gain": -15
+  },
+  {
+   "effect": "rising0",
+   "t": 34.968,
+   "gain": -17
+  },
+  {
+   "effect": "rising1",
+   "t": 35.403,
+   "gain": -17
+  },
+  {
+   "effect": "rising2",
+   "t": 35.839,
+   "gain": -17
+  },
+  {
+   "effect": "rising3",
+   "t": 36.274,
+   "gain": -17
+  },
+  {
+   "effect": "sparkle",
+   "t": 38.41,
+   "gain": -21
+  },
+  {
+   "effect": "whip",
+   "t": 41.812,
+   "gain": -18
+  },
+  {
+   "effect": "slide",
+   "t": 42.412,
+   "gain": -19
+  },
+  {
+   "effect": "step",
+   "t": 43.673,
+   "gain": -14
+  },
+  {
+   "effect": "whip",
+   "t": 44.574,
+   "gain": -20
+  },
+  {
+   "effect": "step",
+   "t": 45.154,
+   "gain": -16
+  },
+  {
+   "effect": "step",
+   "t": 45.934,
+   "gain": -16
+  },
+  {
+   "effect": "squish",
+   "t": 46.214,
+   "gain": -15
+  },
+  {
+   "effect": "rising3",
+   "t": 46.535,
+   "gain": -16
+  },
+  {
+   "effect": "malfunction",
+   "t": 48.396,
+   "gain": -13
+  },
+  {
+   "effect": "thud",
+   "t": 49.677,
+   "gain": -15
+  },
+  {
+   "effect": "thud",
+   "t": 49.817,
+   "gain": -13
+  },
+  {
+   "effect": "thud",
+   "t": 49.957,
+   "gain": -11
+  },
+  {
+   "effect": "slam",
+   "t": 50.097,
+   "gain": -12
+  },
+  {
+   "effect": "respawn",
+   "t": 51.478,
+   "gain": -14
+  },
+  {
+   "effect": "rising0",
+   "t": 51.478,
+   "gain": -18
+  },
+  {
+   "effect": "rising1",
+   "t": 51.568,
+   "gain": -18
+  },
+  {
+   "effect": "rising2",
+   "t": 51.658,
+   "gain": -18
+  },
+  {
+   "effect": "rising3",
+   "t": 51.748,
+   "gain": -18
+  },
+  {
+   "effect": "sparkle",
+   "t": 52.518,
+   "gain": -16
+  },
+  {
+   "effect": "arrive",
+   "t": 54.159,
+   "gain": -15
+  },
+  {
+   "effect": "end",
+   "t": 55.31,
+   "gain": -13
+  },
+  {
+   "effect": "voice",
+   "t": 0.55,
+   "gain": 0
+  }
+ ]
+}
