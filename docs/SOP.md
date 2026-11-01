@@ -160,7 +160,7 @@ Free 20.1.0.20 with the bridge scripts installed in `%APPDATA%\Blackmagic Design
 | `Flash` raises on `z_index` [H] | It isn't accepted | Don't pass it |
 | Merged MP4 appears when not wanted, or an old note says `--merge` is needed | Merge is on by default. The old `-shortest` flag cut endings and is gone from `scripts/render.py` | `--no-merge` to skip |
 | `json.load` fails on `voiceover.json` or `shared/voices/voices.json` | Both allow full-line `//` comments. VS Code treats them as jsonc | Use `load_voiceover_config` from `shared/voiceover.py`, or strip those lines the same way |
-| 003's timing breaks after a voice change [H] | 003 uses arithmetic tuned to the old voice's durations | Don't re-render 001-003 with a new voice blindly. Check the sync first |
+| A Manim video's timing breaks after a voice change [H] | Some scenes use arithmetic tuned to one voice's durations | Re-check sync after changing voice on 001 or 002 |
 
 ### Three.js and HyperFrames
 
