@@ -1,125 +1,40 @@
 # Storyboard: Bubble Sort, One Tiny Rule
 
-## Format and visual spine
+## Build
 
-- 9:16 vertical, one continuous scene, `BubbleSortReel`, exactly 30 seconds. The
-  final hold absorbs the remainder so the Reel lands on its target length.
-- It should read as a small experiment: bars, a frosted comparison window, and a
-  live readout, with no lecture layout.
-- The array is `5 3 8 1 4 10 2 7 9 6`. The scene executes real bubble sort with
-  early exit on this array: 6 passes, 39 comparisons, 18 swaps.
+This video is a HyperFrames composition rather than a Manim scene. Run these from the repository root, in order:
 
-## Look
+1. `uv run python videos/003_bubble_sort/build_narration.py` makes Lewis's lines and word timings (`timing.json`).
+2. `uv run python videos/003_bubble_sort/build_timeline.py` runs real bubble sort and writes `timeline.js`, `cues.json`, and `index.html`.
+3. `<earshot venv>/Scripts/python.exe videos/003_bubble_sort/build_mix.py` writes the mastered `assets/audio/soundtrack.wav`.
+4. From the project folder: `hyperframes render -o silent.mp4 -q delivery`.
+5. Mux `silent.mp4` with the soundtrack, then ask the user to approve the edit. Run earshot only if they ask.
 
-- Palette: midnight black `#030407` background, `#155859` idle bars, acid lime
-  `#D4FF24` for anything sorted and for key words. Two supporting tones carry the
-  algorithm's states: light teal `#3CC8C2` while comparing, near-white `#F4F7F2`
-  while swapping.
-- Type: Manrope ExtraBold and Medium, loaded from `assets/fonts/`.
-- Motion: spring curves everywhere (`SMOOTH_SPRING`, and `BOUNCY_SPRING` with a
-  slight overshoot for swaps). Text lifts and fades with a slight scale, the
-  verdict pill morphs its width, and locking bars swell a soft halo.
+## Spine
 
-## Instagram layout (1080 x 1920)
+One continuous Three.js shot on the Brad & Prad paper. The array is `5 3 8 1 4 10 2 7 9 6`, sorted for real with early exit: 6 passes, 39 comparisons, 18 swaps. Exactly 30.0 s, 60 fps.
 
-| Zone | Pixels | Scene units | Use |
-| --- | --- | --- | --- |
-| Top UI (header, camera) | y < 270 | y > 5.75 | Background only |
-| Headline | 270 to 420 | 4.5 to 5.75 | Short kinetic text |
-| Readout | 420 to 530 | 3.6 to 4.5 | Pass, comparisons, swaps |
-| Compare chip | 550 to 610 | 2.9 to 3.4 | Live verdict |
-| Bars | 640 to 1195 | -1.95 to 2.8 | The experiment |
-| Sorted rule and label | 1195 to 1250 | -2.4 to -1.95 | Secondary cue |
-| Bottom UI (username, caption, audio) | y > 1250 | y < -2.4 | Faint floor reflection only |
-| Right button rail, left margin | x < 120, x > 960 | abs(x) > 3.5 | Background only |
-
-All information is readable with the sound off.
+States: unsorted blocks are ink, the compared pair is accent, and locked blocks turn the paper's bone color. A stick figure on a rail is the algorithm, walking above the pair it compares. Readable content stays inside the Instagram-safe box. Below y = 1250 there is only floor and shadow.
 
 ## Beats
 
-### Beat 1: Hook
+Times come from the narration. Key events land on the spoken word.
 
-**Narration:** "How do computers sort millions of numbers?"
+| Beat | Narration | Picture | Sound |
+| --- | --- | --- | --- |
+| 1. Hook | "How do computers sort millions of numbers?" | Torn orange reveal, then a restless field of blocks | Whoosh, ending before the voice starts |
+| 2. Name it | "Let's start simple: Bubble Sort." | Camera dives down as the crowd falls away, leaving ten | Soft swish |
+| 3. Swap | "Compare neighbours. Left one bigger? Swap." | Pair lights up; swap lands on "Swap", blocks passing in depth | Pitched marimba note |
+| 4. Keep | "If not, leave them." | `5 < 8 · keep`. Nothing moves, and nothing sounds | None |
+| 5. Carry | "The biggest gets carried to the end, and locks." | Figure walks right; the 8 stops and the 10 takes over; locks on "locks" | Notes on swaps, wood knock on the lock |
+| 6. Repeat | "Repeat on what's left." | Passes 2 to 5, each faster | Notes on swaps, knock per lock |
+| 7. Sorted | "No swaps? It's sorted." | Silent pass, then the wave on "sorted" | Rising scale from the wave only |
+| 8. Catch | "But there's one problem: it's terrible at huge datasets." then "A million numbers could take five hundred billion comparisons." | Camera pulls back; `10 numbers: 39 comparisons`, then `≈ 500 billion` lands on "billion" | Punch hit on "billion" |
+| 9. Question | "Know a faster algorithm? Tell me in the comments!" | Complexity grid, figure thinking, and the comment line on "Tell" | None |
+| 10. End card | None | Follow for more, `@BradAndPrad`, logo slot | One glockenspiel note |
 
-**Visual:** From the very first frame, 80 thin bars and the question are on
-screen. The bars rearrange in staggered ripples.
+The worst case is n(n-1)/2 = 499,999,500,000 comparisons for n = 1,000,000. Best O(n) needs the early exit shown in beat 7.
 
-### Beat 2: Name it
+## Credits
 
-**Narration:** "Let's start simple: Bubble Sort."
-
-**Visual:** The crowd condenses into 10 labeled bars. The frosted window appears
-around the first two, which light up.
-
-### Beat 3: The swap rule
-
-**Narration:** "Compare neighbours. Left one bigger? Swap."
-
-**Visual:** The readout appears. The pill reads `Compare`, then `5 > 3 - Swap`,
-and both bars turn near-white and spring past each other.
-
-### Beat 4: The keep rule
-
-**Narration:** "If not, leave them."
-
-**Visual:** The window glides to 5 and 8. The pill reads `5 < 8 - Keep`. Nothing
-moves.
-
-### Beat 5: Carried to the end
-
-**Narration:** "The biggest gets carried to the end, and locks."
-
-**Visual:** Headline: "Step right, repeat. The biggest gets carried." The 8 is
-carried past 1 and 4, stops at `8 < 10`, and the 10 takes over and runs to the
-right edge. It turns lime with a soft halo, and the sorted rule begins.
-
-### Beat 6: Faster passes
-
-**Narration:** "Repeat on what's left."
-
-**Visual:** Passes 2 to 5 run, each faster than the last, with no pill. The lime
-suffix grows to 6 7 8 9 10.
-
-### Beat 7: Early exit
-
-**Narration:** "No swaps? It's sorted."
-
-**Visual:** Pass 6 runs with `Keep` verdicts and the swap count frozen at 18. A
-lime wave lifts each bar left to right over an ascending ten-note run.
-
-### Beat 8: The catch
-
-**Narration:** "But there's one problem: Bubble Sort is terrible at sorting huge
-datasets." then "A million numbers could take five hundred billion comparisons."
-
-**Visual:** Headline: "But there's one problem: huge datasets." The sorted bars
-shrink low in the safe area. Above them, during the first line: 10 numbers, 39 comparisons. On the second line:
-1 million numbers, about 500 billion, worst case. The worst case is n(n-1)/2 =
-499,999,500,000 for n = 1,000,000.
-
-### Beat 9: The question
-
-**Narration:** "Know a faster algorithm? Tell me in the comments!"
-
-**Visual:** Two lines land above a 2 x 2 complexity grid: best O(n) with early
-exit, average O(n^2), worst O(n^2), extra space O(1). Hold to 30 seconds so the
-question stays on screen while viewers decide to comment.
-## Voiceover and sound
-
-- `script.md` is the exact narration source. Each beat is one voiceover block,
-  timed from tracker durations because the Edge TTS helper has no word
-  boundaries for bookmarks.
-- Each comparison plays a soft pentatonic note whose pitch follows the bar's
-  value, 20 dB down under the voice, so the sorted finale is a rising scale. The
-  tones are generated by the scene into `assets/audio/`.
-- Four effects from `shared/sound_effects/` mark moments where the state of the
-  story changes, trimmed by the scene so each hit lands on its frame:
-  - Beat 2, crowd condenses: `Short - Swish`.
-  - Beats 5 and 6, each of the 5 locks: `Punch - Pop`.
-  - Beat 7, last bar of the wave: `Short - Digital Crystal`. Its main tone is E5,
-    which is in the notes' scale.
-  - Beat 8, 500 billion lands: `Impact - Lightweight`, which has enough energy
-    above 150 Hz to survive phone speakers.
-- Swaps and comparisons deliberately get no effect, since 39 repeats would become
-  noise and the notes already carry them. Beat 1 and Beat 9 have none, so the
-  opening question and the final call to action stay clear.
+No third-party recordings. All effects come from earshot's code-made bank.

@@ -32,6 +32,29 @@ def numbered_projects(videos_dir: Path) -> list[tuple[int, Path]]:
     return projects
 
 
+def resolve_project(identifier: str, videos_dir: Path) -> Path:
+    projects = numbered_projects(videos_dir)
+
+    if identifier.isdigit():
+        requested_number = int(identifier)
+        matches = [path for number, path in projects if number == requested_number]
+    else:
+        matches = [
+            path
+            for _, path in projects
+            if path.name.casefold() == identifier.casefold()
+        ]
+
+    if not matches:
+        raise FileNotFoundError(
+            f"No video project matches {identifier!r} in {videos_dir}"
+        )
+    if len(matches) > 1:
+        names = ", ".join(sorted(path.name for path in matches))
+        raise ValueError(f"Project identifier {identifier!r} is ambiguous: {names}")
+    return matches[0]
+
+
 def next_project_number(videos_dir: Path) -> int:
     existing_numbers = [number for number, _ in numbered_projects(videos_dir)]
     return max(existing_numbers, default=0) + 1

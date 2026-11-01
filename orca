@@ -1,0 +1,4 @@
+#!/bin/sh
+# macOS and Linux launcher. On Windows, orca.cmd does the same job.
+root="$(cd "$(dirname "$0")" && pwd)"
+exec uv run --project "$root" python "$root/scripts/orca.py" "$@"

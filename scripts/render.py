@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import ast
 import importlib.util
+import json
 import os
 import shutil
 import subprocess
@@ -15,9 +16,9 @@ from types import ModuleType
 from manim import Scene
 
 if __package__:
-    from .create import numbered_projects, repository_root
+    from .create import repository_root, resolve_project
 else:
-    from create import numbered_projects, repository_root
+    from create import repository_root, resolve_project
 
 
 PRESETS = {
@@ -32,30 +33,7 @@ QUALITY_PRESETS = {
     "high": "1080p60",
     "4k": "2160p60",
 }
-VOICE_SERVICES = ("edge-tts", "gtts", "azure", "elevenlabs", "openai")
-
-
-def resolve_project(identifier: str, videos_dir: Path) -> Path:
-    projects = numbered_projects(videos_dir)
-
-    if identifier.isdigit():
-        requested_number = int(identifier)
-        matches = [path for number, path in projects if number == requested_number]
-    else:
-        matches = [
-            path
-            for _, path in projects
-            if path.name.casefold() == identifier.casefold()
-        ]
-
-    if not matches:
-        raise FileNotFoundError(
-            f"No video project matches {identifier!r} in {videos_dir}"
-        )
-    if len(matches) > 1:
-        names = ", ".join(sorted(path.name for path in matches))
-        raise ValueError(f"Project identifier {identifier!r} is ambiguous: {names}")
-    return matches[0]
+VOICE_SERVICES = ("kokoro", "edge-tts", "gtts", "azure", "elevenlabs", "openai")
 
 
 def load_scene_module(scene_file: Path) -> ModuleType:
@@ -128,6 +106,24 @@ def list_edge_voices(root: Path) -> int:
     command = [sys.executable, "-m", "edge_tts", "--list-voices"]
     print("Available Edge TTS voices:", flush=True)
     return subprocess.run(command, cwd=root, check=False).returncode
+
+
+def list_kokoro_voices(root: Path) -> int:
+    lines = (root / "shared" / "voices" / "voices.json").read_text(encoding="utf-8")
+    # Full-line // comments hold the table of allowed services and voices.
+    shortlist = json.loads(
+        "\n".join(
+            line for line in lines.splitlines() if not line.lstrip().startswith("//")
+        )
+    )
+    print("Kokoro shortlist (local and free). Listen to the samples to choose:")
+    for voice in shortlist["voices"]:
+        print(
+            f"  {voice['id']:<12} {voice['group']:<15} grade {voice['grade']:<3} "
+            f"~{voice['wpm']} wpm   shared/voices/samples/{voice['id']}.mp3"
+        )
+    print("\nSet one in a project's voiceover.json, or pass --voice for one render.")
+    return 0
 
 
 def media_has_stream(path: Path, stream_selector: str, root: Path) -> bool:
@@ -339,6 +335,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="List voices available from Edge TTS and exit.",
     )
     parser.add_argument(
+        "--list-kokoro-voices",
+        action="store_true",
+        help="List the local Kokoro voice shortlist and exit.",
+    )
+    parser.add_argument(
         "--voice-service",
         choices=VOICE_SERVICES,
         help="Override the project's configured speech service for this render.",
@@ -355,10 +356,14 @@ def main() -> int:
     args = parser.parse_args()
     root = repository_root()
 
+    if args.list_kokoro_voices:
+        return list_kokoro_voices(root)
     if args.list_voices:
         return list_edge_voices(root)
     if not args.project:
-        parser.error("project is required unless --list-voices is used")
+        parser.error(
+            "project is required unless --list-voices or --list-kokoro-voices is used"
+        )
 
     try:
         project_dir = resolve_project(args.project, root / "videos")

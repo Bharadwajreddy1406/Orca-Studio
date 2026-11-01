@@ -1,0 +1,438 @@
+<!doctype html>
+<!--
+  Bubble Sort, built on the Brad & Prad kit. One continuous Three.js shot, with every
+  frame computed from time alone. build_timeline.py writes timeline.js, and index.html
+  from this template with the measured durations.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Bubble Sort</title>
+    <link rel="stylesheet" href="brand/brand.css" />
+    <script src="brand/vendor/gsap.min.js"></script>
+    <script src="brand/stickman/stickman.js"></script>
+    <script src="brand/brand-kit.js"></script>
+    <script src="timeline.js"></script>
+    <script type="importmap">{ "imports": { "three": "./lib/three.module.js" } }</script>
+    <style>
+      #root { position: absolute; inset: 0; overflow: hidden; }
+      #world, #labels, #figures { position: absolute; inset: 0; }
+      #world canvas { display: block; }
+      .line { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 82px; line-height: 1.04; opacity: 0; }
+      .value { position: absolute; left: 0; top: 0; width: 80px; margin-left: -40px; text-align: center; font-size: 40px; line-height: 40px; opacity: 0; }
+      #verdict { position: absolute; left: 0; top: 662px; width: 360px; margin-left: -180px; text-align: center; font-size: 42px; line-height: 44px; opacity: 0; }
+      #rail { position: absolute; left: 0; right: 0; top: 640px; height: 4px; background: var(--brand-ink); opacity: 0; }
+      #readout { position: absolute; left: 120px; right: 120px; top: 1196px; text-align: center; font-size: 36px; line-height: 42px; opacity: 0; }
+      #stat { position: absolute; top: 208px; left: 0; right: 0; text-align: center; }
+      .stat-small { font-size: 42px; line-height: 48px; opacity: 0; }
+      #stat-number { font-size: 112px; line-height: 118px; opacity: 0; }
+      #line-comments { top: 548px; font-size: 68px; }
+      #grid { position: absolute; top: 198px; left: 0; right: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; opacity: 0; }
+      .fact { border: 3px solid var(--brand-ink); padding: 12px 8px 14px; text-align: center; }
+      .fact .bp-caption { display: block; font-size: 34px; line-height: 40px; }
+      .fact .bp-headline { display: block; font-size: 64px; line-height: 70px; }
+      #end-title { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 168px; line-height: 1; }
+      #end-handle { position: absolute; top: 372px; left: 0; right: 0; text-align: center; }
+      #end-logo-slot { position: absolute; top: 470px; left: 50%; width: 280px; height: 280px; margin-left: -140px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="__DURATION__" data-width="1080" data-height="1920" data-fps="60">
+      <div id="paper" class="clip" data-start="0" data-duration="__DURATION__" data-track-index="0">
+        <div class="paper-sheet bp-paper"></div>
+        <div class="paper-sheet bp-paper is-folded"></div>
+        <div class="paper-sheet bp-paper is-quiet"></div>
+      </div>
+
+      <div id="scene" class="clip" data-start="0" data-duration="__SCENE_LENGTH__" data-track-index="1">
+        <div id="world"></div>
+        <div id="labels"></div>
+        <div id="rail"></div>
+        <div id="verdict" class="bp-caption"></div>
+        <div id="figures"></div>
+        <div class="bp-safe">
+          <div id="line-hook" class="line bp-headline">How do computers sort <span class="bp-accent">millions</span> of numbers?</div>
+          <div id="line-name" class="line bp-headline">Start simple:<br /><span class="bp-accent">Bubble Sort</span></div>
+          <div id="line-rule" class="line bp-headline">Left one bigger?<br /><span class="bp-accent">Swap.</span></div>
+          <div id="line-keep" class="line bp-headline">Already in order?<br /><span class="bp-accent">Leave them.</span></div>
+          <div id="line-carry" class="line bp-headline">The biggest<br />gets <span class="bp-accent">carried</span></div>
+          <div id="line-repeat" class="line bp-headline">Repeat on<br /><span class="bp-accent">what's left</span></div>
+          <div id="line-sorted" class="line bp-headline">No swaps?<br /><span class="bp-accent">It's sorted.</span></div>
+          <div id="line-problem" class="line bp-headline">But there's <span class="bp-accent">one problem</span></div>
+          <div id="line-question" class="line bp-headline">Know a faster algorithm?</div>
+          <div id="line-comments" class="line bp-headline bp-accent">Tell me in the comments!</div>
+          <div id="stat">
+            <div id="stat-small-1" class="stat-small bp-caption">10 numbers: 39 comparisons</div>
+            <div id="stat-small-2" class="stat-small bp-caption">1 million numbers:</div>
+            <div id="stat-number" class="bp-headline bp-accent">≈ 500 billion</div>
+            <div id="stat-small-3" class="stat-small bp-caption">comparisons, worst case · O(n²)</div>
+          </div>
+          <div id="grid">
+            <div class="fact"><span class="bp-caption">Best, early exit</span><span class="bp-headline">O(n)</span></div>
+            <div class="fact"><span class="bp-caption">Average</span><span class="bp-headline">O(n²)</span></div>
+            <div class="fact"><span class="bp-caption">Worst</span><span class="bp-headline">O(n²)</span></div>
+            <div class="fact"><span class="bp-caption">Extra space</span><span class="bp-headline">O(1)</span></div>
+          </div>
+        </div>
+        <div id="readout" class="bp-caption"></div>
+      </div>
+
+      <div id="end-card" class="clip" data-start="__END_START__" data-duration="__END_LENGTH__" data-track-index="2">
+                <div class="bp-safe">
+          <div id="end-title" class="bp-headline bp-accent">Follow for more</div>
+          <div id="end-handle" class="bp-caption">@BradAndPrad</div>
+          <div id="end-logo-slot"></div>
+        </div>
+        <div id="end-stage"></div>
+      </div>
+
+      <div id="sheet-top" class="clip bp-torn-top" data-start="0" data-duration="1.3" data-track-index="3"></div>
+      <div id="sheet-bottom" class="clip bp-torn-bottom" data-start="0" data-duration="1.3" data-track-index="4"></div>
+    </div>
+
+    <script type="module">
+      import * as THREE from "three";
+
+      const { beats, values, moves, states, counters, verdicts, pairVisits } = window.REEL;
+      const COLORS = { idle: 0x141210, active: 0xe8401a, locked: 0xe8e0d8 };
+      const BAR_WIDTH = 0.76;
+      const UNIT_HEIGHT = 0.52;
+      const FLOOR = 0;
+
+      const clamp01 = (value) => Math.min(1, Math.max(0, value));
+      // A critically damped spring: leaves rest gently, arrives quickly, settles softly.
+      const spring = (alpha) => {
+        const frequency = 7;
+        const response = (t) => 1 - (1 + frequency * t) * Math.exp(-frequency * t);
+        return response(clamp01(alpha)) / response(1);
+      };
+      const smooth = (alpha) => {
+        const t = clamp01(alpha);
+        return t * t * t * (t * (t * 6 - 15) + 10);
+      };
+      const mix = (from, to, amount) => from + (to - from) * amount;
+      const slotX = (slot) => slot - 4.5;
+
+      function seeded(seed) {
+        let state = seed;
+        return () => {
+          state = (state + 0x6d2b79f5) | 0;
+          let t = Math.imul(state ^ (state >>> 15), 1 | state);
+          t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+      }
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+      renderer.setPixelRatio(1);
+      renderer.setSize(1080, 1920);
+      renderer.setClearColor(0x000000, 0);
+      renderer.toneMapping = THREE.NoToneMapping;
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      document.getElementById("world").appendChild(renderer.domElement);
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(24, 1080 / 1920, 1, 400);
+      scene.add(new THREE.HemisphereLight(0xffffff, 0xd8cfc6, 2.3));
+      const sun = new THREE.DirectionalLight(0xffffff, 1.5);
+      sun.position.set(-14, 34, 22);
+      sun.castShadow = true;
+      sun.shadow.mapSize.set(2048, 2048);
+      sun.shadow.radius = 6;
+      Object.assign(sun.shadow.camera, { left: -32, right: 32, top: 40, bottom: -40, near: 1, far: 120 });
+      scene.add(sun);
+
+      const floor = new THREE.Mesh(new THREE.PlaneGeometry(240, 240), new THREE.ShadowMaterial({ opacity: 0.26 }));
+      floor.rotation.x = -Math.PI / 2;
+      floor.position.y = FLOOR;
+      floor.receiveShadow = true;
+      scene.add(floor);
+
+      // The crowd behind the ten: its heights are seeded, so every frame reproduces.
+      const random = seeded(7);
+      const crowdSpots = [];
+      for (let row = -9; row <= 5; row += 1) {
+        for (let column = -11; column <= 12; column += 1) {
+          if (row === 0 && Math.abs(column - 0.5) <= 5) continue;
+          crowdSpots.push({
+            x: column - 0.5,
+            z: row * 1.7,
+            height: 0.4 + random() * 3.0,
+            phase: random() * Math.PI * 2,
+            delay: 0,
+          });
+        }
+      }
+      crowdSpots.forEach((spot) => {
+        spot.delay = Math.hypot(spot.x, spot.z) / 22;
+      });
+      const inkMaterial = new THREE.MeshLambertMaterial({ color: COLORS.idle });
+      const crowd = new THREE.InstancedMesh(new THREE.BoxGeometry(0.62, 1, 0.62), inkMaterial, crowdSpots.length);
+      crowd.castShadow = true;
+      crowd.frustumCulled = false;
+      scene.add(crowd);
+      const placement = new THREE.Object3D();
+
+      const edgeMaterial = new THREE.LineBasicMaterial({ color: COLORS.idle });
+      const labelsParent = document.getElementById("labels");
+      const bars = values.map((value, startSlot) => {
+        const material = new THREE.MeshLambertMaterial({ color: COLORS.idle });
+        const geometry = new THREE.BoxGeometry(BAR_WIDTH, 1, BAR_WIDTH);
+        const mesh = new THREE.Mesh(geometry, material);
+        mesh.castShadow = true;
+        mesh.add(new THREE.LineSegments(new THREE.EdgesGeometry(geometry), edgeMaterial));
+        scene.add(mesh);
+        const label = document.createElement("div");
+        label.className = "value bp-caption";
+        label.textContent = String(value);
+        labelsParent.appendChild(label);
+        return {
+          value,
+          startSlot,
+          mesh,
+          label,
+          crowdHeight: 0.8 + ((value * 7) % 5) * 0.8,
+          moves: moves[value],
+          states: states[value],
+        };
+      });
+
+      const colorOf = (state) => [COLORS.idle, COLORS.active, COLORS.locked][state];
+      const scratchColor = new THREE.Color();
+      function barColor(bar, time) {
+        scratchColor.setHex(COLORS.idle);
+        let previous = COLORS.idle;
+        for (const key of bar.states) {
+          if (time < key.t) break;
+          const target = colorOf(key.state);
+          scratchColor.setHex(previous).lerp(new THREE.Color(target), clamp01((time - key.t) / 0.09));
+          previous = target;
+        }
+        return previous;
+      }
+      function barSlot(bar, time) {
+        let x = bar.startSlot;
+        let z = 0;
+        let labelFade = 1;
+        for (const move of bar.moves) {
+          if (time < move.t) break;
+          const alpha = clamp01((time - move.t) / move.dur);
+          x = mix(move.from, move.to, spring(alpha));
+          // The two blocks pass in real depth, with the shorter one in front so both stay
+          // visible. The rear block's label fades while it is hidden behind the other.
+          const crossing = Math.sin(Math.PI * smooth(alpha));
+          z = crossing * (move.front ? 0.9 : -0.9);
+          labelFade = move.front ? 1 : 1 - clamp01(crossing * 1.8);
+        }
+        return { x: slotX(x), z, labelFade };
+      }
+
+      // Camera poses for the single continuous shot.
+      const POSES = {
+        crowd: { yaw: 0.34, pitch: 0.62, distance: 84, lookX: 0, lookY: 0.5, lookZ: -11 },
+        array: { yaw: 0.2, pitch: 0.12, distance: 51, lookX: 0.28, lookY: 2.3, lookZ: 0 },
+        cost: { yaw: 0.3, pitch: 0.16, distance: 92, lookX: 1.5, lookY: 3.6, lookZ: 0 },
+      };
+      function applyPose(pose) {
+        camera.position.set(
+          pose.lookX + Math.sin(pose.yaw) * Math.cos(pose.pitch) * pose.distance,
+          pose.lookY + Math.sin(pose.pitch) * pose.distance,
+          pose.lookZ + Math.cos(pose.yaw) * Math.cos(pose.pitch) * pose.distance
+        );
+        camera.lookAt(pose.lookX, pose.lookY, pose.lookZ);
+        camera.updateMatrixWorld();
+      }
+      function blendPose(from, to, amount) {
+        const result = {};
+        for (const key of Object.keys(from)) result[key] = mix(from[key], to[key], amount);
+        return result;
+      }
+      function poseAt(time) {
+        if (time < beats.dive) {
+          const drift = time * 0.012;
+          return { ...POSES.crowd, yaw: POSES.crowd.yaw - drift, distance: POSES.crowd.distance - time * 1.2 };
+        }
+        const startOfDive = {
+          ...POSES.crowd,
+          yaw: POSES.crowd.yaw - beats.dive * 0.012,
+          distance: POSES.crowd.distance - beats.dive * 1.2,
+        };
+        if (time < beats.problem) {
+          return blendPose(startOfDive, POSES.array, smooth((time - beats.dive) / (beats.diveEnd - beats.dive)));
+        }
+        return blendPose(POSES.array, POSES.cost, smooth((time - beats.problem) / 1.1));
+      }
+
+      const projected = new THREE.Vector3();
+      function toScreen(x, y, z) {
+        projected.set(x, y, z).project(camera);
+        return { x: (projected.x + 1) * 540, y: (1 - projected.y) * 960 };
+      }
+
+      function drawWorld(time) {
+        applyPose(poseAt(time));
+
+        const diveAmount = clamp01((time - beats.dive) / (beats.diveEnd - beats.dive));
+        crowdSpots.forEach((spot, index) => {
+          const fall = smooth((diveAmount - spot.delay * 0.55) / 0.45);
+          const breathe = 1 + 0.16 * Math.sin(time * 2.1 + spot.phase);
+          const height = Math.max(0.0001, spot.height * breathe * (1 - fall));
+          placement.position.set(spot.x, FLOOR + height / 2, spot.z);
+          // Shrinking every axis leaves nothing behind on the floor.
+          const footprint = Math.max(0.0001, 1 - fall);
+          placement.scale.set(footprint, height, footprint);
+          placement.updateMatrix();
+          crowd.setMatrixAt(index, placement.matrix);
+        });
+        crowd.instanceMatrix.needsUpdate = true;
+        crowd.visible = diveAmount < 1;
+
+        const settle = smooth((diveAmount - 0.25) / 0.6);
+        const labelOpacity = settle * (1 - smooth((time - beats.problem) / 0.5));
+        bars.forEach((bar) => {
+          const { x, z, labelFade } = barSlot(bar, time);
+          const finalHeight = bar.value * UNIT_HEIGHT;
+          const height = mix(bar.crowdHeight, finalHeight, settle);
+          const colorTarget = barColor(bar, time);
+          bar.mesh.position.set(x, FLOOR + height / 2, z);
+          bar.mesh.scale.set(1, height, 1);
+          bar.mesh.material.color.copy(scratchColor);
+          const point = toScreen(x, FLOOR + Math.min(height / 2, 0.42), z + BAR_WIDTH / 2);
+          bar.label.style.transform = `translate(${point.x}px, ${point.y - 20}px)`;
+          bar.label.style.opacity = String(labelOpacity * labelFade);
+          bar.label.style.color = colorTarget === COLORS.locked ? "var(--brand-ink)" : "var(--brand-background)";
+        });
+
+        const readout = document.getElementById("readout");
+        let current = null;
+        for (const counter of counters) {
+          if (time < counter.t) break;
+          current = counter;
+        }
+        readout.textContent = current
+          ? `Pass ${current.pass} · ${current.comparisons} ${current.comparisons === 1 ? "comparison" : "comparisons"} · ${current.swaps} ${current.swaps === 1 ? "swap" : "swaps"}`
+          : "";
+
+        const verdict = document.getElementById("verdict");
+        const active = verdicts.find((entry) => time >= entry.t && time < entry.end);
+        if (active) {
+          const center = toScreen(slotX(active.slot + 0.5), FLOOR, 0).x;
+          verdict.textContent = active.text;
+          verdict.style.left = `${Math.min(780, Math.max(300, center))}px`;
+          verdict.style.opacity = "1";
+        } else {
+          verdict.style.opacity = "0";
+        }
+        renderer.render(scene, camera);
+      }
+
+      const timeline = gsap.timeline({ paused: true });
+      const revealEnd = BrandKit.tornReveal(timeline, { top: "#sheet-top", bottom: "#sheet-bottom", at: 0.1 });
+      const firstSwap = Math.min(...Object.values(moves).flat().map((move) => move.t));
+      BrandKit.paperJump(timeline, {
+        layers: ".paper-sheet",
+        duration: beats.duration,
+        accents: [firstSwap, beats.lock, beats.wave, beats.billion, beats.endCard],
+      });
+
+      function showLine(id, from, to) {
+        timeline.fromTo(id, { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.32, ease: "power3.out" }, from);
+        if (to !== undefined) timeline.to(id, { y: -18, opacity: 0, duration: 0.22, ease: "power2.in" }, to - 0.22);
+      }
+      showLine("#line-hook", revealEnd - 0.3, beats.dive + 0.15);
+      showLine("#line-name", beats.dive + 0.15, beats.rule);
+      showLine("#line-rule", beats.rule, beats.keep);
+      showLine("#line-keep", beats.keep, beats.carry);
+      showLine("#line-carry", beats.carry, beats.fast);
+      showLine("#line-repeat", beats.fast, beats.noSwaps);
+      showLine("#line-sorted", beats.noSwaps, beats.problem);
+      showLine("#line-problem", beats.problem, beats.question);
+      showLine("#line-question", beats.question, beats.endCard);
+      showLine("#line-comments", window.REEL.tell, beats.endCard);
+      timeline.to("#grid", { opacity: 0, y: -14, duration: 0.22, ease: "power2.in" }, beats.endCard - 0.22);
+      timeline.to("#world, #figures", { opacity: 0, duration: 0.2, ease: "power1.inOut" }, beats.endCard);
+      timeline.fromTo("#end-card", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power1.inOut" }, beats.endCard);
+
+      timeline.fromTo("#rail", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.5, ease: "power3.out" }, beats.diveEnd - 0.45);
+      timeline.to("#rail", { opacity: 0, duration: 0.3 }, beats.problem);
+      timeline.fromTo("#readout", { opacity: 0 }, { opacity: 1, duration: 0.3 }, beats.rule);
+      timeline.to("#readout", { opacity: 0, duration: 0.3 }, beats.problem);
+
+      timeline.fromTo("#stat-small-1", { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, beats.problem + 0.6);
+      timeline.fromTo("#stat-small-2", { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, beats.cost);
+      timeline.fromTo("#stat-number", { y: 34, scale: 0.92, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.42, ease: "back.out(1.5)" }, beats.billion - 0.08);
+      timeline.fromTo("#stat-small-3", { opacity: 0 }, { opacity: 1, duration: 0.25 }, beats.billion + 0.1);
+      timeline.to("#stat", { opacity: 0, y: -14, duration: 0.24, ease: "power2.in" }, beats.question - 0.1);
+      timeline.fromTo("#grid", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, beats.question + 0.25);
+
+      // The figure stands on the rail and walks above the pair it is comparing.
+      const figures = document.getElementById("figures");
+      applyPose(POSES.array);
+      const pairScreenX = (slot) => toScreen(slotX(slot + 0.5), FLOOR, 0).x;
+      const walker = BrandStickman.create(figures, {
+        x: pairScreenX(0) - 240,
+        y: 638,
+        height: 168,
+        seed: 11,
+        startPose: "standing",
+        startExpression: "neutral",
+      });
+      walker.walk({ at: beats.diveEnd - 0.5, until: beats.rule - 0.05, flip: false });
+      walker.moveTo({ x: pairScreenX(0), at: beats.diveEnd - 0.5, duration: beats.rule - beats.diveEnd + 0.45 });
+      walker.pose("pointing", { at: beats.rule, duration: 0.22 });
+      const slowVisits = pairVisits.filter((visit) => visit.t >= beats.keep && visit.t < beats.lock);
+      slowVisits.forEach((visit, index) => {
+        const next = slowVisits[index + 1]?.t ?? beats.lock;
+        const span = Math.min(0.42, next - visit.t - 0.02);
+        walker.walk({ at: visit.t, until: visit.t + span, flip: false });
+        walker.moveTo({ x: pairScreenX(visit.slot), at: visit.t, duration: span, ease: "power1.inOut" });
+      });
+      walker.pose("cheering", { at: beats.lock, duration: 0.2, ease: "back.out(1.8)" });
+      walker.say("delighted", { at: beats.lock });
+      walker.pose("standing", { at: beats.fast, duration: 0.25 });
+      walker.moveTo({ x: 540, at: beats.fast, duration: 0.5, ease: "power2.inOut" });
+      walker.say("determined", { at: beats.fast });
+      walker.pose("pointing", { at: beats.fast + 0.5, duration: 0.2 });
+      walker.pose("cheering", { at: beats.wave, duration: 0.22, ease: "back.out(1.8)" });
+      walker.say("delighted", { at: beats.wave });
+      walker.pose("shrugging", { at: beats.problem, duration: 0.3 });
+      walker.say("confused", { at: beats.problem });
+      walker.moveTo({ x: 850, y: 1180, at: beats.problem, duration: 1.0, ease: "power2.inOut" });
+      walker.pose("shocked", { at: beats.billion, duration: 0.16, ease: "back.out(2)" });
+      walker.say("shocked", { at: beats.billion });
+      walker.pose("thinking", { at: beats.question, duration: 0.3 });
+      walker.say("thinking", { at: beats.question });
+      walker.attach(timeline, beats.endCard);
+
+      const closer = BrandStickman.create(document.getElementById("end-stage"), {
+        x: 540,
+        y: 1240,
+        height: 400,
+        seed: 23,
+        startPose: "cheering",
+        startExpression: "delighted",
+      });
+      closer.attach(timeline, beats.duration);
+      timeline.from("#end-title", { y: 30, opacity: 0, duration: 0.42, ease: "power3.out" }, beats.endCard + 0.08);
+
+      // Time arrives through a setter, which runs even when a seek suppresses callbacks.
+      let worldTime = 0;
+      const worldDriver = {
+        get time() {
+          return worldTime;
+        },
+        set time(value) {
+          worldTime = value;
+          drawWorld(value);
+        },
+      };
+      timeline.fromTo(worldDriver, { time: 0 }, { time: beats.duration, duration: beats.duration, ease: "none", immediateRender: true }, 0);
+      timeline.set({}, {}, beats.duration);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = timeline;
+      drawWorld(0);
+    </script>
+  </body>
+</html>

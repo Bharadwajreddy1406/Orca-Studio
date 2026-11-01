@@ -1,4 +1,8 @@
 {
+    "files.associations": {
+        "**/voiceover.json": "jsonc",
+        "**/shared/voices/voices.json": "jsonc"
+    },
     "[python]": {
         "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.formatOnSave": true,

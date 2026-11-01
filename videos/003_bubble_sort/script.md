@@ -14,7 +14,7 @@ Repeat on what's left.
 
 No swaps? It's sorted.
 
-But there's one problem: Bubble Sort is terrible at sorting huge datasets.
+But there's one problem: it's terrible at huge datasets.
 
 A million numbers could take five hundred billion comparisons.
 

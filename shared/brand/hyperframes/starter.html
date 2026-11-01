@@ -1,0 +1,86 @@
+<!doctype html>
+<!--
+  Brad & Prad starter composition. install.js copies this to <project>/index.html and the
+  kit to <project>/brand/. Replace the words; keep the structure. All files are local.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Brad and Prad Reel</title>
+    <link rel="stylesheet" href="brand/brand.css" />
+    <script src="brand/vendor/gsap.min.js"></script>
+    <script src="brand/stickman/stickman.js"></script>
+    <script src="brand/brand-kit.js"></script>
+    <style>
+      #root { position: absolute; inset: 0; overflow: hidden; }
+      #title { position: absolute; top: 0; left: 0; right: 0; }
+      #note { position: absolute; top: 262px; left: 0; right: 0; }
+      #stage { position: absolute; inset: 0; }
+      #end-card { position: absolute; inset: 0; }
+      #end-title { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 168px; line-height: 1; }
+      #end-handle { position: absolute; top: 372px; left: 0; right: 0; text-align: center; }
+      /* Reserved for the logo (about 280 px), between the handle and the figure. */
+      #end-logo-slot { position: absolute; top: 470px; left: 50%; width: 280px; height: 280px; margin-left: -140px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="8.5" data-width="1080" data-height="1920" data-fps="30">
+      <div id="paper" class="clip bp-paper" data-start="0" data-duration="8.5" data-track-index="0"></div>
+
+      <div id="scene" class="clip" data-start="0" data-duration="6" data-track-index="1">
+        <div class="bp-safe">
+          <div id="title" class="bp-headline">Why <span class="bp-accent">Kubernetes</span> restarts your pod</div>
+          <div id="note" class="bp-caption">Liveness fails 3 times &gt; restart. Cost: O(n²) ≈ never free.</div>
+        </div>
+        <div id="stage"></div>
+      </div>
+
+      <!-- End card. When the real logo arrives, add it here: see brand/logo/README.md -->
+      <div id="end-card" class="clip" data-start="6" data-duration="2.5" data-track-index="2">
+        <div class="bp-safe">
+          <div id="end-title" class="bp-headline bp-accent">Follow for more</div>
+          <div id="end-handle" class="bp-caption">@BradAndPrad</div>
+          <div id="end-logo-slot"></div>
+        </div>
+        <div id="end-stage"></div>
+      </div>
+
+      <div id="sheet-top" class="clip bp-torn-top" data-start="0" data-duration="1.3" data-track-index="3"></div>
+      <div id="sheet-bottom" class="clip bp-torn-bottom" data-start="0" data-duration="1.3" data-track-index="4"></div>
+    </div>
+
+    <script>
+      const SCENE_DURATION = 8.5;
+      const timeline = gsap.timeline({ paused: true });
+
+      const revealEnd = BrandKit.tornReveal(timeline, { top: "#sheet-top", bottom: "#sheet-bottom", at: 0.1 });
+      BrandKit.riseIn(timeline, ["#title"], { at: revealEnd - 0.3 });
+      timeline.from("#note", { y: 24, opacity: 0, duration: 0.45, ease: "power3.out" }, revealEnd + 0.5);
+
+      // Feet stay at or above y = 1250, the top of the Instagram bottom unsafe zone.
+      const guide = BrandStickman.create(document.getElementById("stage"), {
+        x: 1240, y: 1240, height: 440, seed: 11, flip: true, startExpression: "happy",
+      });
+      guide
+        .walk({ at: revealEnd - 0.2, until: revealEnd + 1.5, flip: true })
+        .moveTo({ x: 330, at: revealEnd - 0.2, duration: 1.7 })
+        .pose("presenting", { at: revealEnd + 1.5, duration: 0.3, ease: "back.out(1.6)", flip: false })
+        .pose("shocked", { at: 4.5, duration: 0.18, ease: "back.out(2)", flip: false })
+        .say("shocked", { at: 4.5 })
+        .attach(timeline, 6);
+
+      const closer = BrandStickman.create(document.getElementById("end-stage"), {
+        x: 540, y: 1240, height: 400, seed: 23, startPose: "cheering", startExpression: "delighted",
+      });
+      closer.pose("pointing_up", { at: 7, duration: 0.25, ease: "back.out(1.6)" }).attach(timeline, SCENE_DURATION);
+
+      timeline.from("#end-title", { y: 30, opacity: 0, duration: 0.4, ease: "power3.out" }, 6.05);
+
+      // Keep the timeline's length equal to the composition's.
+      timeline.set({}, {}, SCENE_DURATION);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = timeline;
+    </script>
+  </body>
+</html>

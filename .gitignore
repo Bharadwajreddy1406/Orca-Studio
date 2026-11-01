@@ -6,3 +6,13 @@ __pycache__/
 
 shared/sound_effects/
 node_modules/
+
+.ruff_cache/
+
+# HyperFrames projects: copied kit and engine files, and local check output.
+videos/*/brand/
+videos/*/lib/
+videos/*/.hyperframes/
+
+# Machine choices saved by orca setup.
+orca.local.json
