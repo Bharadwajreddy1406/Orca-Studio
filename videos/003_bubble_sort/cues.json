@@ -1,5 +1,5 @@
 {
- "duration": 27.238,
+ "duration": 30.0,
  "cues": [
   {
    "effect": "intro",
@@ -8,271 +8,271 @@
   },
   {
    "effect": "dive",
-   "t": 3.0,
+   "t": 3.445,
    "gain": -15
   },
   {
    "effect": "note",
-   "t": 6.603,
+   "t": 7.694,
    "note": "A4",
    "gain": -15
   },
   {
    "effect": "note",
-   "t": 8.479,
+   "t": 9.656,
    "note": "E5",
    "gain": -15
   },
   {
    "effect": "note",
-   "t": 8.727,
+   "t": 9.954,
    "note": "E5",
    "gain": -15
   },
   {
    "effect": "note",
-   "t": 9.222,
+   "t": 10.552,
    "note": "A5",
    "gain": -15
   },
   {
    "effect": "note",
-   "t": 9.47,
+   "t": 10.851,
    "note": "A5",
    "gain": -15
   },
   {
    "effect": "note",
-   "t": 9.718,
+   "t": 11.15,
    "note": "A5",
    "gain": -15
   },
   {
    "effect": "note",
-   "t": 9.966,
+   "t": 11.449,
    "note": "A5",
    "gain": -15
   },
   {
    "effect": "lock",
-   "t": 10.134,
+   "t": 11.652,
    "gain": -11
   },
   {
    "effect": "note",
-   "t": 10.803,
+   "t": 12.253,
    "note": "A4",
    "gain": -15
   },
   {
    "effect": "note",
-   "t": 10.933,
+   "t": 12.383,
    "note": "A4",
    "gain": -15
   },
   {
    "effect": "note",
-   "t": 11.157,
+   "t": 12.607,
    "note": "E5",
    "gain": -15
   },
   {
    "effect": "note",
-   "t": 11.287,
+   "t": 12.737,
    "note": "E5",
    "gain": -15
   },
   {
    "effect": "note",
-   "t": 11.51,
+   "t": 12.96,
    "note": "G5",
    "gain": -15
   },
   {
    "effect": "lock",
-   "t": 11.621,
+   "t": 13.071,
    "gain": -11
   },
   {
    "effect": "note",
-   "t": 11.775,
+   "t": 13.225,
    "note": "E4",
    "gain": -15
   },
   {
    "effect": "note",
-   "t": 12.007,
+   "t": 13.457,
    "note": "A4",
    "gain": -15
   },
   {
    "effect": "note",
-   "t": 12.239,
+   "t": 13.689,
    "note": "E5",
    "gain": -15
   },
   {
    "effect": "lock",
-   "t": 12.319,
+   "t": 13.769,
    "gain": -11
   },
   {
    "effect": "note",
-   "t": 12.579,
+   "t": 14.029,
    "note": "G4",
    "gain": -15
   },
   {
    "effect": "note",
-   "t": 12.762,
+   "t": 14.212,
    "note": "D5",
    "gain": -15
   },
   {
    "effect": "lock",
-   "t": 12.825,
+   "t": 14.275,
    "gain": -11
   },
   {
    "effect": "note",
-   "t": 13.022,
+   "t": 14.472,
    "note": "E4",
    "gain": -15
   },
   {
    "effect": "lock",
-   "t": 13.218,
+   "t": 14.668,
    "gain": -11
   },
   {
    "effect": "note",
-   "t": 14.333,
+   "t": 16.116,
    "note": "C4",
    "gain": -16
   },
   {
    "effect": "note",
-   "t": 14.408,
+   "t": 16.191,
    "note": "D4",
    "gain": -16
   },
   {
    "effect": "note",
-   "t": 14.483,
+   "t": 16.266,
    "note": "E4",
    "gain": -16
   },
   {
    "effect": "note",
-   "t": 14.558,
+   "t": 16.341,
    "note": "G4",
    "gain": -16
   },
   {
    "effect": "note",
-   "t": 14.633,
+   "t": 16.416,
    "note": "A4",
    "gain": -16
   },
   {
    "effect": "note",
-   "t": 14.708,
+   "t": 16.491,
    "note": "C5",
    "gain": -16
   },
   {
    "effect": "note",
-   "t": 14.783,
+   "t": 16.566,
    "note": "D5",
    "gain": -16
   },
   {
    "effect": "note",
-   "t": 14.858,
+   "t": 16.641,
    "note": "E5",
    "gain": -16
   },
   {
    "effect": "note",
-   "t": 14.933,
+   "t": 16.716,
    "note": "G5",
    "gain": -16
   },
   {
    "effect": "note",
-   "t": 15.008,
+   "t": 16.791,
    "note": "A5",
    "gain": -16
   },
   {
    "effect": "impact",
-   "t": 20.605,
+   "t": 23.241,
    "gain": -9
   },
   {
    "effect": "end",
-   "t": 25.138,
+   "t": 27.9,
    "gain": -13
   },
   {
    "effect": "voice",
    "t": 0.69,
    "file": "line_00.wav",
-   "duration": 2.16
+   "duration": 2.605
   },
   {
    "effect": "voice",
-   "t": 2.95,
+   "t": 3.395,
    "file": "line_01.wav",
-   "duration": 1.805
+   "duration": 2.055
   },
   {
    "effect": "voice",
-   "t": 4.855,
+   "t": 5.55,
    "file": "line_02.wav",
-   "duration": 2.075
+   "duration": 2.395
   },
   {
    "effect": "voice",
-   "t": 7.13,
+   "t": 8.145,
    "file": "line_03.wav",
-   "duration": 1.12
+   "duration": 1.265
   },
   {
    "effect": "voice",
-   "t": 8.4,
+   "t": 9.56,
    "file": "line_04.wav",
-   "duration": 2.14
+   "duration": 2.43
   },
   {
    "effect": "voice",
-   "t": 10.69,
+   "t": 12.14,
    "file": "line_05.wav",
-   "duration": 1.32
+   "duration": 1.44
   },
   {
    "effect": "voice",
-   "t": 13.458,
+   "t": 14.908,
    "file": "line_06.wav",
-   "duration": 1.415
+   "duration": 1.625
   },
   {
    "effect": "voice",
-   "t": 15.553,
+   "t": 17.336,
    "file": "line_07.wav",
-   "duration": 3.015
+   "duration": 3.3
   },
   {
    "effect": "voice",
-   "t": 18.718,
+   "t": 20.786,
    "file": "line_08.wav",
-   "duration": 3.02
+   "duration": 3.565
   },
   {
    "effect": "voice",
-   "t": 21.888,
+   "t": 24.501,
    "file": "line_09.wav",
-   "duration": 2.55
+   "duration": 2.735
   }
  ]
 }

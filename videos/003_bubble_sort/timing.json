@@ -1,404 +1,404 @@
 {
- "voice": "bf_emma",
+ "voice": "bm_lewis",
  "speed": 1.1,
  "lines": [
   {
    "text": "How do computers sort millions of numbers?",
    "file": "line_00.wav",
-   "duration": 2.16,
+   "duration": 2.605,
    "words": [
     {
      "word": "How",
-     "start": 0.051,
-     "end": 0.191
+     "start": 0.032,
+     "end": 0.212
     },
     {
      "word": "do",
-     "start": 0.231,
-     "end": 0.371
+     "start": 0.232,
+     "end": 0.352
     },
     {
      "word": "computers",
-     "start": 0.411,
-     "end": 0.891
+     "start": 0.412,
+     "end": 0.953
     },
     {
      "word": "sort",
-     "start": 0.931,
-     "end": 1.151
+     "start": 1.274,
+     "end": 1.514
     },
     {
      "word": "millions",
-     "start": 1.191,
-     "end": 1.532
+     "start": 1.654,
+     "end": 2.055
     },
     {
      "word": "of",
-     "start": 1.572,
-     "end": 1.632
+     "start": 2.095,
+     "end": 2.175
     },
     {
      "word": "numbers?",
-     "start": 1.692,
-     "end": 2.052
+     "start": 2.235,
+     "end": 2.556
     }
    ]
   },
   {
    "text": "Let's start simple: Bubble Sort.",
    "file": "line_01.wav",
-   "duration": 1.805,
+   "duration": 2.055,
    "words": [
     {
      "word": "Let's",
      "start": 0.052,
-     "end": 0.252
+     "end": 0.272
     },
     {
      "word": "start",
-     "start": 0.272,
-     "end": 0.572
+     "start": 0.312,
+     "end": 0.653
     },
     {
-     "word": "simple",
-     "start": 0.612,
-     "end": 0.992
+     "word": "simple,",
+     "start": 0.693,
+     "end": 1.054
     },
     {
      "word": "bubble",
-     "start": 1.072,
-     "end": 1.372
+     "start": 1.394,
+     "end": 1.715
     },
     {
      "word": "sort.",
-     "start": 1.412,
-     "end": 1.732
+     "start": 1.735,
+     "end": 2.035
     }
    ]
   },
   {
    "text": "Compare neighbours. Left one bigger? Swap.",
    "file": "line_02.wav",
-   "duration": 2.075,
+   "duration": 2.395,
    "words": [
     {
      "word": "Compare",
-     "start": 0.027,
-     "end": 0.348
+     "start": 0.021,
+     "end": 0.382
     },
     {
-     "word": "neighbors",
-     "start": 0.408,
-     "end": 0.788
+     "word": "neighbours,",
+     "start": 0.422,
+     "end": 0.782
     },
     {
      "word": "left",
-     "start": 0.848,
-     "end": 1.048
+     "start": 1.083,
+     "end": 1.303
     },
     {
      "word": "one",
-     "start": 1.128,
-     "end": 1.248
+     "start": 1.423,
+     "end": 1.543
     },
     {
-     "word": "bigger",
-     "start": 1.268,
-     "end": 1.568
+     "word": "bigger,",
+     "start": 1.604,
+     "end": 1.884
     },
     {
      "word": "swap.",
-     "start": 1.748,
-     "end": 2.028
+     "start": 2.144,
+     "end": 2.445
     }
    ]
   },
   {
    "text": "If not, leave them.",
    "file": "line_03.wav",
-   "duration": 1.12,
+   "duration": 1.265,
    "words": [
     {
      "word": "If",
-     "start": 0.073,
-     "end": 0.173
+     "start": 0.091,
+     "end": 0.191
     },
     {
-     "word": "not",
-     "start": 0.233,
-     "end": 0.473
+     "word": "not,",
+     "start": 0.251,
+     "end": 0.532
     },
     {
      "word": "leave",
-     "start": 0.553,
-     "end": 0.773
+     "start": 0.832,
+     "end": 1.072
     },
     {
      "word": "them.",
-     "start": 0.813,
-     "end": 1.013
+     "start": 1.112,
+     "end": 1.253
     }
    ]
   },
   {
    "text": "The biggest gets carried to the end, and locks.",
    "file": "line_04.wav",
-   "duration": 2.14,
+   "duration": 2.43,
    "words": [
     {
      "word": "The",
-     "start": 0.014,
-     "end": 0.094
+     "start": 0.049,
+     "end": 0.129
     },
     {
      "word": "biggest",
-     "start": 0.134,
-     "end": 0.414
+     "start": 0.169,
+     "end": 0.489
     },
     {
      "word": "gets",
-     "start": 0.454,
-     "end": 0.674
+     "start": 0.549,
+     "end": 0.75
     },
     {
      "word": "carried",
-     "start": 0.714,
-     "end": 1.014
+     "start": 0.79,
+     "end": 1.11
     },
     {
      "word": "to",
-     "start": 1.034,
-     "end": 1.114
+     "start": 1.13,
+     "end": 1.211
     },
     {
      "word": "the",
-     "start": 1.134,
-     "end": 1.234
+     "start": 1.251,
+     "end": 1.351
     },
     {
-     "word": "end",
-     "start": 1.314,
-     "end": 1.514
+     "word": "end,",
+     "start": 1.451,
+     "end": 1.631
     },
     {
      "word": "and",
-     "start": 1.614,
-     "end": 1.694
+     "start": 1.932,
+     "end": 2.032
     },
     {
      "word": "locks.",
-     "start": 1.734,
-     "end": 2.014
+     "start": 2.092,
+     "end": 2.372
     }
    ]
   },
   {
    "text": "Repeat on what's left.",
    "file": "line_05.wav",
-   "duration": 1.32,
+   "duration": 1.44,
    "words": [
     {
      "word": "Repeat",
-     "start": 0.074,
-     "end": 0.434
+     "start": 0.083,
+     "end": 0.524
     },
     {
      "word": "on",
-     "start": 0.494,
-     "end": 0.575
+     "start": 0.785,
+     "end": 0.865
     },
     {
      "word": "what's",
-     "start": 0.615,
-     "end": 0.835
+     "start": 0.925,
+     "end": 1.165
     },
     {
      "word": "left.",
-     "start": 0.915,
-     "end": 1.215
+     "start": 1.245,
+     "end": 1.486
     }
    ]
   },
   {
    "text": "No swaps? It's sorted.",
    "file": "line_06.wav",
-   "duration": 1.415,
+   "duration": 1.625,
    "words": [
     {
      "word": "No",
-     "start": 0.095,
-     "end": 0.255
+     "start": 0.087,
+     "end": 0.267
     },
     {
-     "word": "swaps",
-     "start": 0.315,
-     "end": 0.655
+     "word": "swaps,",
+     "start": 0.347,
+     "end": 0.708
     },
     {
      "word": "it's",
-     "start": 0.735,
-     "end": 0.835
+     "start": 1.028,
+     "end": 1.168
     },
     {
      "word": "sorted.",
-     "start": 0.875,
-     "end": 1.315
+     "start": 1.208,
+     "end": 1.629
     }
    ]
   },
   {
    "text": "But there's one problem: it's terrible at huge datasets.",
    "file": "line_07.wav",
-   "duration": 3.015,
+   "duration": 3.3,
    "words": [
     {
      "word": "But",
-     "start": 0.02,
-     "end": 0.1
+     "start": 0.025,
+     "end": 0.105
     },
     {
      "word": "there's",
-     "start": 0.14,
-     "end": 0.34
+     "start": 0.125,
+     "end": 0.345
     },
     {
      "word": "one",
-     "start": 0.44,
-     "end": 0.561
+     "start": 0.506,
+     "end": 0.646
     },
     {
      "word": "problem,",
-     "start": 0.621,
-     "end": 1.001
+     "start": 0.726,
+     "end": 1.067
     },
     {
      "word": "it's",
-     "start": 1.341,
-     "end": 1.461
+     "start": 1.487,
+     "end": 1.608
     },
     {
      "word": "terrible",
-     "start": 1.501,
-     "end": 1.901
+     "start": 1.668,
+     "end": 2.088
     },
     {
      "word": "at",
-     "start": 1.961,
-     "end": 2.021
+     "start": 2.148,
+     "end": 2.229
     },
     {
      "word": "huge",
-     "start": 2.081,
-     "end": 2.301
+     "start": 2.349,
+     "end": 2.669
     },
     {
      "word": "data",
-     "start": 2.341,
-     "end": 2.601
+     "start": 2.749,
+     "end": 3.03
     },
     {
      "word": "sets.",
-     "start": 2.621,
-     "end": 2.901
+     "start": 3.05,
+     "end": 3.29
     }
    ]
   },
   {
    "text": "A million numbers could take five hundred billion comparisons.",
    "file": "line_08.wav",
-   "duration": 3.02,
+   "duration": 3.565,
    "words": [
     {
      "word": "A",
-     "start": 0.066,
-     "end": 0.106
+     "start": 0.071,
+     "end": 0.131
     },
     {
      "word": "million",
-     "start": 0.126,
-     "end": 0.446
+     "start": 0.171,
+     "end": 0.492
     },
     {
      "word": "numbers",
-     "start": 0.506,
-     "end": 0.827
+     "start": 0.552,
+     "end": 0.873
     },
     {
      "word": "could",
-     "start": 0.887,
-     "end": 1.007
+     "start": 1.173,
+     "end": 1.313
     },
     {
      "word": "take",
-     "start": 1.047,
-     "end": 1.227
+     "start": 1.333,
+     "end": 1.554
     },
     {
      "word": "500",
-     "start": 1.307,
-     "end": 1.847
+     "start": 1.694,
+     "end": 2.335
     },
     {
      "word": "billion",
-     "start": 1.887,
-     "end": 2.227
+     "start": 2.455,
+     "end": 2.816
     },
     {
      "word": "comparisons.",
-     "start": 2.267,
-     "end": 2.907
+     "start": 2.876,
+     "end": 3.537
     }
    ]
   },
   {
    "text": "Know a faster algorithm? Tell me in the comments!",
    "file": "line_09.wav",
-   "duration": 2.55,
+   "duration": 2.735,
    "words": [
     {
      "word": "Know",
-     "start": 0.067,
-     "end": 0.227
+     "start": 0.073,
+     "end": 0.233
     },
     {
      "word": "a",
-     "start": 0.267,
-     "end": 0.287
+     "start": 0.293,
+     "end": 0.353
     },
     {
      "word": "faster",
-     "start": 0.347,
-     "end": 0.727
+     "start": 0.453,
+     "end": 0.894
     },
     {
      "word": "algorithm,",
-     "start": 0.808,
-     "end": 1.288
+     "start": 1.014,
+     "end": 1.475
     },
     {
      "word": "tell",
-     "start": 1.548,
-     "end": 1.708
+     "start": 1.796,
+     "end": 1.976
     },
     {
      "word": "me",
-     "start": 1.748,
-     "end": 1.828
+     "start": 1.996,
+     "end": 2.056
     },
     {
      "word": "in",
-     "start": 1.848,
-     "end": 1.908
+     "start": 2.096,
+     "end": 2.176
     },
     {
      "word": "the",
-     "start": 1.928,
-     "end": 2.008
+     "start": 2.196,
+     "end": 2.276
     },
     {
      "word": "comments.",
-     "start": 2.048,
-     "end": 2.408
+     "start": 2.316,
+     "end": 2.717
     }
    ]
   }
