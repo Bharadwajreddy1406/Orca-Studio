@@ -8,426 +8,426 @@
     {
      "word": "calling",
      "start": 0.06,
-     "end": 0.401
+     "end": 0.382
     },
     {
      "word": "a",
-     "start": 0.441,
-     "end": 0.481
+     "start": 0.422,
+     "end": 0.462
     },
     {
      "word": "hospital's",
-     "start": 0.541,
-     "end": 1.103
+     "start": 0.502,
+     "end": 1.025
     },
     {
      "word": "ai",
-     "start": 1.283,
-     "end": 1.604
+     "start": 1.185,
+     "end": 1.487
     },
     {
      "word": "assistant",
-     "start": 1.664,
-     "end": 2.105
+     "start": 1.547,
+     "end": 1.949
     }
    ],
    "start": 0.06,
-   "end": 2.105
+   "end": 1.949
   },
   {
    "text": "You want an appointment. Someone else has a billing question.",
    "words": [
     {
      "word": "you",
-     "start": 2.585,
-     "end": 2.725
+     "start": 2.269,
+     "end": 2.41
     },
     {
      "word": "want",
-     "start": 2.765,
-     "end": 2.966
+     "start": 2.43,
+     "end": 2.631
     },
     {
      "word": "an",
-     "start": 2.986,
-     "end": 3.046
+     "start": 2.651,
+     "end": 2.711
     },
     {
      "word": "appointment",
-     "start": 3.086,
-     "end": 3.587
+     "start": 2.731,
+     "end": 3.214
     },
     {
      "word": "someone",
-     "start": 4.5,
-     "end": 4.82
+     "start": 4.04,
+     "end": 4.341
     },
     {
      "word": "else",
-     "start": 4.86,
-     "end": 5.04
+     "start": 4.381,
+     "end": 4.541
     },
     {
      "word": "has",
-     "start": 5.081,
-     "end": 5.241
+     "start": 4.581,
+     "end": 4.721
     },
     {
      "word": "a",
-     "start": 5.301,
-     "end": 5.321
+     "start": 4.781,
+     "end": 4.801
     },
     {
      "word": "billing",
-     "start": 5.381,
-     "end": 5.721
+     "start": 4.841,
+     "end": 5.162
     },
     {
      "word": "question",
-     "start": 5.781,
-     "end": 6.221
+     "start": 5.222,
+     "end": 5.622
     }
    ],
-   "start": 2.585,
-   "end": 6.221
+   "start": 2.269,
+   "end": 5.622
   },
   {
    "text": "Same process for both? Of course not!",
    "words": [
     {
      "word": "same",
-     "start": 6.701,
-     "end": 6.921
+     "start": 5.942,
+     "end": 6.142
     },
     {
      "word": "process",
-     "start": 6.981,
-     "end": 7.501
+     "start": 6.203,
+     "end": 6.683
     },
     {
      "word": "for",
-     "start": 7.542,
-     "end": 7.682
+     "start": 6.723,
+     "end": 6.864
     },
     {
      "word": "both",
-     "start": 7.782,
-     "end": 8.102
+     "start": 6.944,
+     "end": 7.244
     },
     {
      "word": "of",
-     "start": 8.802,
-     "end": 8.883
+     "start": 7.885,
+     "end": 7.965
     },
     {
      "word": "course",
-     "start": 9.003,
-     "end": 9.323
+     "start": 8.085,
+     "end": 8.386
     },
     {
      "word": "not",
-     "start": 9.403,
-     "end": 9.683
+     "start": 8.466,
+     "end": 8.706
     }
    ],
-   "start": 6.701,
-   "end": 9.683
+   "start": 5.942,
+   "end": 8.706
   },
   {
    "text": "First, AI figures out what each caller needs.",
    "words": [
     {
      "word": "first",
-     "start": 10.163,
-     "end": 10.503
+     "start": 9.026,
+     "end": 9.347
     },
     {
      "word": "ai",
-     "start": 11.063,
-     "end": 11.364
+     "start": 9.847,
+     "end": 10.148
     },
     {
      "word": "figures",
-     "start": 11.424,
-     "end": 11.744
+     "start": 10.208,
+     "end": 10.488
     },
     {
      "word": "out",
-     "start": 11.824,
-     "end": 11.944
+     "start": 10.548,
+     "end": 10.688
     },
     {
      "word": "what",
-     "start": 12.044,
-     "end": 12.204
+     "start": 10.769,
+     "end": 10.929
     },
     {
      "word": "each",
-     "start": 12.344,
-     "end": 12.504
+     "start": 11.049,
+     "end": 11.209
     },
     {
      "word": "caller",
-     "start": 12.565,
-     "end": 12.865
+     "start": 11.249,
+     "end": 11.55
     },
     {
      "word": "needs",
-     "start": 12.925,
-     "end": 13.225
+     "start": 11.59,
+     "end": 11.87
     }
    ],
-   "start": 10.163,
-   "end": 13.225
+   "start": 9.026,
+   "end": 11.87
   },
   {
    "text": "Appointments go to scheduling.",
    "words": [
     {
      "word": "appointments",
-     "start": 13.706,
-     "end": 14.246
+     "start": 12.19,
+     "end": 12.711
     },
     {
      "word": "go",
-     "start": 14.326,
-     "end": 14.446
+     "start": 12.771,
+     "end": 12.871
     },
     {
      "word": "to",
-     "start": 14.466,
-     "end": 14.526
+     "start": 12.911,
+     "end": 12.971
     },
     {
      "word": "scheduling",
-     "start": 14.586,
-     "end": 15.067
+     "start": 13.011,
+     "end": 13.452
     }
    ],
-   "start": 13.706,
-   "end": 15.067
+   "start": 12.19,
+   "end": 13.452
   },
   {
    "text": "Billing questions go to billing.",
    "words": [
     {
      "word": "billing",
-     "start": 15.548,
-     "end": 15.908
+     "start": 13.772,
+     "end": 14.092
     },
     {
      "word": "questions",
-     "start": 15.968,
-     "end": 16.429
+     "start": 14.152,
+     "end": 14.593
     },
     {
      "word": "go",
-     "start": 16.709,
-     "end": 16.829
+     "start": 14.833,
+     "end": 14.953
     },
     {
      "word": "to",
-     "start": 16.869,
-     "end": 16.949
+     "start": 14.993,
+     "end": 15.053
     },
     {
      "word": "billing",
-     "start": 16.989,
-     "end": 17.329
+     "start": 15.093,
+     "end": 15.414
     }
    ],
-   "start": 15.548,
-   "end": 17.329
+   "start": 13.772,
+   "end": 15.414
   },
   {
    "text": "Every request takes the right road.",
    "words": [
     {
      "word": "every",
-     "start": 17.809,
-     "end": 18.049
+     "start": 15.734,
+     "end": 15.955
     },
     {
      "word": "request",
-     "start": 18.129,
-     "end": 18.59
+     "start": 16.035,
+     "end": 16.475
     },
     {
      "word": "takes",
-     "start": 18.73,
-     "end": 18.97
+     "start": 16.595,
+     "end": 16.816
     },
     {
      "word": "the",
-     "start": 19.03,
-     "end": 19.15
+     "start": 16.876,
+     "end": 16.976
     },
     {
      "word": "right",
-     "start": 19.25,
-     "end": 19.45
+     "start": 17.076,
+     "end": 17.276
     },
     {
      "word": "road",
-     "start": 19.55,
-     "end": 19.851
+     "start": 17.356,
+     "end": 17.637
     }
    ],
-   "start": 17.809,
-   "end": 19.851
+   "start": 15.734,
+   "end": 17.637
   },
   {
    "text": "That's Routing.",
    "words": [
     {
      "word": "that's",
-     "start": 20.331,
-     "end": 20.611
+     "start": 17.957,
+     "end": 18.217
     },
     {
      "word": "routing",
-     "start": 20.712,
-     "end": 21.072
+     "start": 18.317,
+     "end": 18.638
     }
    ],
-   "start": 20.331,
-   "end": 21.072
+   "start": 17.957,
+   "end": 18.638
   },
   {
    "text": "Right request, right workflow, right specialist.",
    "words": [
     {
      "word": "right",
-     "start": 21.552,
-     "end": 21.733
+     "start": 18.958,
+     "end": 19.138
     },
     {
      "word": "request",
-     "start": 21.813,
-     "end": 22.273
+     "start": 19.198,
+     "end": 19.639
     },
     {
      "word": "right",
-     "start": 22.733,
-     "end": 22.953
+     "start": 20.059,
+     "end": 20.26
     },
     {
      "word": "workflow",
-     "start": 23.014,
-     "end": 23.554
+     "start": 20.32,
+     "end": 20.84
     },
     {
      "word": "right",
-     "start": 24.134,
-     "end": 24.375
+     "start": 21.361,
+     "end": 21.561
     },
     {
      "word": "specialist",
-     "start": 24.435,
-     "end": 25.015
+     "start": 21.642,
+     "end": 22.182
     }
    ],
-   "start": 21.552,
-   "end": 25.015
+   "start": 18.958,
+   "end": 22.182
   },
   {
    "text": "Just remember... if AI misreads the request, it sends it down the wrong path.",
    "words": [
     {
      "word": "just",
-     "start": 25.495,
-     "end": 25.715
+     "start": 22.502,
+     "end": 22.703
     },
     {
      "word": "remember",
-     "start": 25.795,
-     "end": 26.175
+     "start": 22.763,
+     "end": 23.123
     },
     {
      "word": "if",
-     "start": 26.816,
-     "end": 26.896
+     "start": 23.704,
+     "end": 23.784
     },
     {
      "word": "ai",
-     "start": 27.096,
-     "end": 27.436
+     "start": 23.944,
+     "end": 24.285
     },
     {
      "word": "misreads",
-     "start": 27.516,
-     "end": 28.016
+     "start": 24.345,
+     "end": 24.826
     },
     {
      "word": "the",
-     "start": 28.077,
-     "end": 28.177
+     "start": 24.866,
+     "end": 24.966
     },
     {
      "word": "request",
-     "start": 28.237,
-     "end": 28.677
+     "start": 25.006,
+     "end": 25.426
     },
     {
      "word": "it",
-     "start": 29.217,
-     "end": 29.297
+     "start": 25.927,
+     "end": 26.007
     },
     {
      "word": "sends",
-     "start": 29.397,
-     "end": 29.678
+     "start": 26.087,
+     "end": 26.348
     },
     {
      "word": "it",
-     "start": 29.738,
-     "end": 29.798
+     "start": 26.408,
+     "end": 26.468
     },
     {
      "word": "down",
-     "start": 29.858,
-     "end": 30.118
+     "start": 26.528,
+     "end": 26.748
     },
     {
      "word": "the",
-     "start": 30.158,
-     "end": 30.258
+     "start": 26.808,
+     "end": 26.908
     },
     {
      "word": "wrong",
-     "start": 30.338,
-     "end": 30.698
+     "start": 26.989,
+     "end": 27.309
     },
     {
      "word": "path",
-     "start": 30.779,
-     "end": 31.099
+     "start": 27.369,
+     "end": 27.71
     }
    ],
-   "start": 25.495,
-   "end": 31.099
+   "start": 22.502,
+   "end": 27.71
   },
   {
    "text": "Next caller, please!",
    "words": [
     {
      "word": "next",
-     "start": 31.579,
-     "end": 31.788
+     "start": 28.03,
+     "end": 28.23
     },
     {
      "word": "caller",
-     "start": 31.83,
-     "end": 32.184
+     "start": 28.25,
+     "end": 28.57
     },
     {
      "word": "please",
-     "start": 32.226,
-     "end": 32.539
+     "start": 28.61,
+     "end": 28.911
     }
    ],
-   "start": 31.579,
-   "end": 32.539
+   "start": 28.03,
+   "end": 28.911
   }
  ]
 }

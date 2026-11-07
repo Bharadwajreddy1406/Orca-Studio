@@ -1,5 +1,5 @@
 {
- "duration": 36.489,
+ "duration": 32.861,
  "take": "take_0259904f30eb_tight.wav",
  "cues": [
   {
@@ -24,322 +24,322 @@
   },
   {
    "effect": "pop",
-   "t": 1.833,
+   "t": 1.735,
    "gain": -20
   },
   {
    "effect": "pop",
-   "t": 3.135,
+   "t": 2.819,
    "gain": -21
   },
   {
    "effect": "ding0",
-   "t": 3.686,
+   "t": 3.331,
    "gain": -20
   },
   {
    "effect": "pop",
-   "t": 5.05,
+   "t": 4.59,
    "gain": -21
   },
   {
    "effect": "ding2",
-   "t": 5.981,
+   "t": 5.441,
    "gain": -20
   },
   {
    "effect": "slide",
-   "t": 7.451,
+   "t": 6.692,
    "gain": -21
   },
   {
    "effect": "knock",
-   "t": 8.302,
+   "t": 7.464,
    "gain": -15
   },
   {
    "effect": "knock",
-   "t": 8.452,
+   "t": 7.614,
    "gain": -19
   },
   {
    "effect": "buzz",
-   "t": 9.953,
+   "t": 9.016,
    "gain": -16
   },
   {
    "effect": "whip",
-   "t": 10.663,
+   "t": 9.526,
    "gain": -18
   },
   {
    "effect": "clink",
-   "t": 10.813,
+   "t": 9.676,
    "gain": -26
   },
   {
    "effect": "clink",
-   "t": 10.858,
+   "t": 9.721,
    "gain": -26
   },
   {
    "effect": "clink",
-   "t": 10.903,
+   "t": 9.766,
    "gain": -26
   },
   {
    "effect": "clink",
-   "t": 10.948,
+   "t": 9.811,
    "gain": -26
   },
   {
    "effect": "clink",
-   "t": 10.993,
+   "t": 9.856,
    "gain": -26
   },
   {
    "effect": "clink",
-   "t": 11.038,
+   "t": 9.901,
    "gain": -26
   },
   {
    "effect": "clink",
-   "t": 11.083,
+   "t": 9.946,
    "gain": -26
   },
   {
    "effect": "clink",
-   "t": 11.128,
+   "t": 9.991,
    "gain": -26
   },
   {
    "effect": "clink",
-   "t": 11.173,
+   "t": 10.036,
    "gain": -26
   },
   {
    "effect": "clink",
-   "t": 11.218,
+   "t": 10.081,
    "gain": -26
   },
   {
    "effect": "pop",
-   "t": 11.163,
+   "t": 10.026,
    "gain": -21
   },
   {
    "effect": "pop",
-   "t": 11.313,
+   "t": 10.176,
    "gain": -21
   },
   {
    "effect": "sparkle",
-   "t": 11.974,
+   "t": 10.758,
    "gain": -25
   },
   {
    "effect": "pop",
-   "t": 12.374,
+   "t": 11.098,
    "gain": -19
   },
   {
    "effect": "pop",
-   "t": 13.115,
+   "t": 11.799,
    "gain": -19
   },
   {
    "effect": "tick",
-   "t": 14.206,
+   "t": 12.69,
    "gain": -17
   },
   {
    "effect": "slide",
-   "t": 14.706,
+   "t": 13.19,
    "gain": -22
   },
   {
    "effect": "step",
-   "t": 15.136,
+   "t": 13.561,
    "gain": -16
   },
   {
    "effect": "sparkle",
-   "t": 15.186,
+   "t": 13.611,
    "gain": -23
   },
   {
    "effect": "tick",
-   "t": 16.048,
+   "t": 14.272,
    "gain": -17
   },
   {
    "effect": "slide",
-   "t": 16.548,
+   "t": 14.772,
    "gain": -22
   },
   {
    "effect": "step",
-   "t": 17.539,
+   "t": 15.643,
    "gain": -16
   },
   {
    "effect": "sparkle",
-   "t": 17.589,
+   "t": 15.693,
    "gain": -23
   },
   {
    "effect": "tick",
-   "t": 18.409,
+   "t": 16.334,
    "gain": -21
   },
   {
    "effect": "tick",
-   "t": 18.709,
+   "t": 16.634,
    "gain": -21
   },
   {
    "effect": "tick",
-   "t": 19.009,
+   "t": 16.934,
    "gain": -21
   },
   {
    "effect": "tick",
-   "t": 19.309,
+   "t": 17.234,
    "gain": -21
   },
   {
    "effect": "tick",
-   "t": 19.609,
+   "t": 17.534,
    "gain": -21
   },
   {
    "effect": "tick",
-   "t": 19.909,
+   "t": 17.834,
    "gain": -21
   },
   {
    "effect": "clink",
-   "t": 19.149,
+   "t": 17.074,
    "gain": -24
   },
   {
    "effect": "clink",
-   "t": 19.449,
+   "t": 17.374,
    "gain": -24
   },
   {
    "effect": "clink",
-   "t": 19.749,
+   "t": 17.674,
    "gain": -24
   },
   {
    "effect": "clink",
-   "t": 20.049,
+   "t": 17.974,
    "gain": -24
   },
   {
    "effect": "clink",
-   "t": 20.349,
+   "t": 18.274,
    "gain": -24
   },
   {
    "effect": "clink",
-   "t": 20.649,
+   "t": 18.574,
    "gain": -24
   },
   {
    "effect": "sparkle",
-   "t": 20.1,
+   "t": 17.906,
    "gain": -20
   },
   {
    "effect": "arrive",
-   "t": 21.262,
+   "t": 18.867,
    "gain": -15
   },
   {
    "effect": "ding0",
-   "t": 22.363,
+   "t": 19.748,
    "gain": -18
   },
   {
    "effect": "ding1",
-   "t": 23.564,
+   "t": 20.87,
    "gain": -18
   },
   {
    "effect": "ding2",
-   "t": 24.985,
+   "t": 22.192,
    "gain": -18
   },
   {
    "effect": "slide",
-   "t": 23.664,
+   "t": 20.97,
    "gain": -23
   },
   {
    "effect": "step",
-   "t": 24.985,
+   "t": 22.192,
    "gain": -18
   },
   {
    "effect": "pop",
-   "t": 26.195,
+   "t": 23.202,
    "gain": -21
   },
   {
    "effect": "buzz",
-   "t": 28.166,
+   "t": 24.995,
    "gain": -20
   },
   {
    "effect": "tick",
-   "t": 29.747,
+   "t": 26.437,
    "gain": -18
   },
   {
    "effect": "slide",
-   "t": 30.147,
+   "t": 26.837,
    "gain": -21
   },
   {
    "effect": "step",
-   "t": 30.888,
+   "t": 27.539,
    "gain": -18
   },
   {
    "effect": "sad",
-   "t": 31.329,
+   "t": 27.919,
    "gain": -18
   },
   {
    "effect": "pop",
-   "t": 32.129,
+   "t": 28.58,
    "gain": -19
   },
   {
    "effect": "chord0",
-   "t": 32.776,
+   "t": 29.16,
    "gain": -18
   },
   {
    "effect": "chord1",
-   "t": 32.776,
+   "t": 29.16,
    "gain": -18
   },
   {
    "effect": "chord2",
-   "t": 32.776,
+   "t": 29.16,
    "gain": -18
   },
   {
    "effect": "sparkle",
-   "t": 32.826,
+   "t": 29.21,
    "gain": -21
   },
   {
    "effect": "end",
-   "t": 34.389,
+   "t": 30.761,
    "gain": -13
   },
   {

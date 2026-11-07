@@ -2,7 +2,7 @@
 
 For a Claude session starting with no memory. Standing rules are in `AGENTS.md`. This file holds the commands and the known traps.
 
-Commands run from the repository root, in PowerShell, unless noted. The folder may be renamed from `manima`, so use relative paths.
+Commands run from the repository root, in PowerShell, unless noted.
 
 **[H]** marks something taken from this project's history that was not re-tested when this file was written (2026-11-01). Everything else was checked against the repo, the installed tool's source or help, or a harmless test. Long-running commands below were read from source and from `videos/003_bubble_sort`, not re-run.
 
