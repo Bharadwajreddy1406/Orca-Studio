@@ -1,0 +1,534 @@
+{
+ "take": "take_0e78986062f3_tight.wav",
+ "voice": "liam",
+ "lines": [
+  {
+   "text": "Planning a trip to Goa? Ugh... where do you even start?",
+   "words": [
+    {
+     "word": "planning",
+     "start": 0.031,
+     "end": 0.331
+    },
+    {
+     "word": "a",
+     "start": 0.371,
+     "end": 0.391
+    },
+    {
+     "word": "trip",
+     "start": 0.431,
+     "end": 0.631
+    },
+    {
+     "word": "to",
+     "start": 0.651,
+     "end": 0.751
+    },
+    {
+     "word": "goa",
+     "start": 0.791,
+     "end": 1.171
+    },
+    {
+     "word": "where",
+     "start": 2.752,
+     "end": 2.892
+    },
+    {
+     "word": "do",
+     "start": 2.912,
+     "end": 2.952
+    },
+    {
+     "word": "you",
+     "start": 2.972,
+     "end": 3.032
+    },
+    {
+     "word": "even",
+     "start": 3.052,
+     "end": 3.232
+    },
+    {
+     "word": "start",
+     "start": 3.332,
+     "end": 3.712
+    }
+   ],
+   "start": 0.031,
+   "end": 3.712
+  },
+  {
+   "text": "Flights. Hotels. Places to visit.",
+   "words": [
+    {
+     "word": "flights",
+     "start": 4.192,
+     "end": 4.672
+    },
+    {
+     "word": "hotels",
+     "start": 4.932,
+     "end": 5.572
+    },
+    {
+     "word": "places",
+     "start": 5.932,
+     "end": 6.273
+    },
+    {
+     "word": "to",
+     "start": 6.313,
+     "end": 6.393
+    },
+    {
+     "word": "visit",
+     "start": 6.453,
+     "end": 6.813
+    }
+   ],
+   "start": 4.192,
+   "end": 6.813
+  },
+  {
+   "text": "One by one? That takes forever.",
+   "words": [
+    {
+     "word": "one",
+     "start": 7.293,
+     "end": 7.393
+    },
+    {
+     "word": "by",
+     "start": 7.433,
+     "end": 7.573
+    },
+    {
+     "word": "one",
+     "start": 7.833,
+     "end": 7.993
+    },
+    {
+     "word": "that",
+     "start": 8.013,
+     "end": 8.294
+    },
+    {
+     "word": "takes",
+     "start": 8.334,
+     "end": 8.514
+    },
+    {
+     "word": "forever",
+     "start": 8.574,
+     "end": 9.094
+    }
+   ],
+   "start": 7.293,
+   "end": 9.094
+  },
+  {
+   "text": "What if AI did all three... at the same time?",
+   "words": [
+    {
+     "word": "what",
+     "start": 9.575,
+     "end": 9.775
+    },
+    {
+     "word": "if",
+     "start": 9.875,
+     "end": 9.975
+    },
+    {
+     "word": "ai",
+     "start": 10.175,
+     "end": 10.516
+    },
+    {
+     "word": "did",
+     "start": 10.576,
+     "end": 10.736
+    },
+    {
+     "word": "all",
+     "start": 10.836,
+     "end": 10.976
+    },
+    {
+     "word": "three",
+     "start": 11.056,
+     "end": 11.336
+    },
+    {
+     "word": "at",
+     "start": 11.896,
+     "end": 11.956
+    },
+    {
+     "word": "the",
+     "start": 11.976,
+     "end": 12.056
+    },
+    {
+     "word": "same",
+     "start": 12.096,
+     "end": 12.296
+    },
+    {
+     "word": "time",
+     "start": 12.356,
+     "end": 12.576
+    }
+   ],
+   "start": 9.575,
+   "end": 12.576
+  },
+  {
+   "text": "Behind the scenes, it splits into three prompts.",
+   "words": [
+    {
+     "word": "behind",
+     "start": 13.056,
+     "end": 13.336
+    },
+    {
+     "word": "the",
+     "start": 13.376,
+     "end": 13.456
+    },
+    {
+     "word": "scenes",
+     "start": 13.496,
+     "end": 13.836
+    },
+    {
+     "word": "it",
+     "start": 13.936,
+     "end": 14.016
+    },
+    {
+     "word": "splits",
+     "start": 14.056,
+     "end": 14.356
+    },
+    {
+     "word": "into",
+     "start": 14.436,
+     "end": 14.596
+    },
+    {
+     "word": "three",
+     "start": 14.676,
+     "end": 14.896
+    },
+    {
+     "word": "prompts",
+     "start": 14.956,
+     "end": 15.277
+    }
+   ],
+   "start": 13.056,
+   "end": 15.277
+  },
+  {
+   "text": "One finds flights.",
+   "words": [
+    {
+     "word": "one",
+     "start": 15.757,
+     "end": 15.917
+    },
+    {
+     "word": "finds",
+     "start": 16.117,
+     "end": 16.397
+    },
+    {
+     "word": "flights",
+     "start": 16.457,
+     "end": 16.817
+    }
+   ],
+   "start": 15.757,
+   "end": 16.817
+  },
+  {
+   "text": "One compares hotels.",
+   "words": [
+    {
+     "word": "one",
+     "start": 17.297,
+     "end": 17.437
+    },
+    {
+     "word": "compares",
+     "start": 17.557,
+     "end": 17.937
+    },
+    {
+     "word": "hotels",
+     "start": 17.977,
+     "end": 18.477
+    }
+   ],
+   "start": 17.297,
+   "end": 18.477
+  },
+  {
+   "text": "One picks places to visit.",
+   "words": [
+    {
+     "word": "one",
+     "start": 18.957,
+     "end": 19.097
+    },
+    {
+     "word": "picks",
+     "start": 19.317,
+     "end": 19.518
+    },
+    {
+     "word": "places",
+     "start": 19.558,
+     "end": 19.898
+    },
+    {
+     "word": "to",
+     "start": 19.938,
+     "end": 20.018
+    },
+    {
+     "word": "visit",
+     "start": 20.058,
+     "end": 20.338
+    }
+   ],
+   "start": 18.957,
+   "end": 20.338
+  },
+  {
+   "text": "None of them waits.",
+   "words": [
+    {
+     "word": "none",
+     "start": 20.818,
+     "end": 20.978
+    },
+    {
+     "word": "of",
+     "start": 21.018,
+     "end": 21.078
+    },
+    {
+     "word": "them",
+     "start": 21.118,
+     "end": 21.278
+    },
+    {
+     "word": "waits",
+     "start": 21.478,
+     "end": 21.758
+    }
+   ],
+   "start": 20.818,
+   "end": 21.758
+  },
+  {
+   "text": "Then the results come together... into one travel plan!",
+   "words": [
+    {
+     "word": "then",
+     "start": 22.238,
+     "end": 22.438
+    },
+    {
+     "word": "the",
+     "start": 22.478,
+     "end": 22.558
+    },
+    {
+     "word": "results",
+     "start": 22.598,
+     "end": 22.958
+    },
+    {
+     "word": "come",
+     "start": 23.018,
+     "end": 23.198
+    },
+    {
+     "word": "together",
+     "start": 23.218,
+     "end": 23.558
+    },
+    {
+     "word": "into",
+     "start": 23.898,
+     "end": 24.079
+    },
+    {
+     "word": "one",
+     "start": 24.299,
+     "end": 24.459
+    },
+    {
+     "word": "travel",
+     "start": 24.679,
+     "end": 24.999
+    },
+    {
+     "word": "plan",
+     "start": 25.039,
+     "end": 25.259
+    }
+   ],
+   "start": 22.238,
+   "end": 25.259
+  },
+  {
+   "text": "That's Parallel Chaining.",
+   "words": [
+    {
+     "word": "that's",
+     "start": 25.739,
+     "end": 26.06
+    },
+    {
+     "word": "parallel",
+     "start": 26.24,
+     "end": 26.66
+    },
+    {
+     "word": "chaining",
+     "start": 26.68,
+     "end": 27.021
+    }
+   ],
+   "start": 25.739,
+   "end": 27.021
+  },
+  {
+   "text": "All at once, saving you time.",
+   "words": [
+    {
+     "word": "all",
+     "start": 27.501,
+     "end": 27.641
+    },
+    {
+     "word": "at",
+     "start": 27.681,
+     "end": 27.741
+    },
+    {
+     "word": "once",
+     "start": 27.881,
+     "end": 28.041
+    },
+    {
+     "word": "saving",
+     "start": 28.282,
+     "end": 28.582
+    },
+    {
+     "word": "you",
+     "start": 28.602,
+     "end": 28.722
+    },
+    {
+     "word": "time",
+     "start": 28.762,
+     "end": 29.023
+    }
+   ],
+   "start": 27.501,
+   "end": 29.023
+  },
+  {
+   "text": "Just remember... it only works when tasks don't depend on each other.",
+   "words": [
+    {
+     "word": "just",
+     "start": 29.503,
+     "end": 29.663
+    },
+    {
+     "word": "remember",
+     "start": 29.703,
+     "end": 30.083
+    },
+    {
+     "word": "it",
+     "start": 30.664,
+     "end": 30.724
+    },
+    {
+     "word": "only",
+     "start": 30.804,
+     "end": 31.005
+    },
+    {
+     "word": "works",
+     "start": 31.065,
+     "end": 31.345
+    },
+    {
+     "word": "when",
+     "start": 31.385,
+     "end": 31.525
+    },
+    {
+     "word": "tasks",
+     "start": 31.565,
+     "end": 32.006
+    },
+    {
+     "word": "don't",
+     "start": 32.186,
+     "end": 32.427
+    },
+    {
+     "word": "depend",
+     "start": 32.487,
+     "end": 32.807
+    },
+    {
+     "word": "on",
+     "start": 32.887,
+     "end": 32.947
+    },
+    {
+     "word": "each",
+     "start": 32.987,
+     "end": 33.087
+    },
+    {
+     "word": "other",
+     "start": 33.148,
+     "end": 33.308
+    }
+   ],
+   "start": 29.503,
+   "end": 33.308
+  },
+  {
+   "text": "Happy travels!",
+   "words": [
+    {
+     "word": "happy",
+     "start": 33.788,
+     "end": 34.028
+    },
+    {
+     "word": "travels",
+     "start": 34.048,
+     "end": 34.409
+    }
+   ],
+   "start": 33.788,
+   "end": 34.409
+  }
+ ]
+}

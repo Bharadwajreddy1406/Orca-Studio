@@ -1,0 +1,134 @@
+<!doctype html>
+<!--
+  Hierarchical Chaining, built on the Brad & Prad kit and the shared Reel kit (reel/). One
+  continuous Three.js world, every frame computed from time alone. build_timeline.py writes
+  timeline.js, and index.html from this template with the times measured from the take.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Hierarchical Chaining</title>
+    <link rel="stylesheet" href="brand/brand.css" />
+    <script src="brand/vendor/gsap.min.js"></script>
+    <script src="brand/stickman/stickman.js"></script>
+    <script src="brand/brand-kit.js"></script>
+    <script src="timeline.js"></script>
+    <script type="importmap">{ "imports": { "three": "./lib/three.module.js" } }</script>
+    <style>
+      #root { position: absolute; inset: 0; overflow: hidden; }
+      #world, #figures, #labels { position: absolute; inset: 0; }
+      #world canvas { display: block; }
+      #labels > * { position: absolute; left: 0; top: 0; opacity: 0; will-change: transform; }
+      .line { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 84px; line-height: 1.04; opacity: 0; }
+      .line.big { font-size: 112px; }
+
+      #label-root { width: 400px; margin-left: -200px; margin-top: -70px; text-align: center; font-size: 64px; line-height: 70px; }
+      .node-label { width: 360px; margin-left: -180px; margin-top: -30px; text-align: center; font-size: 52px; line-height: 60px; }
+
+      .card { width: 380px; margin-left: -190px; margin-top: 0; padding: 12px 22px 16px; background: var(--brand-background); border: 5px solid var(--brand-ink); transform-origin: 50% 0; }
+      .card h3 { margin: 0 0 4px; font-size: 76px; line-height: 82px; text-align: center; font-weight: 700; }
+      .card .row { display: flex; align-items: center; gap: 18px; height: 76px; font-size: 64px; border-top: 4px solid var(--brand-ink-faint); }
+      .card .dot { display: block; width: 20px; height: 20px; border-radius: 50%; background: var(--brand-ink); flex: none; }
+      .card .box { display: block; width: 40px; height: 40px; border: 5px solid var(--brand-ink); flex: none; }
+      .card .count { display: flex; align-items: baseline; justify-content: center; gap: 16px; height: 144px; }
+      .card .count b { font-size: 140px; line-height: 144px; }
+      .card .count span { font-size: 64px; }
+      .tick { width: 120px; height: 120px; margin-left: -60px; margin-top: -60px; }
+      .badge { width: 100px; margin-left: -50px; margin-top: -50px; text-align: center; }
+      .badge i { display: block; width: 88px; height: 88px; margin: 0 auto; border-radius: 50%; background: var(--brand-ink); color: var(--brand-background); font-style: normal; font-size: 60px; line-height: 88px; }
+      .badge.hot i { background: var(--brand-accent); }
+
+      #gauge { position: absolute; top: 290px; left: 120px; width: 840px; padding: 22px 30px 26px; background: var(--brand-background); border: 4px solid var(--brand-ink); opacity: 0; }
+      .meter { display: flex; align-items: center; gap: 22px; height: 76px; }
+      .meter span { width: 230px; flex: none; font-size: 46px; }
+      .meter div { flex: 1; height: 44px; border: 4px solid var(--brand-ink); }
+      .meter div i { display: block; height: 100%; width: 0; background: var(--brand-ink); }
+      #meter-managing i { background: var(--brand-accent); }
+
+      #end-title { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 168px; line-height: 1; }
+      #end-handle { position: absolute; top: 372px; left: 0; right: 0; text-align: center; }
+      #end-logo-slot { position: absolute; top: 470px; left: 50%; width: 280px; height: 280px; margin-left: -140px; }
+      #end-stage svg { position: absolute; inset: 0; overflow: visible; }
+    </style>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute">
+      <defs>
+        <symbol id="i-check" viewBox="0 0 64 64"><path d="M14 33 L27 46 L51 19" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+        <symbol id="i-person" viewBox="0 0 34 44"><circle cx="17" cy="9" r="7" fill="var(--brand-ink)" /><path d="M4 42 C4 26 30 26 30 42 Z" fill="var(--brand-ink)" /></symbol>
+      </defs>
+    </svg>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="__DURATION__" data-width="1080" data-height="1920" data-fps="60">
+      <div id="paper" class="clip" data-start="0" data-duration="__DURATION__" data-track-index="0">
+        <div class="paper-sheet bp-paper is-quiet"></div>
+        <div class="paper-sheet bp-paper"></div>
+        <div class="paper-sheet bp-paper is-folded"></div>
+      </div>
+
+      <div id="scene" class="clip" data-start="0" data-duration="__SCENE_LENGTH__" data-track-index="1">
+        <div id="world"></div>
+        <svg id="figures" viewBox="0 0 1080 1920" width="1080" height="1920" style="overflow: visible; pointer-events: none"></svg>
+        <div id="labels" data-layout-allow-overflow data-layout-allow-overlap>
+          <div id="label-root" class="bp-headline">Birthday<br />party</div>
+          <div class="node-label level-two bp-headline">Venue</div>
+          <div class="node-label level-two bp-headline">Food</div>
+          <div class="node-label level-two bp-headline">Decorations</div>
+
+          <div class="card bp-caption">
+            <h3 class="bp-headline">Menu</h3>
+            <div class="row"><i class="dot"></i>Cake</div>
+            <div class="row"><i class="dot"></i>Pizza</div>
+          </div>
+          <div class="card bp-caption">
+            <h3 class="bp-headline">Guests</h3>
+            <div class="count"><b class="bp-headline">24</b><span>kids</span></div>
+          </div>
+          <div class="card bp-caption">
+            <h3 class="bp-headline">Shopping</h3>
+            <div class="row"><i class="box"></i>Candles</div>
+            <div class="row"><i class="box"></i>Plates</div>
+          </div>
+
+          <svg class="tick" viewBox="0 0 64 64" style="color: var(--brand-background)"><circle cx="32" cy="32" r="29" fill="var(--brand-accent)" stroke="var(--brand-ink)" stroke-width="4" /><use href="#i-check" x="8" y="8" width="48" height="48" /></svg>
+          <svg class="tick" viewBox="0 0 64 64" style="color: var(--brand-background)"><circle cx="32" cy="32" r="29" fill="var(--brand-accent)" stroke="var(--brand-ink)" stroke-width="4" /><use href="#i-check" x="8" y="8" width="48" height="48" /></svg>
+          <svg class="tick" viewBox="0 0 64 64" style="color: var(--brand-background)"><circle cx="32" cy="32" r="29" fill="var(--brand-accent)" stroke="var(--brand-ink)" stroke-width="4" /><use href="#i-check" x="8" y="8" width="48" height="48" /></svg>
+
+          <div class="badge bp-headline"><i>1</i></div>
+          <div class="badge bp-headline"><i>2</i></div>
+          <div class="badge bp-headline"><i>3</i></div>
+        </div>
+
+        <div id="gauge" class="bp-caption">
+          <div class="meter" id="meter-managing"><span>Managing</span><div><i></i></div></div>
+          <div class="meter" id="meter-doing"><span>Doing</span><div><i></i></div></div>
+        </div>
+
+        <div class="bp-safe">
+          <div id="line-hook" class="line bp-headline">Where do you<br />even <span class="bp-accent">begin?</span></div>
+          <div id="line-levels" class="line bp-headline"><span class="level-word">Big</span> <span class="level-word">→ smaller</span> <span class="level-word bp-accent">→ tiny</span></div>
+          <div id="line-named" class="line bp-headline">Hierarchical<br /><span class="bp-accent">chaining</span></div>
+          <div id="line-party" class="line big bp-headline">Let's <span class="bp-accent">party!</span></div>
+        </div>
+      </div>
+
+      <div id="end-card" class="clip" data-start="__END_START__" data-duration="__END_LENGTH__" data-track-index="2">
+        <div class="bp-safe">
+          <div id="end-title" class="bp-headline bp-accent">Follow for more</div>
+          <div id="end-handle" class="bp-caption">@BradAndPrad</div>
+          <div id="end-logo-slot"></div>
+        </div>
+        <div id="end-stage"></div>
+      </div>
+
+      <div id="sheet-top" class="clip bp-torn-top" data-start="0" data-duration="1.3" data-track-index="3"></div>
+      <div id="sheet-bottom" class="clip bp-torn-bottom" data-start="0" data-duration="1.3" data-track-index="4"></div>
+    </div>
+
+    <script type="module">
+      import { timeline } from "./source/main.js";
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = timeline;
+    </script>
+  </body>
+</html>

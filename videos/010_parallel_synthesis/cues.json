@@ -1,0 +1,351 @@
+{
+ "duration": 35.105,
+ "take": "take_3abeb53b3366_tight.wav",
+ "cues": [
+  {
+   "effect": "tear",
+   "t": 0.0,
+   "gain": -14
+  },
+  {
+   "effect": "pop",
+   "t": 0.25,
+   "gain": -22
+  },
+  {
+   "effect": "pop",
+   "t": 0.31,
+   "gain": -22
+  },
+  {
+   "effect": "pop",
+   "t": 0.37,
+   "gain": -22
+  },
+  {
+   "effect": "tick",
+   "t": 1.0,
+   "gain": -25
+  },
+  {
+   "effect": "tick",
+   "t": 1.5,
+   "gain": -25
+  },
+  {
+   "effect": "tick",
+   "t": 2.0,
+   "gain": -25
+  },
+  {
+   "effect": "tick",
+   "t": 2.5,
+   "gain": -25
+  },
+  {
+   "effect": "tick",
+   "t": 3.0,
+   "gain": -25
+  },
+  {
+   "effect": "tick",
+   "t": 3.5,
+   "gain": -25
+  },
+  {
+   "effect": "tick",
+   "t": 4.0,
+   "gain": -25
+  },
+  {
+   "effect": "sad",
+   "t": 2.583,
+   "gain": -21
+  },
+  {
+   "effect": "pop",
+   "t": 4.405,
+   "gain": -19
+  },
+  {
+   "effect": "sparkle",
+   "t": 4.836,
+   "gain": -23
+  },
+  {
+   "effect": "whip",
+   "t": 5.797,
+   "gain": -17
+  },
+  {
+   "effect": "pop",
+   "t": 6.837,
+   "gain": -20
+  },
+  {
+   "effect": "pop",
+   "t": 7.177,
+   "gain": -22
+  },
+  {
+   "effect": "pop",
+   "t": 6.927,
+   "gain": -20
+  },
+  {
+   "effect": "pop",
+   "t": 7.237,
+   "gain": -22
+  },
+  {
+   "effect": "pop",
+   "t": 7.017,
+   "gain": -20
+  },
+  {
+   "effect": "pop",
+   "t": 7.297,
+   "gain": -22
+  },
+  {
+   "effect": "slide",
+   "t": 7.677,
+   "gain": -23
+  },
+  {
+   "effect": "slide",
+   "t": 7.707,
+   "gain": -23
+  },
+  {
+   "effect": "slide",
+   "t": 7.737,
+   "gain": -23
+  },
+  {
+   "effect": "knock",
+   "t": 8.938,
+   "gain": -15
+  },
+  {
+   "effect": "ding0",
+   "t": 9.388,
+   "gain": -20
+  },
+  {
+   "effect": "knock",
+   "t": 10.608,
+   "gain": -15
+  },
+  {
+   "effect": "ding1",
+   "t": 11.058,
+   "gain": -20
+  },
+  {
+   "effect": "knock",
+   "t": 12.599,
+   "gain": -15
+  },
+  {
+   "effect": "ding2",
+   "t": 13.049,
+   "gain": -20
+  },
+  {
+   "effect": "whip",
+   "t": 9.538,
+   "gain": -24
+  },
+  {
+   "effect": "whip",
+   "t": 11.208,
+   "gain": -24
+  },
+  {
+   "effect": "whip",
+   "t": 13.209,
+   "gain": -19
+  },
+  {
+   "effect": "slide",
+   "t": 13.719,
+   "gain": -22
+  },
+  {
+   "effect": "pop",
+   "t": 14.139,
+   "gain": -20
+  },
+  {
+   "effect": "slide",
+   "t": 14.08,
+   "gain": -22
+  },
+  {
+   "effect": "pop",
+   "t": 14.5,
+   "gain": -20
+  },
+  {
+   "effect": "slide",
+   "t": 14.36,
+   "gain": -22
+  },
+  {
+   "effect": "pop",
+   "t": 14.78,
+   "gain": -20
+  },
+  {
+   "effect": "buzz",
+   "t": 16.161,
+   "gain": -17
+  },
+  {
+   "effect": "knock",
+   "t": 16.741,
+   "gain": -21
+  },
+  {
+   "effect": "knock",
+   "t": 16.861,
+   "gain": -21
+  },
+  {
+   "effect": "knock",
+   "t": 16.981,
+   "gain": -21
+  },
+  {
+   "effect": "tick",
+   "t": 18.482,
+   "gain": -18
+  },
+  {
+   "effect": "tick",
+   "t": 18.682,
+   "gain": -18
+  },
+  {
+   "effect": "tick",
+   "t": 18.882,
+   "gain": -18
+  },
+  {
+   "effect": "sparkle",
+   "t": 19.722,
+   "gain": -23
+  },
+  {
+   "effect": "chord0",
+   "t": 20.883,
+   "gain": -18
+  },
+  {
+   "effect": "chord1",
+   "t": 20.883,
+   "gain": -18
+  },
+  {
+   "effect": "chord2",
+   "t": 20.883,
+   "gain": -18
+  },
+  {
+   "effect": "arrive",
+   "t": 22.163,
+   "gain": -15
+  },
+  {
+   "effect": "sweep",
+   "t": 24.683,
+   "gain": -19
+  },
+  {
+   "effect": "pop",
+   "t": 24.783,
+   "gain": -18
+  },
+  {
+   "effect": "chord0",
+   "t": 25.703,
+   "gain": -17
+  },
+  {
+   "effect": "chord1",
+   "t": 25.703,
+   "gain": -17
+  },
+  {
+   "effect": "chord2",
+   "t": 25.703,
+   "gain": -17
+  },
+  {
+   "effect": "sparkle",
+   "t": 25.753,
+   "gain": -21
+  },
+  {
+   "effect": "whip",
+   "t": 26.303,
+   "gain": -22
+  },
+  {
+   "effect": "step",
+   "t": 28.344,
+   "gain": -15
+  },
+  {
+   "effect": "buzz",
+   "t": 28.894,
+   "gain": -18
+  },
+  {
+   "effect": "sad",
+   "t": 29.464,
+   "gain": -21
+  },
+  {
+   "effect": "whip",
+   "t": 30.685,
+   "gain": -20
+  },
+  {
+   "effect": "slam",
+   "t": 30.985,
+   "gain": -13
+  },
+  {
+   "effect": "chord0",
+   "t": 31.315,
+   "gain": -18
+  },
+  {
+   "effect": "chord1",
+   "t": 31.315,
+   "gain": -18
+  },
+  {
+   "effect": "chord2",
+   "t": 31.315,
+   "gain": -18
+  },
+  {
+   "effect": "sparkle",
+   "t": 31.365,
+   "gain": -21
+  },
+  {
+   "effect": "end",
+   "t": 33.005,
+   "gain": -13
+  },
+  {
+   "effect": "voice",
+   "t": 0.55,
+   "gain": 0
+  }
+ ]
+}

@@ -135,6 +135,13 @@ class Pipeline:
         for name in THREE_FILES:
             source = (build if name != "LICENSE" else build.parent) / name
             shutil.copy2(source, library / name)
+        # The shared Reel kit (stage, cast, end card), served from the project like the brand kit.
+        kit = self.root / "shared" / "reel"
+        if (self.project / "source" / "index.template.html").is_file() and kit.is_dir():
+            target = self.project / "reel"
+            target.mkdir(exist_ok=True)
+            for script in kit.glob("*.js"):
+                shutil.copy2(script, target / script.name)
 
     def build(self) -> None:
         python = sys.executable

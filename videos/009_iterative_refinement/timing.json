@@ -1,0 +1,413 @@
+{
+ "take": "take_f94bb0f54632_tight.wav",
+ "voice": "charlie",
+ "lines": [
+  {
+   "text": "Big meeting tomorrow... and your AI slides look meh.",
+   "words": [
+    {
+     "word": "big",
+     "start": 0.06,
+     "end": 0.26
+    },
+    {
+     "word": "meeting",
+     "start": 0.3,
+     "end": 0.581
+    },
+    {
+     "word": "tomorrow",
+     "start": 0.641,
+     "end": 1.081
+    },
+    {
+     "word": "and",
+     "start": 1.602,
+     "end": 1.702
+    },
+    {
+     "word": "your",
+     "start": 1.742,
+     "end": 1.943
+    },
+    {
+     "word": "ai",
+     "start": 2.063,
+     "end": 2.403
+    },
+    {
+     "word": "slides",
+     "start": 2.463,
+     "end": 2.884
+    },
+    {
+     "word": "look",
+     "start": 2.944,
+     "end": 3.184
+    },
+    {
+     "word": "meh",
+     "start": 3.805,
+     "end": 4.045
+    }
+   ],
+   "start": 0.06,
+   "end": 4.045
+  },
+  {
+   "text": "Start over? No way.",
+   "words": [
+    {
+     "word": "start",
+     "start": 4.524,
+     "end": 4.784
+    },
+    {
+     "word": "over",
+     "start": 4.885,
+     "end": 5.105
+    },
+    {
+     "word": "no",
+     "start": 5.525,
+     "end": 5.686
+    },
+    {
+     "word": "way",
+     "start": 5.726,
+     "end": 6.066
+    }
+   ],
+   "start": 4.524,
+   "end": 6.066
+  },
+  {
+   "text": "What if you improved them, one pass at a time?",
+   "words": [
+    {
+     "word": "what",
+     "start": 6.546,
+     "end": 6.686
+    },
+    {
+     "word": "if",
+     "start": 6.746,
+     "end": 6.806
+    },
+    {
+     "word": "you",
+     "start": 6.846,
+     "end": 6.987
+    },
+    {
+     "word": "them",
+     "start": 7.507,
+     "end": 7.688
+    },
+    {
+     "word": "one",
+     "start": 8.108,
+     "end": 8.228
+    },
+    {
+     "word": "pass",
+     "start": 8.268,
+     "end": 8.549
+    },
+    {
+     "word": "at",
+     "start": 8.589,
+     "end": 8.669
+    },
+    {
+     "word": "a",
+     "start": 8.709,
+     "end": 8.729
+    },
+    {
+     "word": "time",
+     "start": 8.789,
+     "end": 9.089
+    }
+   ],
+   "start": 6.546,
+   "end": 9.089
+  },
+  {
+   "text": "Pass one: fix the structure.",
+   "words": [
+    {
+     "word": "pass",
+     "start": 9.569,
+     "end": 9.829
+    },
+    {
+     "word": "fix",
+     "start": 10.63,
+     "end": 10.91
+    },
+    {
+     "word": "the",
+     "start": 10.97,
+     "end": 11.071
+    },
+    {
+     "word": "structure",
+     "start": 11.111,
+     "end": 11.571
+    }
+   ],
+   "start": 9.569,
+   "end": 11.571
+  },
+  {
+   "text": "Pass two: simplify the words.",
+   "words": [
+    {
+     "word": "pass",
+     "start": 12.051,
+     "end": 12.332
+    },
+    {
+     "word": "simplify",
+     "start": 13.133,
+     "end": 13.653
+    },
+    {
+     "word": "the",
+     "start": 13.674,
+     "end": 13.774
+    },
+    {
+     "word": "words",
+     "start": 13.814,
+     "end": 14.174
+    }
+   ],
+   "start": 12.051,
+   "end": 14.174
+  },
+  {
+   "text": "Pass three: sharper examples, polished slides.",
+   "words": [
+    {
+     "word": "pass",
+     "start": 14.654,
+     "end": 14.935
+    },
+    {
+     "word": "sharper",
+     "start": 15.777,
+     "end": 16.198
+    },
+    {
+     "word": "examples",
+     "start": 16.258,
+     "end": 16.779
+    },
+    {
+     "word": "polished",
+     "start": 17.08,
+     "end": 17.601
+    },
+    {
+     "word": "slides",
+     "start": 17.782,
+     "end": 18.283
+    }
+   ],
+   "start": 14.654,
+   "end": 18.283
+  },
+  {
+   "text": "Every version beats the last one.",
+   "words": [
+    {
+     "word": "every",
+     "start": 18.763,
+     "end": 19.024
+    },
+    {
+     "word": "version",
+     "start": 19.084,
+     "end": 19.505
+    },
+    {
+     "word": "beats",
+     "start": 19.685,
+     "end": 19.966
+    },
+    {
+     "word": "the",
+     "start": 20.046,
+     "end": 20.147
+    },
+    {
+     "word": "last",
+     "start": 20.187,
+     "end": 20.467
+    },
+    {
+     "word": "one",
+     "start": 20.608,
+     "end": 20.728
+    }
+   ],
+   "start": 18.763,
+   "end": 20.728
+  },
+  {
+   "text": "That's Iterative Refinement.",
+   "words": [
+    {
+     "word": "that's",
+     "start": 21.208,
+     "end": 21.488
+    },
+    {
+     "word": "iterative",
+     "start": 21.669,
+     "end": 22.17
+    },
+    {
+     "word": "refinement",
+     "start": 22.23,
+     "end": 22.791
+    }
+   ],
+   "start": 21.208,
+   "end": 22.791
+  },
+  {
+   "text": "Small, focused passes... until it's good enough.",
+   "words": [
+    {
+     "word": "small",
+     "start": 23.271,
+     "end": 23.632
+    },
+    {
+     "word": "focused",
+     "start": 23.913,
+     "end": 24.314
+    },
+    {
+     "word": "passes",
+     "start": 24.374,
+     "end": 24.775
+    },
+    {
+     "word": "until",
+     "start": 25.316,
+     "end": 25.617
+    },
+    {
+     "word": "it's",
+     "start": 25.657,
+     "end": 25.817
+    },
+    {
+     "word": "good",
+     "start": 25.857,
+     "end": 26.038
+    },
+    {
+     "word": "enough",
+     "start": 26.078,
+     "end": 26.359
+    }
+   ],
+   "start": 23.271,
+   "end": 26.359
+  },
+  {
+   "text": "Just remember... decide what good enough means, or you'll polish forever.",
+   "words": [
+    {
+     "word": "just",
+     "start": 26.839,
+     "end": 27.039
+    },
+    {
+     "word": "remember",
+     "start": 27.099,
+     "end": 27.44
+    },
+    {
+     "word": "decide",
+     "start": 27.781,
+     "end": 28.202
+    },
+    {
+     "word": "what",
+     "start": 28.242,
+     "end": 28.403
+    },
+    {
+     "word": "good",
+     "start": 28.463,
+     "end": 28.623
+    },
+    {
+     "word": "enough",
+     "start": 28.643,
+     "end": 28.864
+    },
+    {
+     "word": "means",
+     "start": 28.924,
+     "end": 29.245
+    },
+    {
+     "word": "or",
+     "start": 29.646,
+     "end": 29.706
+    },
+    {
+     "word": "you'll",
+     "start": 29.746,
+     "end": 29.986
+    },
+    {
+     "word": "polish",
+     "start": 30.006,
+     "end": 30.387
+    },
+    {
+     "word": "forever",
+     "start": 30.427,
+     "end": 30.828
+    }
+   ],
+   "start": 26.839,
+   "end": 30.828
+  },
+  {
+   "text": "Go nail that meeting!",
+   "words": [
+    {
+     "word": "go",
+     "start": 31.308,
+     "end": 31.509
+    },
+    {
+     "word": "nail",
+     "start": 31.569,
+     "end": 31.809
+    },
+    {
+     "word": "that",
+     "start": 31.849,
+     "end": 31.99
+    },
+    {
+     "word": "meeting",
+     "start": 32.03,
+     "end": 32.351
+    }
+   ],
+   "start": 31.308,
+   "end": 32.351
+  }
+ ]
+}

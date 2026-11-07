@@ -1,0 +1,20 @@
+requesting one take: 580 characters with liam on eleven_v3
+tightened 39.85s to 35.03s
+    0.06   2.04  Spilled coffee on the menu's QR code?
+    2.36   4.54  Smudged. Scratched. Torn.
+    4.86   7.04  Ask for a new menu? Ugh.
+    7.36  10.18  What if it just... scans anyway?
+   10.50  13.14  Your link becomes bits. Black and white squares.
+   13.46  16.16  Three corner squares mark the spot, and which way's up.
+   16.48  19.12  Then extra repair data, computed from your message.
+   19.44  22.08  Now, splash! A chunk is gone.
+   22.40  24.26  The scanner rebuilds the missing pieces.
+   24.58  25.94  Your link pops right back!
+   26.26  28.29  That's Reed-Solomon error correction.
+   28.61  30.14  Up to thirty percent can go missing.
+   30.46  34.01  Hide too much, or a corner square? No scan.
+   34.33  34.99  Happy scanning!
+script words not heard: 0
+  heard '30' for 'thirty percent': timed from the heard words
+heard but not in script: none
+exit=0

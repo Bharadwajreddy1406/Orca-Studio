@@ -1,0 +1,126 @@
+<!doctype html>
+<!--
+  Feedback Chaining, built on the Brad & Prad kit. One continuous Three.js world, with every
+  frame computed from time alone. build_timeline.py writes timeline.js, and index.html from
+  this template with the times measured from the ElevenLabs take.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Feedback Chaining</title>
+    <link rel="stylesheet" href="brand/brand.css" />
+    <script src="brand/vendor/gsap.min.js"></script>
+    <script src="brand/stickman/stickman.js"></script>
+    <script src="brand/brand-kit.js"></script>
+    <script src="timeline.js"></script>
+    <script type="importmap">{ "imports": { "three": "./lib/three.module.js" } }</script>
+    <style>
+      #root { position: absolute; inset: 0; overflow: hidden; }
+      #world, #figures, #labels { position: absolute; inset: 0; }
+      #world canvas { display: block; }
+      #labels > * { position: absolute; left: 0; top: 0; opacity: 0; will-change: transform; }
+      .line { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 84px; line-height: 1.04; opacity: 0; }
+      .line.big { font-size: 112px; }
+
+      .plinth-label { width: 240px; margin-left: -120px; margin-top: -30px; text-align: center; font-size: 52px; line-height: 60px; }
+      #token { width: 150px; height: 104px; margin-left: -75px; margin-top: -52px; border: 4px solid var(--brand-ink); display: flex; align-items: center; justify-content: center; font-size: 46px; }
+      #token.code { background: var(--brand-ink); color: var(--brand-background); }
+      #token.error { background: var(--brand-accent); color: var(--brand-background); }
+      .verdict { width: 130px; height: 130px; margin-left: -65px; margin-top: -65px; }
+      #stop-word { width: 300px; margin-left: -150px; margin-top: -46px; text-align: center; color: var(--brand-background); font-size: 92px; line-height: 92px; }
+
+      #console { position: absolute; top: 290px; left: 100px; width: 880px; padding: 20px 28px 24px; background: var(--brand-background); border: 4px solid var(--brand-ink); opacity: 0; }
+      #console-head { display: flex; justify-content: space-between; align-items: center; height: 54px; font-size: 40px; }
+      #attempt { display: inline-block; min-width: 60px; }
+      #pips { display: flex; gap: 10px; align-items: center; }
+      #pips i { display: block; width: 30px; height: 30px; border: 4px solid var(--brand-ink); border-radius: 50%; }
+      #pips i.on { background: var(--brand-ink); }
+      #pips i.over { background: var(--brand-accent); border-color: var(--brand-accent); }
+      #pips b { margin-left: 6px; font-weight: 500; font-size: 32px; }
+      #code { margin-top: 10px; font-size: 44px; line-height: 58px; white-space: pre; }
+      #op { display: inline-block; padding: 0 6px; }
+      #op.bad { background: var(--brand-ink); color: var(--brand-background); }
+      #op.good { background: var(--brand-accent); color: var(--brand-background); }
+      #result { margin-top: 16px; padding-top: 14px; border-top: 3px solid var(--brand-ink-faint); display: flex; align-items: center; gap: 14px; font-size: 44px; line-height: 52px; }
+      #result svg { width: 46px; height: 46px; }
+      #result em { font-style: normal; font-size: 32px; }
+      #log { display: none; margin-top: 10px; }
+      .log-row { display: flex; align-items: center; gap: 22px; height: 66px; font-size: 42px; opacity: 0; }
+      .log-row svg { width: 44px; height: 44px; }
+      .log-row span:first-child { width: 40px; font-size: 34px; }
+      #bug { position: absolute; width: 70px; height: 70px; opacity: 0; }
+
+      #end-title { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 168px; line-height: 1; }
+      #end-handle { position: absolute; top: 372px; left: 0; right: 0; text-align: center; }
+      #end-logo-slot { position: absolute; top: 470px; left: 50%; width: 280px; height: 280px; margin-left: -140px; }
+      #end-stage svg { position: absolute; inset: 0; overflow: visible; }
+    </style>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute">
+      <defs>
+        <symbol id="i-check" viewBox="0 0 64 64"><path d="M14 33 L27 46 L51 19" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+        <symbol id="i-cross" viewBox="0 0 64 64"><path d="M17 17 L47 47 M47 17 L17 47" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" /></symbol>
+        <symbol id="i-bug" viewBox="0 0 96 96"><ellipse cx="48" cy="54" rx="22" ry="28" fill="var(--brand-accent)" /><circle cx="48" cy="24" r="12" fill="var(--brand-accent)" /><path d="M26 42 L10 32 M24 58 L8 58 M28 74 L14 86 M70 42 L86 32 M72 58 L88 58 M68 74 L82 86 M42 14 L34 4 M54 14 L62 4" stroke="var(--brand-accent)" stroke-width="6" stroke-linecap="round" fill="none" /><path d="M48 30 L48 80" stroke="var(--brand-background)" stroke-width="3" /></symbol>
+      </defs>
+    </svg>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="__DURATION__" data-width="1080" data-height="1920" data-fps="60">
+      <div id="paper" class="clip" data-start="0" data-duration="__DURATION__" data-track-index="0">
+        <div class="paper-sheet bp-paper is-quiet"></div>
+        <div class="paper-sheet bp-paper"></div>
+        <div class="paper-sheet bp-paper is-folded"></div>
+      </div>
+
+      <div id="scene" class="clip" data-start="0" data-duration="__SCENE_LENGTH__" data-track-index="1">
+        <div id="world"></div>
+        <svg id="figures" viewBox="0 0 1080 1920" width="1080" height="1920" style="overflow: visible; pointer-events: none"></svg>
+        <div id="labels" data-layout-allow-overflow data-layout-allow-overlap>
+          <div id="label-write" class="plinth-label bp-headline">Write</div>
+          <div id="label-test" class="plinth-label bp-headline">Test</div>
+          <div id="token" class="bp-code code">{ }</div>
+          <svg class="verdict" id="verdict-fail" viewBox="0 0 64 64" style="color: var(--brand-accent)"><circle cx="32" cy="32" r="29" fill="var(--brand-background)" stroke="var(--brand-accent)" stroke-width="5" /><use href="#i-cross" x="8" y="8" width="48" height="48" /></svg>
+          <svg class="verdict" id="verdict-pass" viewBox="0 0 64 64" style="color: var(--brand-background)"><circle cx="32" cy="32" r="29" fill="var(--brand-accent)" stroke="var(--brand-ink)" stroke-width="4" /><use href="#i-check" x="8" y="8" width="48" height="48" /></svg>
+          <div id="stop-word" class="bp-headline">STOP</div>
+        </div>
+
+        <div id="console" data-layout-allow-overflow>
+          <div id="console-head" class="bp-caption"><span>Attempt <b id="attempt">1</b></span><span id="pips"><i></i><i></i><i></i><i></i><i></i><b>limit</b></span></div>
+          <div id="code" class="bp-code">def add(a, b):
+    return a <span id="op">-</span> b</div>
+          <div id="result" class="bp-code"><span>add(2, 3) →</span><span id="got">?</span><svg id="mark"><use id="mark-use" href="#i-cross" /></svg><em id="expect" class="bp-caption">want 5</em></div>
+          <div id="log">
+            <div class="log-row bp-code"><span>1</span><span>a - b → -1</span><svg style="color: var(--brand-ink)"><use href="#i-cross" /></svg></div>
+            <div class="log-row bp-code"><span>2</span><span>a * b → 6</span><svg style="color: var(--brand-ink)"><use href="#i-cross" /></svg></div>
+            <div class="log-row bp-code"><span>3</span><span>a + b → 5</span><svg style="color: var(--brand-accent)"><use href="#i-check" /></svg></div>
+          </div>
+          <svg id="bug"><use href="#i-bug" /></svg>
+        </div>
+
+        <div class="bp-safe">
+          <div id="line-idea" class="line bp-headline">What if AI <span class="bp-accent">tested</span><br />its own code?</div>
+          <div id="line-named" class="line big bp-headline">Feedback <span class="bp-accent">chaining</span></div>
+          <div id="line-stop" class="line big bp-headline">Know when<br />to <span class="bp-accent">stop!</span></div>
+        </div>
+      </div>
+
+      <div id="end-card" class="clip" data-start="__END_START__" data-duration="__END_LENGTH__" data-track-index="2">
+        <div class="bp-safe">
+          <div id="end-title" class="bp-headline bp-accent">Follow for more</div>
+          <div id="end-handle" class="bp-caption">@BradAndPrad</div>
+          <div id="end-logo-slot"></div>
+        </div>
+        <div id="end-stage"></div>
+      </div>
+
+      <div id="sheet-top" class="clip bp-torn-top" data-start="0" data-duration="1.3" data-track-index="3"></div>
+      <div id="sheet-bottom" class="clip bp-torn-bottom" data-start="0" data-duration="1.3" data-track-index="4"></div>
+    </div>
+
+    <script type="module">
+      import { timeline } from "./source/main.js";
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = timeline;
+    </script>
+  </body>
+</html>

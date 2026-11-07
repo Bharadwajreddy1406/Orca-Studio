@@ -1,0 +1,472 @@
+{
+ "take": "take_3abeb53b3366_tight.wav",
+ "voice": "liam",
+ "lines": [
+  {
+   "text": "Your app is suddenly... so... slow.",
+   "words": [
+    {
+     "word": "your",
+     "start": 0.06,
+     "end": 0.24
+    },
+    {
+     "word": "app",
+     "start": 0.341,
+     "end": 0.481
+    },
+    {
+     "word": "is",
+     "start": 0.521,
+     "end": 0.621
+    },
+    {
+     "word": "suddenly",
+     "start": 0.661,
+     "end": 1.142
+    },
+    {
+     "word": "so",
+     "start": 1.162,
+     "end": 1.202
+    },
+    {
+     "word": "slow",
+     "start": 1.983,
+     "end": 3.325
+    }
+   ],
+   "start": 0.06,
+   "end": 3.325
+  },
+  {
+   "text": "Where's the problem hiding?",
+   "words": [
+    {
+     "word": "where's",
+     "start": 3.805,
+     "end": 4.126
+    },
+    {
+     "word": "the",
+     "start": 4.166,
+     "end": 4.246
+    },
+    {
+     "word": "problem",
+     "start": 4.286,
+     "end": 4.707
+    },
+    {
+     "word": "hiding",
+     "start": 4.747,
+     "end": 5.067
+    }
+   ],
+   "start": 3.805,
+   "end": 5.067
+  },
+  {
+   "text": "AI checks three angles at once.",
+   "words": [
+    {
+     "word": "ai",
+     "start": 5.547,
+     "end": 5.887
+    },
+    {
+     "word": "checks",
+     "start": 5.967,
+     "end": 6.227
+    },
+    {
+     "word": "three",
+     "start": 6.287,
+     "end": 6.527
+    },
+    {
+     "word": "angles",
+     "start": 6.627,
+     "end": 6.887
+    },
+    {
+     "word": "at",
+     "start": 6.947,
+     "end": 6.987
+    },
+    {
+     "word": "once",
+     "start": 7.127,
+     "end": 7.308
+    }
+   ],
+   "start": 5.547,
+   "end": 7.308
+  },
+  {
+   "text": "One looks at the database.",
+   "words": [
+    {
+     "word": "one",
+     "start": 7.788,
+     "end": 7.908
+    },
+    {
+     "word": "looks",
+     "start": 7.948,
+     "end": 8.168
+    },
+    {
+     "word": "at",
+     "start": 8.208,
+     "end": 8.268
+    },
+    {
+     "word": "the",
+     "start": 8.288,
+     "end": 8.368
+    },
+    {
+     "word": "database",
+     "start": 8.388,
+     "end": 8.868
+    }
+   ],
+   "start": 7.788,
+   "end": 8.868
+  },
+  {
+   "text": "One looks at the frontend.",
+   "words": [
+    {
+     "word": "one",
+     "start": 9.348,
+     "end": 9.508
+    },
+    {
+     "word": "looks",
+     "start": 9.688,
+     "end": 9.868
+    },
+    {
+     "word": "at",
+     "start": 9.908,
+     "end": 9.968
+    },
+    {
+     "word": "the",
+     "start": 9.988,
+     "end": 10.048
+    },
+    {
+     "word": "frontend",
+     "start": 10.088,
+     "end": 10.509
+    }
+   ],
+   "start": 9.348,
+   "end": 10.509
+  },
+  {
+   "text": "One looks at the network.",
+   "words": [
+    {
+     "word": "one",
+     "start": 10.989,
+     "end": 11.149
+    },
+    {
+     "word": "looks",
+     "start": 11.389,
+     "end": 11.649
+    },
+    {
+     "word": "at",
+     "start": 11.769,
+     "end": 11.849
+    },
+    {
+     "word": "the",
+     "start": 11.889,
+     "end": 11.989
+    },
+    {
+     "word": "network",
+     "start": 12.049,
+     "end": 12.429
+    }
+   ],
+   "start": 10.989,
+   "end": 12.429
+  },
+  {
+   "text": "Each brings back its own findings.",
+   "words": [
+    {
+     "word": "each",
+     "start": 12.909,
+     "end": 13.069
+    },
+    {
+     "word": "brings",
+     "start": 13.169,
+     "end": 13.47
+    },
+    {
+     "word": "back",
+     "start": 13.53,
+     "end": 13.75
+    },
+    {
+     "word": "its",
+     "start": 13.81,
+     "end": 13.91
+    },
+    {
+     "word": "own",
+     "start": 14.05,
+     "end": 14.19
+    },
+    {
+     "word": "findings",
+     "start": 14.27,
+     "end": 14.75
+    }
+   ],
+   "start": 12.909,
+   "end": 14.75
+  },
+  {
+   "text": "But they don't all agree.",
+   "words": [
+    {
+     "word": "but",
+     "start": 15.231,
+     "end": 15.351
+    },
+    {
+     "word": "they",
+     "start": 15.391,
+     "end": 15.531
+    },
+    {
+     "word": "don't",
+     "start": 15.611,
+     "end": 15.831
+    },
+    {
+     "word": "all",
+     "start": 15.991,
+     "end": 16.131
+    },
+    {
+     "word": "agree",
+     "start": 16.191,
+     "end": 16.632
+    }
+   ],
+   "start": 15.231,
+   "end": 16.632
+  },
+  {
+   "text": "So AI compares them... and finds the most likely cause.",
+   "words": [
+    {
+     "word": "so",
+     "start": 17.112,
+     "end": 17.352
+    },
+    {
+     "word": "ai",
+     "start": 17.492,
+     "end": 17.772
+    },
+    {
+     "word": "compares",
+     "start": 17.832,
+     "end": 18.232
+    },
+    {
+     "word": "them",
+     "start": 18.272,
+     "end": 18.412
+    },
+    {
+     "word": "and",
+     "start": 18.992,
+     "end": 19.092
+    },
+    {
+     "word": "finds",
+     "start": 19.172,
+     "end": 19.532
+    },
+    {
+     "word": "the",
+     "start": 19.592,
+     "end": 19.672
+    },
+    {
+     "word": "most",
+     "start": 19.713,
+     "end": 19.933
+    },
+    {
+     "word": "likely",
+     "start": 19.993,
+     "end": 20.313
+    },
+    {
+     "word": "cause",
+     "start": 20.333,
+     "end": 20.693
+    }
+   ],
+   "start": 17.112,
+   "end": 20.693
+  },
+  {
+   "text": "That's Parallel Synthesis.",
+   "words": [
+    {
+     "word": "that's",
+     "start": 21.173,
+     "end": 21.533
+    },
+    {
+     "word": "parallel",
+     "start": 21.613,
+     "end": 22.033
+    },
+    {
+     "word": "synthesis",
+     "start": 22.053,
+     "end": 22.633
+    }
+   ],
+   "start": 21.173,
+   "end": 22.633
+  },
+  {
+   "text": "Many views, one stronger answer.",
+   "words": [
+    {
+     "word": "many",
+     "start": 23.113,
+     "end": 23.333
+    },
+    {
+     "word": "views",
+     "start": 23.413,
+     "end": 23.793
+    },
+    {
+     "word": "one",
+     "start": 24.233,
+     "end": 24.413
+    },
+    {
+     "word": "stronger",
+     "start": 24.533,
+     "end": 25.013
+    },
+    {
+     "word": "answer",
+     "start": 25.153,
+     "end": 25.473
+    }
+   ],
+   "start": 23.113,
+   "end": 25.473
+  },
+  {
+   "text": "Just remember... the answer is only as good as the analyses behind it.",
+   "words": [
+    {
+     "word": "just",
+     "start": 25.953,
+     "end": 26.154
+    },
+    {
+     "word": "remember",
+     "start": 26.174,
+     "end": 26.554
+    },
+    {
+     "word": "the",
+     "start": 27.034,
+     "end": 27.154
+    },
+    {
+     "word": "answer",
+     "start": 27.254,
+     "end": 27.514
+    },
+    {
+     "word": "is",
+     "start": 27.574,
+     "end": 27.634
+    },
+    {
+     "word": "only",
+     "start": 27.794,
+     "end": 27.994
+    },
+    {
+     "word": "as",
+     "start": 28.074,
+     "end": 28.134
+    },
+    {
+     "word": "good",
+     "start": 28.194,
+     "end": 28.454
+    },
+    {
+     "word": "as",
+     "start": 28.554,
+     "end": 28.614
+    },
+    {
+     "word": "the",
+     "start": 28.654,
+     "end": 28.754
+    },
+    {
+     "word": "analyses",
+     "start": 28.814,
+     "end": 29.414
+    },
+    {
+     "word": "behind",
+     "start": 29.474,
+     "end": 29.835
+    },
+    {
+     "word": "it",
+     "start": 29.875,
+     "end": 29.955
+    }
+   ],
+   "start": 25.953,
+   "end": 29.955
+  },
+  {
+   "text": "Case closed!",
+   "words": [
+    {
+     "word": "case",
+     "start": 30.435,
+     "end": 30.675
+    },
+    {
+     "word": "closed",
+     "start": 30.715,
+     "end": 31.155
+    }
+   ],
+   "start": 30.435,
+   "end": 31.155
+  }
+ ]
+}

@@ -1,0 +1,205 @@
+<!doctype html>
+<!--
+  Parallel Chaining, built on the Brad & Prad kit. One continuous Three.js world, with every
+  frame computed from time alone. build_timeline.py writes timeline.js, and index.html from
+  this template with the times measured from the ElevenLabs take.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Parallel Chaining</title>
+    <link rel="stylesheet" href="brand/brand.css" />
+    <script src="brand/vendor/gsap.min.js"></script>
+    <script src="brand/stickman/stickman.js"></script>
+    <script src="brand/brand-kit.js"></script>
+    <script src="timeline.js"></script>
+    <script type="importmap">{ "imports": { "three": "./lib/three.module.js" } }</script>
+    <style>
+      #root { position: absolute; inset: 0; overflow: hidden; }
+      #world, #figures, #labels { position: absolute; inset: 0; }
+      #world canvas { display: block; }
+      #labels > * { position: absolute; left: 0; top: 0; opacity: 0; will-change: transform; }
+      .line { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 84px; line-height: 1.04; opacity: 0; }
+      .line.big { font-size: 112px; }
+      .icon { width: 100%; height: 100%; }
+
+      #goa-sign { width: 220px; margin-left: -110px; margin-top: -40px; text-align: center; font-size: 72px; line-height: 80px; }
+      .plinth-icon { width: 120px; height: 90px; margin-left: -60px; margin-top: -45px; }
+      .ring { width: 120px; height: 120px; margin-left: -60px; margin-top: -60px; }
+      .result { width: 112px; height: 112px; margin-left: -56px; margin-top: -56px; border-radius: 50%; background: var(--brand-ink); padding: 22px; }
+      #hub-label, #merge-label { width: 360px; margin-left: -180px; margin-top: -26px; text-align: center; font-size: 46px; line-height: 52px; }
+
+      .task { position: absolute; top: 300px; width: 250px; height: 250px; padding: 26px 20px 0; background: var(--brand-background); border: 4px solid var(--brand-ink); text-align: center; opacity: 0; }
+      .task svg { width: 130px; height: 130px; }
+      .task div { font-size: 46px; line-height: 56px; margin-top: 6px; }
+
+      #gantt { position: absolute; top: 290px; left: 100px; width: 880px; height: 300px; padding: 18px 22px; background: var(--brand-background); border: 4px solid var(--brand-ink); opacity: 0; }
+      #gantt-title { position: relative; height: 50px; font-size: 40px; line-height: 46px; }
+      #gantt-title span { position: absolute; left: 0; top: 0; white-space: nowrap; opacity: 0; }
+      #gantt-title .total { left: auto; right: 0; font-size: 34px; }
+      #gantt-body { position: relative; height: 210px; }
+      .row-label { position: absolute; left: 0; width: 120px; height: 46px; display: flex; align-items: center; justify-content: center; opacity: 0; }
+      .row-label svg { width: 46px; height: 46px; }
+      .row-label.word { font-size: 30px; line-height: 32px; text-align: center; }
+      .bar { position: absolute; left: 130px; height: 42px; background: var(--brand-ink); transform-origin: 0 50%; }
+      .bar.ghost { background: var(--brand-ink-soft); }
+      .bar i { position: absolute; right: -4px; top: -4px; bottom: -4px; width: 8px; background: var(--brand-accent); }
+      #gantt-finish { position: absolute; top: -6px; bottom: -6px; width: 5px; background: var(--brand-accent); }
+      #gantt-saved { position: absolute; top: -6px; height: 8px; background: var(--brand-accent); opacity: 0; }
+      #gantt-saved-label { position: absolute; top: 172px; text-align: center; color: var(--brand-accent); font-size: 70px; line-height: 70px; white-space: nowrap; opacity: 0; }
+      #gantt-arrow { position: absolute; width: 60px; height: 70px; opacity: 0; }
+
+      .art { position: absolute; left: 556px; top: 600px; width: 404px; height: 470px; padding: 22px 24px; background: var(--brand-background); border: 4px solid var(--brand-ink); opacity: 0; }
+      .art-title { font-size: 36px; line-height: 44px; padding-bottom: 8px; margin-bottom: 12px; border-bottom: 3px solid var(--brand-ink); }
+      .flight { display: flex; align-items: center; gap: 14px; height: 74px; font-size: 44px; opacity: 0; }
+      .flight svg { width: 54px; height: 54px; flex: none; }
+      .flight u { flex: 1; height: 6px; background: var(--brand-ink-faint); text-decoration: none; }
+      .hotel { position: relative; height: 82px; opacity: 0; }
+      .hotel b { display: block; font-weight: 500; font-size: 36px; line-height: 40px; }
+      .hotel u { position: absolute; left: 0; top: 46px; height: 22px; background: var(--brand-ink); text-decoration: none; }
+      .hotel.over u { background: var(--brand-ink-faint); }
+      .hotel em { position: absolute; right: 0; top: 0; font-style: normal; font-size: 36px; }
+      #budget { position: absolute; left: 252px; top: 74px; width: 0; height: 266px; border-left: 5px dashed var(--brand-accent); opacity: 0; }
+      #budget-label { position: absolute; left: 180px; top: 352px; width: 150px; text-align: center; color: var(--brand-accent); font-size: 34px; opacity: 0; }
+      #map { position: absolute; left: 24px; right: 24px; top: 88px; bottom: 20px; }
+      .pin { opacity: 0; }
+
+      #plan { position: absolute; left: 556px; top: 560px; width: 404px; padding: 22px 24px 26px; background: var(--brand-background); border: 4px solid var(--brand-ink); opacity: 0; }
+      #plan .art-title { font-size: 44px; line-height: 50px; }
+      .plan-row { display: flex; gap: 14px; align-items: flex-start; margin-top: 18px; font-size: 34px; line-height: 40px; opacity: 0; }
+      .plan-row svg { width: 46px; height: 46px; flex: none; }
+
+      #end-title { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 168px; line-height: 1; }
+      #end-handle { position: absolute; top: 372px; left: 0; right: 0; text-align: center; }
+      #end-logo-slot { position: absolute; top: 470px; left: 50%; width: 280px; height: 280px; margin-left: -140px; }
+      #end-stage svg { position: absolute; inset: 0; overflow: visible; }
+    </style>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute">
+      <defs>
+        <symbol id="i-plane" viewBox="0 0 64 64"><path d="M30 6 C33 6 35 9 35 13 L35 25 L58 38 L58 44 L35 37 L35 50 L42 55 L42 59 L32 56 L22 59 L22 55 L29 50 L29 37 L6 44 L6 38 L29 25 L29 13 C29 9 30 6 30 6 Z" fill="currentColor" /></symbol>
+        <symbol id="i-hotel" viewBox="0 0 64 64"><path d="M8 50 L8 14 M8 36 L56 36 L56 50 M8 44 L56 44" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><circle cx="19" cy="28" r="6" fill="currentColor" /><path d="M29 22 L50 22 C54 22 56 25 56 29 L56 36 L29 36 Z" fill="currentColor" /></symbol>
+        <symbol id="i-pin" viewBox="0 0 64 64"><path d="M32 60 C32 60 12 38 12 25 C12 13 21 5 32 5 C43 5 52 13 52 25 C52 38 32 60 32 60 Z" fill="currentColor" /><circle cx="32" cy="25" r="8" fill="var(--brand-background)" /></symbol>
+        <symbol id="i-check" viewBox="0 0 64 64"><path d="M14 33 L27 46 L51 19" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      </defs>
+    </svg>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="38.559" data-width="1080" data-height="1920" data-fps="60">
+      <div id="paper" class="clip" data-start="0" data-duration="38.559" data-track-index="0">
+        <div class="paper-sheet bp-paper is-quiet"></div>
+        <div class="paper-sheet bp-paper"></div>
+        <div class="paper-sheet bp-paper is-folded"></div>
+      </div>
+
+      <div id="scene" class="clip" data-start="0" data-duration="36.559" data-track-index="1">
+        <div id="world"></div>
+        <svg id="figures" viewBox="0 0 1080 1920" width="1080" height="1920" style="overflow: visible; pointer-events: none"></svg>
+        <div id="labels" data-layout-allow-overflow data-layout-allow-overlap>
+          <div id="goa-sign" class="bp-headline">Goa</div>
+          <div id="hub-label" class="bp-caption">Your trip</div>
+          <div id="merge-label" class="bp-caption">Travel plan</div>
+          <svg class="plinth-icon" style="color: var(--brand-ink)"><use href="#i-plane" /></svg>
+          <svg class="plinth-icon" style="color: var(--brand-ink)"><use href="#i-hotel" /></svg>
+          <svg class="plinth-icon" style="color: var(--brand-ink)"><use href="#i-pin" /></svg>
+          <svg class="ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="var(--brand-background)" stroke="var(--brand-ink-faint)" stroke-width="12" /><circle class="ring-fill" cx="60" cy="60" r="50" fill="none" stroke="var(--brand-ink)" stroke-width="12" stroke-dasharray="314.2" transform="rotate(-90 60 60)" /><use class="ring-check" href="#i-check" x="30" y="30" width="60" height="60" style="color: var(--brand-accent)" /></svg>
+          <svg class="ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="var(--brand-background)" stroke="var(--brand-ink-faint)" stroke-width="12" /><circle class="ring-fill" cx="60" cy="60" r="50" fill="none" stroke="var(--brand-ink)" stroke-width="12" stroke-dasharray="314.2" transform="rotate(-90 60 60)" /><use class="ring-check" href="#i-check" x="30" y="30" width="60" height="60" style="color: var(--brand-accent)" /></svg>
+          <svg class="ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="var(--brand-background)" stroke="var(--brand-ink-faint)" stroke-width="12" /><circle class="ring-fill" cx="60" cy="60" r="50" fill="none" stroke="var(--brand-ink)" stroke-width="12" stroke-dasharray="314.2" transform="rotate(-90 60 60)" /><use class="ring-check" href="#i-check" x="30" y="30" width="60" height="60" style="color: var(--brand-accent)" /></svg>
+          <svg class="result" style="color: var(--brand-background)"><use href="#i-plane" /></svg>
+          <svg class="result" style="color: var(--brand-background)"><use href="#i-hotel" /></svg>
+          <svg class="result" style="color: var(--brand-background)"><use href="#i-pin" /></svg>
+        </div>
+
+        <div class="task" id="task-0" style="left: 120px"><svg><use href="#i-plane" /></svg><div class="bp-caption">Flights</div></div>
+        <div class="task" id="task-1" style="left: 415px"><svg><use href="#i-hotel" /></svg><div class="bp-caption">Hotels</div></div>
+        <div class="task" id="task-2" style="left: 710px"><svg><use href="#i-pin" /></svg><div class="bp-caption">Places</div></div>
+
+        <div id="gantt" data-layout-allow-overflow>
+          <div id="gantt-title" class="bp-caption">
+            <span id="title-order">One after another</span>
+            <span id="title-once">All at once?</span>
+            <span id="title-lanes">All three, at the same time</span>
+            <span id="title-compare">The time it takes</span>
+            <span id="title-depend">If hotels need the flight first</span>
+          </div>
+          <div id="gantt-body">
+            <div class="row-label word bp-caption" id="label-order">In order</div>
+            <div class="row-label" id="label-0"><svg><use href="#i-plane" /></svg></div>
+            <div class="row-label" id="label-1"><svg><use href="#i-hotel" /></svg></div>
+            <div class="row-label" id="label-2"><svg><use href="#i-pin" /></svg></div>
+            <div class="bar ghost" id="ghost-0"></div>
+            <div class="bar ghost" id="ghost-1"></div>
+            <div class="bar ghost" id="ghost-2"></div>
+            <div class="bar" id="bar-0"><i></i></div>
+            <div class="bar" id="bar-1"><i></i></div>
+            <div class="bar" id="bar-2"><i></i></div>
+            <div id="gantt-finish"></div>
+            <div id="gantt-saved"></div>
+            <div id="gantt-saved-label" class="bp-headline">Time saved</div>
+            <svg id="gantt-arrow" viewBox="0 0 60 70"><path d="M10 6 C40 8 46 30 40 58 M28 46 L40 60 L52 44" fill="none" stroke="var(--brand-accent)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </div>
+        </div>
+
+        <div class="art" id="art-0">
+          <div class="art-title bp-caption">Flights to Goa</div>
+          <div class="flight bp-caption"><svg><use href="#i-plane" /></svg>06:40<u></u></div>
+          <div class="flight bp-caption"><svg><use href="#i-plane" /></svg>11:15<u></u></div>
+          <div class="flight bp-caption"><svg><use href="#i-plane" /></svg>18:05<u></u></div>
+        </div>
+        <div class="art" id="art-1">
+          <div class="art-title bp-caption">Hotels, by price</div>
+          <div class="hotel over bp-caption"><b>Hotel A</b><u style="width: 330px"></u></div>
+          <div class="hotel bp-caption"><b>Hotel B</b><u style="width: 210px"></u><em><svg width="36" height="36" style="color: var(--brand-accent)"><use href="#i-check" /></svg></em></div>
+          <div class="hotel bp-caption"><b>Hotel C</b><u style="width: 160px"></u><em><svg width="36" height="36" style="color: var(--brand-accent)"><use href="#i-check" /></svg></em></div>
+          <div id="budget"></div>
+          <div id="budget-label" class="bp-caption">Budget</div>
+        </div>
+        <div class="art" id="art-2">
+          <div class="art-title bp-caption">Places to visit</div>
+          <svg id="map" viewBox="0 0 350 330">
+            <path d="M120 0 C110 40 140 70 120 110 C100 150 130 190 110 230 C95 265 115 300 100 330" fill="none" stroke="var(--brand-ink)" stroke-width="6" stroke-linecap="round" />
+            <path d="M0 0 L120 0 C110 40 140 70 120 110 C100 150 130 190 110 230 C95 265 115 300 100 330 L0 330 Z" fill="var(--brand-ink-faint)" />
+            <g class="pin" transform="translate(150 50)"><use href="#i-pin" x="-18" y="-40" width="36" height="40" style="color: var(--brand-accent)" /><text x="26" y="-10" font-family="Source Serif 4 Caption" font-size="34" fill="var(--brand-ink)">Baga Beach</text></g>
+            <g class="pin" transform="translate(140 150)"><use href="#i-pin" x="-18" y="-40" width="36" height="40" style="color: var(--brand-accent)" /><text x="26" y="-10" font-family="Source Serif 4 Caption" font-size="34" fill="var(--brand-ink)">Fort Aguada</text></g>
+            <g class="pin" transform="translate(150 270)"><use href="#i-pin" x="-18" y="-40" width="36" height="40" style="color: var(--brand-accent)" /><text x="26" y="-30" font-family="Source Serif 4 Caption" font-size="34" fill="var(--brand-ink)">Dudhsagar</text><text x="26" y="6" font-family="Source Serif 4 Caption" font-size="34" fill="var(--brand-ink)">Falls</text></g>
+          </svg>
+        </div>
+
+        <div id="plan">
+          <div class="art-title bp-headline">Your Goa plan</div>
+          <div class="plan-row bp-caption"><svg><use href="#i-plane" /></svg><span>Fly 06:40</span></div>
+          <div class="plan-row bp-caption"><svg><use href="#i-hotel" /></svg><span>Hotel B, in budget</span></div>
+          <div class="plan-row bp-caption"><svg><use href="#i-pin" /></svg><span>Baga Beach, Fort Aguada, Dudhsagar Falls</span></div>
+        </div>
+
+        <div class="bp-safe">
+          <div id="line-goa" class="line bp-headline">Planning a trip<br />to <span class="bp-accent">Goa?</span></div>
+          <div id="line-start" class="line bp-headline">But where do<br />you <span class="bp-accent">start?</span></div>
+          <div id="line-behind" class="line bp-headline">Behind the <span class="bp-accent">scenes</span></div>
+          <div id="line-wait" class="line bp-headline">Nobody <span class="bp-accent">waits</span></div>
+          <div id="line-together" class="line bp-headline">Then it all comes<br /><span class="bp-accent">together</span></div>
+          <div id="line-named" class="line big bp-headline">Parallel <span class="bp-accent">chaining</span></div>
+          <div id="line-again" class="line big bp-headline">Happy <span class="bp-accent">travels!</span></div>
+        </div>
+      </div>
+
+      <div id="end-card" class="clip" data-start="36.359" data-duration="2.2" data-track-index="2">
+        <div class="bp-safe">
+          <div id="end-title" class="bp-headline bp-accent">Follow for more</div>
+          <div id="end-handle" class="bp-caption">@BradAndPrad</div>
+          <div id="end-logo-slot"></div>
+        </div>
+        <div id="end-stage"></div>
+      </div>
+
+      <div id="sheet-top" class="clip bp-torn-top" data-start="0" data-duration="1.3" data-track-index="3"></div>
+      <div id="sheet-bottom" class="clip bp-torn-bottom" data-start="0" data-duration="1.3" data-track-index="4"></div>
+    </div>
+
+    <script type="module">
+      import { timeline } from "./source/main.js";
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = timeline;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,433 @@
+{
+ "take": "take_0259904f30eb_tight.wav",
+ "voice": "charlie",
+ "lines": [
+  {
+   "text": "Calling a hospital's AI assistant?",
+   "words": [
+    {
+     "word": "calling",
+     "start": 0.06,
+     "end": 0.401
+    },
+    {
+     "word": "a",
+     "start": 0.441,
+     "end": 0.481
+    },
+    {
+     "word": "hospital's",
+     "start": 0.541,
+     "end": 1.103
+    },
+    {
+     "word": "ai",
+     "start": 1.283,
+     "end": 1.604
+    },
+    {
+     "word": "assistant",
+     "start": 1.664,
+     "end": 2.105
+    }
+   ],
+   "start": 0.06,
+   "end": 2.105
+  },
+  {
+   "text": "You want an appointment. Someone else has a billing question.",
+   "words": [
+    {
+     "word": "you",
+     "start": 2.585,
+     "end": 2.725
+    },
+    {
+     "word": "want",
+     "start": 2.765,
+     "end": 2.966
+    },
+    {
+     "word": "an",
+     "start": 2.986,
+     "end": 3.046
+    },
+    {
+     "word": "appointment",
+     "start": 3.086,
+     "end": 3.587
+    },
+    {
+     "word": "someone",
+     "start": 4.5,
+     "end": 4.82
+    },
+    {
+     "word": "else",
+     "start": 4.86,
+     "end": 5.04
+    },
+    {
+     "word": "has",
+     "start": 5.081,
+     "end": 5.241
+    },
+    {
+     "word": "a",
+     "start": 5.301,
+     "end": 5.321
+    },
+    {
+     "word": "billing",
+     "start": 5.381,
+     "end": 5.721
+    },
+    {
+     "word": "question",
+     "start": 5.781,
+     "end": 6.221
+    }
+   ],
+   "start": 2.585,
+   "end": 6.221
+  },
+  {
+   "text": "Same process for both? Of course not!",
+   "words": [
+    {
+     "word": "same",
+     "start": 6.701,
+     "end": 6.921
+    },
+    {
+     "word": "process",
+     "start": 6.981,
+     "end": 7.501
+    },
+    {
+     "word": "for",
+     "start": 7.542,
+     "end": 7.682
+    },
+    {
+     "word": "both",
+     "start": 7.782,
+     "end": 8.102
+    },
+    {
+     "word": "of",
+     "start": 8.802,
+     "end": 8.883
+    },
+    {
+     "word": "course",
+     "start": 9.003,
+     "end": 9.323
+    },
+    {
+     "word": "not",
+     "start": 9.403,
+     "end": 9.683
+    }
+   ],
+   "start": 6.701,
+   "end": 9.683
+  },
+  {
+   "text": "First, AI figures out what each caller needs.",
+   "words": [
+    {
+     "word": "first",
+     "start": 10.163,
+     "end": 10.503
+    },
+    {
+     "word": "ai",
+     "start": 11.063,
+     "end": 11.364
+    },
+    {
+     "word": "figures",
+     "start": 11.424,
+     "end": 11.744
+    },
+    {
+     "word": "out",
+     "start": 11.824,
+     "end": 11.944
+    },
+    {
+     "word": "what",
+     "start": 12.044,
+     "end": 12.204
+    },
+    {
+     "word": "each",
+     "start": 12.344,
+     "end": 12.504
+    },
+    {
+     "word": "caller",
+     "start": 12.565,
+     "end": 12.865
+    },
+    {
+     "word": "needs",
+     "start": 12.925,
+     "end": 13.225
+    }
+   ],
+   "start": 10.163,
+   "end": 13.225
+  },
+  {
+   "text": "Appointments go to scheduling.",
+   "words": [
+    {
+     "word": "appointments",
+     "start": 13.706,
+     "end": 14.246
+    },
+    {
+     "word": "go",
+     "start": 14.326,
+     "end": 14.446
+    },
+    {
+     "word": "to",
+     "start": 14.466,
+     "end": 14.526
+    },
+    {
+     "word": "scheduling",
+     "start": 14.586,
+     "end": 15.067
+    }
+   ],
+   "start": 13.706,
+   "end": 15.067
+  },
+  {
+   "text": "Billing questions go to billing.",
+   "words": [
+    {
+     "word": "billing",
+     "start": 15.548,
+     "end": 15.908
+    },
+    {
+     "word": "questions",
+     "start": 15.968,
+     "end": 16.429
+    },
+    {
+     "word": "go",
+     "start": 16.709,
+     "end": 16.829
+    },
+    {
+     "word": "to",
+     "start": 16.869,
+     "end": 16.949
+    },
+    {
+     "word": "billing",
+     "start": 16.989,
+     "end": 17.329
+    }
+   ],
+   "start": 15.548,
+   "end": 17.329
+  },
+  {
+   "text": "Every request takes the right road.",
+   "words": [
+    {
+     "word": "every",
+     "start": 17.809,
+     "end": 18.049
+    },
+    {
+     "word": "request",
+     "start": 18.129,
+     "end": 18.59
+    },
+    {
+     "word": "takes",
+     "start": 18.73,
+     "end": 18.97
+    },
+    {
+     "word": "the",
+     "start": 19.03,
+     "end": 19.15
+    },
+    {
+     "word": "right",
+     "start": 19.25,
+     "end": 19.45
+    },
+    {
+     "word": "road",
+     "start": 19.55,
+     "end": 19.851
+    }
+   ],
+   "start": 17.809,
+   "end": 19.851
+  },
+  {
+   "text": "That's Routing.",
+   "words": [
+    {
+     "word": "that's",
+     "start": 20.331,
+     "end": 20.611
+    },
+    {
+     "word": "routing",
+     "start": 20.712,
+     "end": 21.072
+    }
+   ],
+   "start": 20.331,
+   "end": 21.072
+  },
+  {
+   "text": "Right request, right workflow, right specialist.",
+   "words": [
+    {
+     "word": "right",
+     "start": 21.552,
+     "end": 21.733
+    },
+    {
+     "word": "request",
+     "start": 21.813,
+     "end": 22.273
+    },
+    {
+     "word": "right",
+     "start": 22.733,
+     "end": 22.953
+    },
+    {
+     "word": "workflow",
+     "start": 23.014,
+     "end": 23.554
+    },
+    {
+     "word": "right",
+     "start": 24.134,
+     "end": 24.375
+    },
+    {
+     "word": "specialist",
+     "start": 24.435,
+     "end": 25.015
+    }
+   ],
+   "start": 21.552,
+   "end": 25.015
+  },
+  {
+   "text": "Just remember... if AI misreads the request, it sends it down the wrong path.",
+   "words": [
+    {
+     "word": "just",
+     "start": 25.495,
+     "end": 25.715
+    },
+    {
+     "word": "remember",
+     "start": 25.795,
+     "end": 26.175
+    },
+    {
+     "word": "if",
+     "start": 26.816,
+     "end": 26.896
+    },
+    {
+     "word": "ai",
+     "start": 27.096,
+     "end": 27.436
+    },
+    {
+     "word": "misreads",
+     "start": 27.516,
+     "end": 28.016
+    },
+    {
+     "word": "the",
+     "start": 28.077,
+     "end": 28.177
+    },
+    {
+     "word": "request",
+     "start": 28.237,
+     "end": 28.677
+    },
+    {
+     "word": "it",
+     "start": 29.217,
+     "end": 29.297
+    },
+    {
+     "word": "sends",
+     "start": 29.397,
+     "end": 29.678
+    },
+    {
+     "word": "it",
+     "start": 29.738,
+     "end": 29.798
+    },
+    {
+     "word": "down",
+     "start": 29.858,
+     "end": 30.118
+    },
+    {
+     "word": "the",
+     "start": 30.158,
+     "end": 30.258
+    },
+    {
+     "word": "wrong",
+     "start": 30.338,
+     "end": 30.698
+    },
+    {
+     "word": "path",
+     "start": 30.779,
+     "end": 31.099
+    }
+   ],
+   "start": 25.495,
+   "end": 31.099
+  },
+  {
+   "text": "Next caller, please!",
+   "words": [
+    {
+     "word": "next",
+     "start": 31.579,
+     "end": 31.788
+    },
+    {
+     "word": "caller",
+     "start": 31.83,
+     "end": 32.184
+    },
+    {
+     "word": "please",
+     "start": 32.226,
+     "end": 32.539
+    }
+   ],
+   "start": 31.579,
+   "end": 32.539
+  }
+ ]
+}

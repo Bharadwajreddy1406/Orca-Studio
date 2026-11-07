@@ -1,0 +1,351 @@
+{
+ "duration": 36.489,
+ "take": "take_0259904f30eb_tight.wav",
+ "cues": [
+  {
+   "effect": "tear",
+   "t": 0.05,
+   "gain": -14
+  },
+  {
+   "effect": "pop",
+   "t": 0.3,
+   "gain": -22
+  },
+  {
+   "effect": "ding1",
+   "t": 0.63,
+   "gain": -21
+  },
+  {
+   "effect": "ding1",
+   "t": 0.93,
+   "gain": -23
+  },
+  {
+   "effect": "pop",
+   "t": 1.833,
+   "gain": -20
+  },
+  {
+   "effect": "pop",
+   "t": 3.135,
+   "gain": -21
+  },
+  {
+   "effect": "ding0",
+   "t": 3.686,
+   "gain": -20
+  },
+  {
+   "effect": "pop",
+   "t": 5.05,
+   "gain": -21
+  },
+  {
+   "effect": "ding2",
+   "t": 5.981,
+   "gain": -20
+  },
+  {
+   "effect": "slide",
+   "t": 7.451,
+   "gain": -21
+  },
+  {
+   "effect": "knock",
+   "t": 8.302,
+   "gain": -15
+  },
+  {
+   "effect": "knock",
+   "t": 8.452,
+   "gain": -19
+  },
+  {
+   "effect": "buzz",
+   "t": 9.953,
+   "gain": -16
+  },
+  {
+   "effect": "whip",
+   "t": 10.663,
+   "gain": -18
+  },
+  {
+   "effect": "clink",
+   "t": 10.813,
+   "gain": -26
+  },
+  {
+   "effect": "clink",
+   "t": 10.858,
+   "gain": -26
+  },
+  {
+   "effect": "clink",
+   "t": 10.903,
+   "gain": -26
+  },
+  {
+   "effect": "clink",
+   "t": 10.948,
+   "gain": -26
+  },
+  {
+   "effect": "clink",
+   "t": 10.993,
+   "gain": -26
+  },
+  {
+   "effect": "clink",
+   "t": 11.038,
+   "gain": -26
+  },
+  {
+   "effect": "clink",
+   "t": 11.083,
+   "gain": -26
+  },
+  {
+   "effect": "clink",
+   "t": 11.128,
+   "gain": -26
+  },
+  {
+   "effect": "clink",
+   "t": 11.173,
+   "gain": -26
+  },
+  {
+   "effect": "clink",
+   "t": 11.218,
+   "gain": -26
+  },
+  {
+   "effect": "pop",
+   "t": 11.163,
+   "gain": -21
+  },
+  {
+   "effect": "pop",
+   "t": 11.313,
+   "gain": -21
+  },
+  {
+   "effect": "sparkle",
+   "t": 11.974,
+   "gain": -25
+  },
+  {
+   "effect": "pop",
+   "t": 12.374,
+   "gain": -19
+  },
+  {
+   "effect": "pop",
+   "t": 13.115,
+   "gain": -19
+  },
+  {
+   "effect": "tick",
+   "t": 14.206,
+   "gain": -17
+  },
+  {
+   "effect": "slide",
+   "t": 14.706,
+   "gain": -22
+  },
+  {
+   "effect": "step",
+   "t": 15.136,
+   "gain": -16
+  },
+  {
+   "effect": "sparkle",
+   "t": 15.186,
+   "gain": -23
+  },
+  {
+   "effect": "tick",
+   "t": 16.048,
+   "gain": -17
+  },
+  {
+   "effect": "slide",
+   "t": 16.548,
+   "gain": -22
+  },
+  {
+   "effect": "step",
+   "t": 17.539,
+   "gain": -16
+  },
+  {
+   "effect": "sparkle",
+   "t": 17.589,
+   "gain": -23
+  },
+  {
+   "effect": "tick",
+   "t": 18.409,
+   "gain": -21
+  },
+  {
+   "effect": "tick",
+   "t": 18.709,
+   "gain": -21
+  },
+  {
+   "effect": "tick",
+   "t": 19.009,
+   "gain": -21
+  },
+  {
+   "effect": "tick",
+   "t": 19.309,
+   "gain": -21
+  },
+  {
+   "effect": "tick",
+   "t": 19.609,
+   "gain": -21
+  },
+  {
+   "effect": "tick",
+   "t": 19.909,
+   "gain": -21
+  },
+  {
+   "effect": "clink",
+   "t": 19.149,
+   "gain": -24
+  },
+  {
+   "effect": "clink",
+   "t": 19.449,
+   "gain": -24
+  },
+  {
+   "effect": "clink",
+   "t": 19.749,
+   "gain": -24
+  },
+  {
+   "effect": "clink",
+   "t": 20.049,
+   "gain": -24
+  },
+  {
+   "effect": "clink",
+   "t": 20.349,
+   "gain": -24
+  },
+  {
+   "effect": "clink",
+   "t": 20.649,
+   "gain": -24
+  },
+  {
+   "effect": "sparkle",
+   "t": 20.1,
+   "gain": -20
+  },
+  {
+   "effect": "arrive",
+   "t": 21.262,
+   "gain": -15
+  },
+  {
+   "effect": "ding0",
+   "t": 22.363,
+   "gain": -18
+  },
+  {
+   "effect": "ding1",
+   "t": 23.564,
+   "gain": -18
+  },
+  {
+   "effect": "ding2",
+   "t": 24.985,
+   "gain": -18
+  },
+  {
+   "effect": "slide",
+   "t": 23.664,
+   "gain": -23
+  },
+  {
+   "effect": "step",
+   "t": 24.985,
+   "gain": -18
+  },
+  {
+   "effect": "pop",
+   "t": 26.195,
+   "gain": -21
+  },
+  {
+   "effect": "buzz",
+   "t": 28.166,
+   "gain": -20
+  },
+  {
+   "effect": "tick",
+   "t": 29.747,
+   "gain": -18
+  },
+  {
+   "effect": "slide",
+   "t": 30.147,
+   "gain": -21
+  },
+  {
+   "effect": "step",
+   "t": 30.888,
+   "gain": -18
+  },
+  {
+   "effect": "sad",
+   "t": 31.329,
+   "gain": -18
+  },
+  {
+   "effect": "pop",
+   "t": 32.129,
+   "gain": -19
+  },
+  {
+   "effect": "chord0",
+   "t": 32.776,
+   "gain": -18
+  },
+  {
+   "effect": "chord1",
+   "t": 32.776,
+   "gain": -18
+  },
+  {
+   "effect": "chord2",
+   "t": 32.776,
+   "gain": -18
+  },
+  {
+   "effect": "sparkle",
+   "t": 32.826,
+   "gain": -21
+  },
+  {
+   "effect": "end",
+   "t": 34.389,
+   "gain": -13
+  },
+  {
+   "effect": "voice",
+   "t": 0.55,
+   "gain": 0
+  }
+ ]
+}

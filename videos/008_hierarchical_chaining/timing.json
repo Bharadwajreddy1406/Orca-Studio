@@ -1,0 +1,465 @@
+{
+ "take": "take_bf35de5f0c69_tight.wav",
+ "voice": "liam",
+ "lines": [
+  {
+   "text": "Planning a whole birthday party? Where do you even begin?",
+   "words": [
+    {
+     "word": "planning",
+     "start": 0.06,
+     "end": 0.38
+    },
+    {
+     "word": "a",
+     "start": 0.44,
+     "end": 0.48
+    },
+    {
+     "word": "whole",
+     "start": 0.501,
+     "end": 0.681
+    },
+    {
+     "word": "birthday",
+     "start": 0.741,
+     "end": 1.141
+    },
+    {
+     "word": "party",
+     "start": 1.201,
+     "end": 1.542
+    },
+    {
+     "word": "where",
+     "start": 2.202,
+     "end": 2.363
+    },
+    {
+     "word": "do",
+     "start": 2.383,
+     "end": 2.423
+    },
+    {
+     "word": "you",
+     "start": 2.463,
+     "end": 2.543
+    },
+    {
+     "word": "even",
+     "start": 2.583,
+     "end": 2.763
+    },
+    {
+     "word": "begin",
+     "start": 2.803,
+     "end": 3.243
+    }
+   ],
+   "start": 0.06,
+   "end": 3.243
+  },
+  {
+   "text": "That's one huge task.",
+   "words": [
+    {
+     "word": "that's",
+     "start": 3.724,
+     "end": 3.984
+    },
+    {
+     "word": "one",
+     "start": 4.125,
+     "end": 4.245
+    },
+    {
+     "word": "huge",
+     "start": 4.425,
+     "end": 4.865
+    },
+    {
+     "word": "task",
+     "start": 4.965,
+     "end": 5.426
+    }
+   ],
+   "start": 3.724,
+   "end": 5.426
+  },
+  {
+   "text": "So AI splits it into three.",
+   "words": [
+    {
+     "word": "so",
+     "start": 5.906,
+     "end": 6.126
+    },
+    {
+     "word": "ai",
+     "start": 6.486,
+     "end": 6.787
+    },
+    {
+     "word": "splits",
+     "start": 6.807,
+     "end": 7.087
+    },
+    {
+     "word": "it",
+     "start": 7.127,
+     "end": 7.187
+    },
+    {
+     "word": "into",
+     "start": 7.227,
+     "end": 7.367
+    },
+    {
+     "word": "three",
+     "start": 7.407,
+     "end": 7.668
+    }
+   ],
+   "start": 5.906,
+   "end": 7.668
+  },
+  {
+   "text": "Venue. Food. Decorations.",
+   "words": [
+    {
+     "word": "venue",
+     "start": 8.148,
+     "end": 8.589
+    },
+    {
+     "word": "food",
+     "start": 9.089,
+     "end": 9.43
+    },
+    {
+     "word": "decorations",
+     "start": 9.89,
+     "end": 10.551
+    }
+   ],
+   "start": 8.148,
+   "end": 10.551
+  },
+  {
+   "text": "But it doesn't stop there.",
+   "words": [
+    {
+     "word": "but",
+     "start": 11.032,
+     "end": 11.252
+    },
+    {
+     "word": "it",
+     "start": 11.432,
+     "end": 11.492
+    },
+    {
+     "word": "doesn't",
+     "start": 11.532,
+     "end": 11.772
+    },
+    {
+     "word": "stop",
+     "start": 11.792,
+     "end": 12.053
+    },
+    {
+     "word": "there",
+     "start": 12.093,
+     "end": 12.333
+    }
+   ],
+   "start": 11.032,
+   "end": 12.333
+  },
+  {
+   "text": "Food splits again.",
+   "words": [
+    {
+     "word": "food",
+     "start": 12.814,
+     "end": 13.074
+    },
+    {
+     "word": "splits",
+     "start": 13.154,
+     "end": 13.494
+    },
+    {
+     "word": "again",
+     "start": 13.655,
+     "end": 13.995
+    }
+   ],
+   "start": 12.814,
+   "end": 13.995
+  },
+  {
+   "text": "Pick a menu. Count the guests. Make a shopping list.",
+   "words": [
+    {
+     "word": "pick",
+     "start": 14.475,
+     "end": 14.635
+    },
+    {
+     "word": "a",
+     "start": 14.655,
+     "end": 14.695
+    },
+    {
+     "word": "menu",
+     "start": 14.735,
+     "end": 15.055
+    },
+    {
+     "word": "count",
+     "start": 15.596,
+     "end": 15.816
+    },
+    {
+     "word": "the",
+     "start": 15.856,
+     "end": 15.936
+    },
+    {
+     "word": "guests",
+     "start": 15.976,
+     "end": 16.337
+    },
+    {
+     "word": "make",
+     "start": 16.797,
+     "end": 16.977
+    },
+    {
+     "word": "a",
+     "start": 16.997,
+     "end": 17.038
+    },
+    {
+     "word": "shopping",
+     "start": 17.098,
+     "end": 17.478
+    },
+    {
+     "word": "list",
+     "start": 17.518,
+     "end": 17.778
+    }
+   ],
+   "start": 14.475,
+   "end": 17.778
+  },
+  {
+   "text": "Big task, smaller tasks, tiny tasks.",
+   "words": [
+    {
+     "word": "big",
+     "start": 18.258,
+     "end": 18.459
+    },
+    {
+     "word": "task",
+     "start": 18.519,
+     "end": 18.92
+    },
+    {
+     "word": "smaller",
+     "start": 19.16,
+     "end": 19.541
+    },
+    {
+     "word": "tasks",
+     "start": 19.581,
+     "end": 19.982
+    },
+    {
+     "word": "tiny",
+     "start": 20.463,
+     "end": 20.803
+    },
+    {
+     "word": "tasks",
+     "start": 20.864,
+     "end": 21.305
+    }
+   ],
+   "start": 18.258,
+   "end": 21.305
+  },
+  {
+   "text": "Each tiny piece is easy to plan, and easy to check.",
+   "words": [
+    {
+     "word": "each",
+     "start": 21.785,
+     "end": 21.966
+    },
+    {
+     "word": "tiny",
+     "start": 22.046,
+     "end": 22.346
+    },
+    {
+     "word": "piece",
+     "start": 22.407,
+     "end": 22.707
+    },
+    {
+     "word": "is",
+     "start": 22.847,
+     "end": 22.928
+    },
+    {
+     "word": "easy",
+     "start": 23.128,
+     "end": 23.369
+    },
+    {
+     "word": "to",
+     "start": 23.389,
+     "end": 23.469
+    },
+    {
+     "word": "plan",
+     "start": 23.509,
+     "end": 23.85
+    },
+    {
+     "word": "and",
+     "start": 24.311,
+     "end": 24.471
+    },
+    {
+     "word": "easy",
+     "start": 24.691,
+     "end": 24.912
+    },
+    {
+     "word": "to",
+     "start": 24.932,
+     "end": 25.012
+    },
+    {
+     "word": "check",
+     "start": 25.052,
+     "end": 25.333
+    }
+   ],
+   "start": 21.785,
+   "end": 25.333
+  },
+  {
+   "text": "That's Hierarchical Chaining.",
+   "words": [
+    {
+     "word": "that's",
+     "start": 25.813,
+     "end": 26.134
+    },
+    {
+     "word": "hierarchical",
+     "start": 26.234,
+     "end": 26.976
+    },
+    {
+     "word": "chaining",
+     "start": 27.016,
+     "end": 27.397
+    }
+   ],
+   "start": 25.813,
+   "end": 27.397
+  },
+  {
+   "text": "Just remember... split too far, and you're managing more than you're doing.",
+   "words": [
+    {
+     "word": "just",
+     "start": 27.877,
+     "end": 28.077
+    },
+    {
+     "word": "remember",
+     "start": 28.117,
+     "end": 28.518
+    },
+    {
+     "word": "split",
+     "start": 28.879,
+     "end": 29.179
+    },
+    {
+     "word": "too",
+     "start": 29.24,
+     "end": 29.42
+    },
+    {
+     "word": "far",
+     "start": 29.48,
+     "end": 29.841
+    },
+    {
+     "word": "and",
+     "start": 30.121,
+     "end": 30.202
+    },
+    {
+     "word": "you're",
+     "start": 30.222,
+     "end": 30.402
+    },
+    {
+     "word": "managing",
+     "start": 30.462,
+     "end": 30.983
+    },
+    {
+     "word": "more",
+     "start": 31.224,
+     "end": 31.404
+    },
+    {
+     "word": "than",
+     "start": 31.444,
+     "end": 31.564
+    },
+    {
+     "word": "you're",
+     "start": 31.585,
+     "end": 31.745
+    },
+    {
+     "word": "doing",
+     "start": 31.785,
+     "end": 32.106
+    }
+   ],
+   "start": 27.877,
+   "end": 32.106
+  },
+  {
+   "text": "Let's party!",
+   "words": [
+    {
+     "word": "let's",
+     "start": 32.586,
+     "end": 32.827
+    },
+    {
+     "word": "party",
+     "start": 32.867,
+     "end": 33.228
+    }
+   ],
+   "start": 32.586,
+   "end": 33.228
+  }
+ ]
+}

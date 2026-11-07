@@ -1,0 +1,502 @@
+{
+ "take": "take_d562a1e5f5e9_tight.wav",
+ "voice": "liam",
+ "lines": [
+  {
+   "text": "AI wrote your code... and it's broken. Again.",
+   "words": [
+    {
+     "word": "ai",
+     "start": 0.06,
+     "end": 0.36
+    },
+    {
+     "word": "wrote",
+     "start": 0.42,
+     "end": 0.62
+    },
+    {
+     "word": "your",
+     "start": 0.64,
+     "end": 0.781
+    },
+    {
+     "word": "code",
+     "start": 0.841,
+     "end": 1.141
+    },
+    {
+     "word": "and",
+     "start": 2.702,
+     "end": 2.802
+    },
+    {
+     "word": "it's",
+     "start": 2.842,
+     "end": 2.962
+    },
+    {
+     "word": "broken",
+     "start": 3.002,
+     "end": 3.362
+    },
+    {
+     "word": "again",
+     "start": 4.223,
+     "end": 4.543
+    }
+   ],
+   "start": 0.06,
+   "end": 4.543
+  },
+  {
+   "text": "Now you're stuck fixing it yourself.",
+   "words": [
+    {
+     "word": "now",
+     "start": 5.023,
+     "end": 5.163
+    },
+    {
+     "word": "you're",
+     "start": 5.203,
+     "end": 5.383
+    },
+    {
+     "word": "stuck",
+     "start": 5.403,
+     "end": 5.603
+    },
+    {
+     "word": "fixing",
+     "start": 5.663,
+     "end": 5.984
+    },
+    {
+     "word": "it",
+     "start": 6.024,
+     "end": 6.064
+    },
+    {
+     "word": "yourself",
+     "start": 6.104,
+     "end": 6.524
+    }
+   ],
+   "start": 5.023,
+   "end": 6.524
+  },
+  {
+   "text": "But what if AI tested its own code?",
+   "words": [
+    {
+     "word": "but",
+     "start": 7.004,
+     "end": 7.104
+    },
+    {
+     "word": "what",
+     "start": 7.144,
+     "end": 7.284
+    },
+    {
+     "word": "if",
+     "start": 7.324,
+     "end": 7.384
+    },
+    {
+     "word": "ai",
+     "start": 7.504,
+     "end": 7.764
+    },
+    {
+     "word": "tested",
+     "start": 7.824,
+     "end": 8.204
+    },
+    {
+     "word": "its",
+     "start": 8.264,
+     "end": 8.385
+    },
+    {
+     "word": "own",
+     "start": 8.625,
+     "end": 8.765
+    },
+    {
+     "word": "code",
+     "start": 8.865,
+     "end": 9.165
+    }
+   ],
+   "start": 7.004,
+   "end": 9.165
+  },
+  {
+   "text": "The test runs.",
+   "words": [
+    {
+     "word": "the",
+     "start": 9.645,
+     "end": 9.725
+    },
+    {
+     "word": "test",
+     "start": 9.745,
+     "end": 9.985
+    },
+    {
+     "word": "runs",
+     "start": 10.045,
+     "end": 10.285
+    }
+   ],
+   "start": 9.645,
+   "end": 10.285
+  },
+  {
+   "text": "It fails, and sends back the error.",
+   "words": [
+    {
+     "word": "it",
+     "start": 10.766,
+     "end": 10.826
+    },
+    {
+     "word": "fails",
+     "start": 10.886,
+     "end": 11.206
+    },
+    {
+     "word": "and",
+     "start": 11.446,
+     "end": 11.546
+    },
+    {
+     "word": "sends",
+     "start": 11.586,
+     "end": 11.806
+    },
+    {
+     "word": "back",
+     "start": 11.847,
+     "end": 12.027
+    },
+    {
+     "word": "the",
+     "start": 12.087,
+     "end": 12.187
+    },
+    {
+     "word": "error",
+     "start": 12.267,
+     "end": 12.467
+    }
+   ],
+   "start": 10.766,
+   "end": 12.467
+  },
+  {
+   "text": "AI reads that feedback... and fixes the code.",
+   "words": [
+    {
+     "word": "ai",
+     "start": 12.947,
+     "end": 13.187
+    },
+    {
+     "word": "reads",
+     "start": 13.247,
+     "end": 13.507
+    },
+    {
+     "word": "that",
+     "start": 13.547,
+     "end": 13.707
+    },
+    {
+     "word": "feedback",
+     "start": 13.767,
+     "end": 14.267
+    },
+    {
+     "word": "and",
+     "start": 14.808,
+     "end": 14.908
+    },
+    {
+     "word": "fixes",
+     "start": 15.028,
+     "end": 15.448
+    },
+    {
+     "word": "the",
+     "start": 15.508,
+     "end": 15.588
+    },
+    {
+     "word": "code",
+     "start": 15.648,
+     "end": 16.009
+    }
+   ],
+   "start": 12.947,
+   "end": 16.009
+  },
+  {
+   "text": "Then it tests again.",
+   "words": [
+    {
+     "word": "then",
+     "start": 16.49,
+     "end": 16.75
+    },
+    {
+     "word": "it",
+     "start": 17.031,
+     "end": 17.091
+    },
+    {
+     "word": "tests",
+     "start": 17.151,
+     "end": 17.491
+    },
+    {
+     "word": "again",
+     "start": 17.551,
+     "end": 17.851
+    }
+   ],
+   "start": 16.49,
+   "end": 17.851
+  },
+  {
+   "text": "Fail. Fix. Test. Until it passes.",
+   "words": [
+    {
+     "word": "fail",
+     "start": 18.331,
+     "end": 18.691
+    },
+    {
+     "word": "fix",
+     "start": 19.492,
+     "end": 19.852
+    },
+    {
+     "word": "test",
+     "start": 20.652,
+     "end": 21.073
+    },
+    {
+     "word": "until",
+     "start": 21.573,
+     "end": 21.873
+    },
+    {
+     "word": "it",
+     "start": 21.913,
+     "end": 21.973
+    },
+    {
+     "word": "passes",
+     "start": 22.013,
+     "end": 22.454
+    }
+   ],
+   "start": 18.331,
+   "end": 22.454
+  },
+  {
+   "text": "Or until it hits a stopping limit.",
+   "words": [
+    {
+     "word": "or",
+     "start": 22.934,
+     "end": 23.075
+    },
+    {
+     "word": "until",
+     "start": 23.315,
+     "end": 23.575
+    },
+    {
+     "word": "it",
+     "start": 23.635,
+     "end": 23.675
+    },
+    {
+     "word": "hits",
+     "start": 23.715,
+     "end": 23.875
+    },
+    {
+     "word": "a",
+     "start": 23.915,
+     "end": 23.935
+    },
+    {
+     "word": "stopping",
+     "start": 23.975,
+     "end": 24.335
+    },
+    {
+     "word": "limit",
+     "start": 24.375,
+     "end": 24.596
+    }
+   ],
+   "start": 22.934,
+   "end": 24.596
+  },
+  {
+   "text": "That's Feedback Chaining.",
+   "words": [
+    {
+     "word": "that's",
+     "start": 25.076,
+     "end": 25.376
+    },
+    {
+     "word": "feedback",
+     "start": 25.436,
+     "end": 25.877
+    },
+    {
+     "word": "chaining",
+     "start": 25.917,
+     "end": 26.257
+    }
+   ],
+   "start": 25.076,
+   "end": 26.257
+  },
+  {
+   "text": "Every attempt learns from the last one.",
+   "words": [
+    {
+     "word": "every",
+     "start": 26.737,
+     "end": 26.978
+    },
+    {
+     "word": "attempt",
+     "start": 27.038,
+     "end": 27.42
+    },
+    {
+     "word": "learns",
+     "start": 27.521,
+     "end": 27.843
+    },
+    {
+     "word": "from",
+     "start": 27.883,
+     "end": 28.004
+    },
+    {
+     "word": "the",
+     "start": 28.024,
+     "end": 28.104
+    },
+    {
+     "word": "last",
+     "start": 28.145,
+     "end": 28.406
+    },
+    {
+     "word": "one",
+     "start": 28.527,
+     "end": 28.647
+    }
+   ],
+   "start": 26.737,
+   "end": 28.647
+  },
+  {
+   "text": "Just remember... without a stopping limit, it can loop forever.",
+   "words": [
+    {
+     "word": "just",
+     "start": 29.127,
+     "end": 29.308
+    },
+    {
+     "word": "remember",
+     "start": 29.328,
+     "end": 29.69
+    },
+    {
+     "word": "without",
+     "start": 30.152,
+     "end": 30.434
+    },
+    {
+     "word": "a",
+     "start": 30.454,
+     "end": 30.474
+    },
+    {
+     "word": "stopping",
+     "start": 30.514,
+     "end": 30.897
+    },
+    {
+     "word": "limit",
+     "start": 30.937,
+     "end": 31.178
+    },
+    {
+     "word": "it",
+     "start": 31.48,
+     "end": 31.54
+    },
+    {
+     "word": "can",
+     "start": 31.56,
+     "end": 31.721
+    },
+    {
+     "word": "loop",
+     "start": 31.761,
+     "end": 32.023
+    },
+    {
+     "word": "forever",
+     "start": 32.103,
+     "end": 32.526
+    }
+   ],
+   "start": 29.127,
+   "end": 32.526
+  },
+  {
+   "text": "Know when to stop!",
+   "words": [
+    {
+     "word": "know",
+     "start": 33.006,
+     "end": 33.187
+    },
+    {
+     "word": "when",
+     "start": 33.227,
+     "end": 33.388
+    },
+    {
+     "word": "to",
+     "start": 33.428,
+     "end": 33.489
+    },
+    {
+     "word": "stop",
+     "start": 33.529,
+     "end": 33.851
+    }
+   ],
+   "start": 33.006,
+   "end": 33.851
+  }
+ ]
+}

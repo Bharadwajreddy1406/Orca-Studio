@@ -1,0 +1,50 @@
+// HOW TO USE: set "service" and "voice" below, then put that service's settings in "options".
+// Lines starting with // are comments. Orca Studio skips them when it loads this file.
+//
+// SERVICES (allowed values for "service")
+// ---------------------------------------------------------------------------------------
+// service      runs     cost      needs                       options
+// kokoro       local    free      Kokoro environment          speed (1.0 = normal)
+// edge-tts     online   free      internet                    rate, volume, pitch, trim_trailing_silence
+// gtts         online   free      manim-voiceover[gtts]       lang (set via "voice")
+// azure        online   paid      manim-voiceover[azure], key voice
+// elevenlabs   online   paid      manim-voiceover[elevenlabs], key  voice_name (set via "voice")
+// openai       online   paid      manim-voiceover[openai], key      voice
+// Online services send narration text outside this computer. Keep keys in .env, never here.
+//
+// KOKORO VOICES (allowed values for "voice" when service is "kokoro")
+// Letter 1 = language, letter 2 = f (female) or m (male). (grade) = Kokoro's own rating.
+// * = your shortlist. Samples: shared/voices/samples/   List: .\render --list-kokoro-voices
+// ---------------------------------------------------------------------------------------
+// American English
+//   female: *af_heart (A), af_bella (A-), af_nicole (B-), af_aoede (C+), af_kore (C+),
+//           af_sarah (C+), af_alloy (C), af_nova (C), af_sky (C-), af_jessica (D), af_river (D)
+//   male:   *am_puck (C+), am_fenrir (C+), am_michael (C+), am_echo (D), am_eric (D),
+//           am_liam (D), am_onyx (D), am_santa (D-), am_adam (F+)
+// British English
+//   female: *bf_emma (B-), *bf_isabella (C), *bf_alice (D), bf_lily (D)
+//   male:   *bm_george (C), bm_fable (C), *bm_lewis (D+), bm_daniel (D)
+// Hindi
+//   female: hf_alpha (C), hf_beta (C)
+//   male:   hm_omega (C), hm_psi (C)
+// Japanese
+//   female: jf_alpha (C+), jf_gongitsune (C), jf_tebukuro (C), jf_nezumi (C-)
+//   male:   jm_kumo (C-)
+// Mandarin
+//   female: zf_xiaobei (D), zf_xiaoni (D), zf_xiaoxiao (D), zf_xiaoyi (D)
+//   male:   zm_yunjian (D), zm_yunxi (D), zm_yunxia (D), zm_yunyang (D)
+// Spanish:    ef_dora, em_alex, em_santa (no grades published)
+// French:     ff_siwis (B-)
+// Italian:    if_sara (C), im_nicola (C)
+// Portuguese: pf_dora, pm_alex, pm_santa (no grades published)
+//
+// EDGE-TTS VOICES: hundreds, so list them with .\render --list-voices (example: en-IN-NeerjaNeural)
+{
+  "service": "elevenlabs",
+  "voice": "liam",
+  "options": {
+    "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+    "model_id": "eleven_v3",
+    "stability": 0.0
+  }
+}

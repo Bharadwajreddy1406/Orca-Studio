@@ -1,0 +1,152 @@
+<!doctype html>
+<!--
+  Iterative Refinement, built on the Brad & Prad kit and the shared Reel kit (reel/). One
+  continuous Three.js world, with every frame computed from time alone. build_timeline.py writes
+  timeline.js, and index.html from this template with the times measured from the ElevenLabs take.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Iterative Refinement</title>
+    <link rel="stylesheet" href="brand/brand.css" />
+    <script src="brand/vendor/gsap.min.js"></script>
+    <script src="brand/stickman/stickman.js"></script>
+    <script src="brand/brand-kit.js"></script>
+    <script src="timeline.js"></script>
+    <script type="importmap">{ "imports": { "three": "./lib/three.module.js" } }</script>
+    <style>
+      #root { position: absolute; inset: 0; overflow: hidden; }
+      #world, #figures, #labels, #boards, #gallery { position: absolute; inset: 0; }
+      #world canvas { display: block; }
+      #labels > *, #boards > * { position: absolute; left: 0; top: 0; opacity: 0; will-change: transform; }
+      .line { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 76px; line-height: 1.04; opacity: 0; }
+      .line.big { font-size: 112px; }
+
+      /* The slide on its board. Every copy is 520 x 390 and scaled from its centre. */
+      #board, .card-slide { width: 520px; height: 390px; margin-left: -260px; margin-top: -195px; }
+      .slide { position: absolute; inset: 0; background: var(--brand-background); border: 5px solid var(--brand-ink); overflow: hidden; }
+      .slide > * { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+      .s-box { border: 3px solid var(--brand-ink); }
+      .s-line { background: var(--brand-ink-soft); border-radius: 3px; }
+      .s-title-messy { font-size: 17px; line-height: 1; white-space: nowrap; }
+      .s-title { font-size: 46px; line-height: 1; white-space: nowrap; }
+      .s-underline { left: 28px !important; top: 64px !important; height: 7px; background: var(--brand-accent); }
+      .s-bullet { display: flex; align-items: center; gap: 12px; font-size: 29px; line-height: 1; white-space: nowrap; }
+      .s-bullet i { display: block; width: 14px; height: 14px; border-radius: 50%; background: var(--brand-ink); }
+      .s-bullet.is-polished i { background: var(--brand-accent); }
+      .s-chart text { font-family: var(--brand-font-caption); font-size: 20px; fill: var(--brand-ink-soft); }
+      .s-chart-label { position: absolute; left: 22px; top: 4px; font-size: 42px; line-height: 1; white-space: nowrap; }
+      .s-sparkle { transform-origin: 50% 50% !important; }
+      .s-sparkle svg { width: 100%; height: 100%; display: block; }
+      .s-sparkle path { fill: var(--brand-accent); stroke: var(--brand-ink); stroke-width: 1; }
+
+      #vtag { position: absolute; left: 0; top: -52px; height: 48px; padding: 0 16px; display: flex; align-items: center; gap: 10px; background: var(--brand-ink); color: var(--brand-background); font-size: 32px; line-height: 1; }
+      #vtag svg { width: 30px; height: 30px; color: var(--brand-accent); display: none; }
+      #scan { position: absolute; left: -12px; right: -12px; top: 0; height: 10px; background: var(--brand-accent); opacity: 0; }
+      #crumple { position: absolute; inset: 0; width: 520px; height: 390px; opacity: 0; }
+      #meh { position: absolute; left: 50%; top: 50%; width: 330px; margin-left: -165px; margin-top: -78px; text-align: center; font-size: 120px; line-height: 136px; border: 8px solid var(--brand-accent); background: var(--brand-background); opacity: 0; }
+
+      /* The quality meter rides beside the slide. */
+      #meter { width: 56px; height: 390px; margin-left: -28px; margin-top: -195px; }
+      #meter-tube { position: absolute; inset: 0; border: 5px solid var(--brand-ink); background: var(--brand-background); overflow: hidden; }
+      #meter-fill { position: absolute; left: 0; right: 0; bottom: 0; background: var(--brand-ink); }
+      #meter-name { position: absolute; top: -56px; left: 50%; width: 200px; margin-left: -100px; text-align: center; font-size: 34px; line-height: 44px; }
+      #target { position: absolute; left: -14px; width: 0; height: 0; opacity: 0; }
+      #target-line { position: absolute; left: 0; top: -4px; width: 84px; height: 8px; background: var(--brand-ink); transform-origin: 0 50%; }
+      #target-label { position: absolute; left: 96px; top: -26px; white-space: nowrap; font-size: 36px; line-height: 52px; padding: 0 10px; background: var(--brand-background); border: 3px solid var(--brand-ink); }
+      #target-check { position: absolute; left: 96px; top: 34px; width: 52px; height: 52px; color: var(--brand-accent); opacity: 0; }
+
+      .gate-sign { width: 440px; margin-left: -220px; margin-top: -30px; text-align: center; }
+      .gate-sign span { display: inline-block; padding: 2px 18px 4px; font-size: 42px; line-height: 52px; background: var(--brand-background); border: 4px solid var(--brand-ink); white-space: nowrap; }
+      .gate-sign b { font-weight: 500; color: var(--brand-ink-soft); }
+      #bin-cross { width: 150px; height: 150px; margin-left: -75px; margin-top: -75px; }
+
+      /* The four versions, side by side. */
+      .card { position: absolute; left: 0; top: 0; width: 0; height: 0; opacity: 0; will-change: transform; }
+      .card-slide { position: absolute; left: 0; top: 0; }
+      .card-tag { position: absolute; left: -177px; top: 146px; width: 354px; display: flex; align-items: center; gap: 16px; }
+      .card-tag b { font-weight: 500; font-size: 40px; line-height: 1; min-width: 64px; }
+      .card-bar { flex: 1; height: 22px; border: 4px solid var(--brand-ink); position: relative; }
+      .card-bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--brand-ink); }
+      .card.is-best .card-bar i { background: var(--brand-accent); }
+      .card.is-best .slide { border-color: var(--brand-accent); }
+
+      #end-title { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 168px; line-height: 1; }
+      #end-handle { position: absolute; top: 372px; left: 0; right: 0; text-align: center; }
+      #end-logo-slot { position: absolute; top: 470px; left: 50%; width: 280px; height: 280px; margin-left: -140px; }
+      #end-stage svg { position: absolute; inset: 0; overflow: visible; }
+    </style>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute">
+      <defs>
+        <symbol id="i-check" viewBox="0 0 64 64"><path d="M14 33 L27 46 L51 19" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+        <symbol id="i-cross" viewBox="0 0 64 64"><path d="M17 17 L47 47 M47 17 L17 47" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" /></symbol>
+      </defs>
+    </svg>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="__DURATION__" data-width="1080" data-height="1920" data-fps="60">
+      <div id="paper" class="clip" data-start="0" data-duration="__DURATION__" data-track-index="0">
+        <div class="paper-sheet bp-paper is-quiet"></div>
+        <div class="paper-sheet bp-paper"></div>
+        <div class="paper-sheet bp-paper is-folded"></div>
+      </div>
+
+      <div id="scene" class="clip" data-start="0" data-duration="__SCENE_LENGTH__" data-track-index="1">
+        <div id="world"></div>
+        <div id="boards" data-layout-allow-overflow data-layout-allow-overlap>
+          <div id="board">
+            <div id="vtag" class="bp-code"><span id="vtag-text">v1</span><svg><use href="#i-check" /></svg></div>
+            <svg id="crumple" viewBox="0 0 520 390">
+              <path d="M0 120 L140 170 L230 90 L360 200 L520 140 M90 0 L170 160 L120 390 M300 0 L260 120 L380 390 M0 300 L200 260 L330 320 L520 280" fill="none" stroke="var(--brand-ink)" stroke-width="5" stroke-linejoin="round" />
+            </svg>
+            <div id="scan"></div>
+            <div id="meh" class="bp-headline bp-accent">meh.</div>
+          </div>
+          <div id="meter">
+            <div id="meter-name" class="bp-caption">Quality</div>
+            <div id="meter-tube"><div id="meter-fill"></div></div>
+            <div id="target">
+              <div id="target-line"></div>
+              <div id="target-label" class="bp-caption">good enough</div>
+              <svg id="target-check"><use href="#i-check" /></svg>
+            </div>
+          </div>
+        </div>
+        <svg id="figures" viewBox="0 0 1080 1920" width="1080" height="1920" style="overflow: visible; pointer-events: none"></svg>
+        <div id="labels" data-layout-allow-overflow data-layout-allow-overlap>
+          <div class="gate-sign bp-caption"><span>Pass 1 <b>·</b> Structure</span></div>
+          <div class="gate-sign bp-caption"><span>Pass 2 <b>·</b> Words</span></div>
+          <div class="gate-sign bp-caption"><span>Pass 3 <b>·</b> Examples</span></div>
+          <svg id="bin-cross" viewBox="0 0 64 64" style="color: var(--brand-background)"><circle cx="32" cy="32" r="29" fill="var(--brand-accent)" stroke="var(--brand-ink)" stroke-width="4" /><use href="#i-cross" x="8" y="8" width="48" height="48" /></svg>
+        </div>
+        <div id="gallery" data-layout-allow-overflow data-layout-allow-overlap></div>
+
+        <div class="bp-safe">
+          <div id="line-hook" class="line bp-headline">Big meeting <span class="bp-accent">tomorrow</span></div>
+          <div id="line-pass" class="line bp-headline">One <span class="bp-accent">pass</span> at a time</div>
+          <div id="line-named" class="line big bp-headline">Iterative<br /><span class="bp-accent">Refinement</span></div>
+          <div id="line-go" class="line bp-headline">Go nail that<br /><span class="bp-accent">meeting!</span></div>
+        </div>
+      </div>
+
+      <div id="end-card" class="clip" data-start="__END_START__" data-duration="__END_LENGTH__" data-track-index="2">
+        <div class="bp-safe">
+          <div id="end-title" class="bp-headline bp-accent">Follow for more</div>
+          <div id="end-handle" class="bp-caption">@BradAndPrad</div>
+          <div id="end-logo-slot"></div>
+        </div>
+        <div id="end-stage"></div>
+      </div>
+
+      <div id="sheet-top" class="clip bp-torn-top" data-start="0" data-duration="1.3" data-track-index="3"></div>
+      <div id="sheet-bottom" class="clip bp-torn-bottom" data-start="0" data-duration="1.3" data-track-index="4"></div>
+    </div>
+
+    <script type="module">
+      import { timeline } from "./source/main.js";
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = timeline;
+    </script>
+  </body>
+</html>

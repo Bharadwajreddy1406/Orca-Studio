@@ -12,6 +12,7 @@ node_modules/
 # HyperFrames projects: copied kit and engine files, and local check output.
 videos/*/brand/
 videos/*/lib/
+videos/*/reel/
 videos/*/.hyperframes/
 
 # Machine choices saved by orca setup.

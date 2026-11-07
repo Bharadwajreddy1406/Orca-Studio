@@ -1,0 +1,10 @@
+◆  Linting 012_qr_codes/index.html
+
+  ⚠ [C:\Users\LENOVO\Desktop\Orca Studio\videos\012_qr_codes\index.html:74:7] nested_structure_needs_subcomposition [paper]: <div id="paper"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.
+    Fix: Move <div id="paper"> and its contents into a sub-composition file and mount it with data-composition-src.
+  ⚠ [C:\Users\LENOVO\Desktop\Orca Studio\videos\012_qr_codes\index.html:80:7] nested_structure_needs_subcomposition [scene]: <div id="scene"> is a timeline element that contains nested <div id="world">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.
+    Fix: Move <div id="scene"> and its contents into a sub-composition file and mount it with data-composition-src.
+  ⚠ [C:\Users\LENOVO\Desktop\Orca Studio\videos\012_qr_codes\index.html:133:7] nested_structure_needs_subcomposition [end-card]: <div id="end-card"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.
+    Fix: Move <div id="end-card"> and its contents into a sub-composition file and mount it with data-composition-src.
+
+◇  0 error(s), 3 warning(s)

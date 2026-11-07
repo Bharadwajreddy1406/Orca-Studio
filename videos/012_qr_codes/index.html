@@ -1,0 +1,155 @@
+<!doctype html>
+<!--
+  QR codes: how a code holds a message and repairs it when damaged. Built on the brand kit and
+  the shared Reel kit in reel/, in a world of its own: one Three.js scene, every frame computed
+  from time alone. build_timeline.py writes timeline.js, and index.html from this template.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>QR Codes</title>
+    <link rel="stylesheet" href="brand/brand.css" />
+    <script src="brand/vendor/gsap.min.js"></script>
+    <script src="brand/stickman/stickman.js"></script>
+    <script src="brand/brand-kit.js"></script>
+    <script src="timeline.js"></script>
+    <script type="importmap">{ "imports": { "three": "./lib/three.module.js" } }</script>
+    <style>
+      #root { position: absolute; inset: 0; overflow: hidden; }
+      #world, #labels, #overlay { position: absolute; inset: 0; }
+      #world canvas { display: block; }
+      #labels > * { position: absolute; left: 0; top: 0; opacity: 0; will-change: transform; }
+      .line { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 84px; line-height: 1.04; opacity: 0; }
+      .line.big { font-size: 128px; }
+      .line.huge { font-size: 156px; }
+
+      /* The pain, stamped one word at a time on paper tags. */
+      #stamps { position: absolute; top: 0; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+      .stamp { padding: 0 30px 10px; background: var(--brand-background); border: 6px solid var(--brand-ink); border-radius: 16px; font-size: 92px; line-height: 1.08; opacity: 0; }
+      .stamp.bp-accent { border-color: var(--brand-accent); }
+      .stamp.tag { display: inline-block; opacity: 1; font-size: 120px; }
+
+      /* The link chip: the message going in, and coming back out. */
+      .chip { position: absolute; top: 156px; left: 0; right: 0; margin: 0 auto; width: fit-content; display: flex; align-items: center; gap: 18px; height: 104px; padding: 0 34px; background: var(--brand-background); border: 6px solid var(--brand-ink); border-radius: 52px; white-space: nowrap; opacity: 0; }
+      .chip .link-icon { width: 54px; height: 54px; flex: none; }
+      .chip-text { position: relative; font-size: 52px; line-height: 1; }
+      .chip-badge { position: absolute; right: -44px; top: -44px; width: 92px; height: 92px; opacity: 0; }
+      #bits { position: absolute; top: 132px; left: 0; right: 0; text-align: center; opacity: 0; }
+      #bits .row { font-size: 50px; line-height: 1.2; letter-spacing: 0.02em; }
+      #bits .row span { display: inline-block; opacity: 0; }
+      #bit-key { position: absolute; top: 290px; left: 0; right: 0; text-align: center; font-size: 46px; opacity: 0; }
+      #bytes { position: absolute; top: 108px; left: 0; right: 0; text-align: center; font-size: 46px; opacity: 0; }
+
+      /* The four error-correction levels, bars drawn to scale. */
+      #levels { position: absolute; top: 620px; left: 0; right: 0; height: 360px; opacity: 0; }
+      .level { position: absolute; bottom: 140px; width: 150px; margin-left: -75px; }
+      .level .bar { position: absolute; bottom: 0; left: 25px; width: 100px; background: var(--brand-ink); border-radius: 10px 10px 0 0; transform-origin: 50% 100%; }
+      .level .pct { position: absolute; left: -20px; right: -20px; text-align: center; font-size: 46px; line-height: 1; }
+      .level .name { position: absolute; top: 14px; left: 0; right: 0; text-align: center; font-size: 72px; line-height: 1; }
+      .level.top .bar { background: var(--brand-accent); }
+      .level.top .pct { font-size: 72px; }
+      #levels-note { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; font-size: 40px; }
+
+      #viewfinder { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+      #viewfinder path { fill: none; stroke: var(--brand-accent); stroke-width: 14; stroke-linecap: round; stroke-linejoin: round; }
+      #badge { width: 150px; height: 150px; margin-left: -75px; margin-top: -75px; }
+      #arrow-up { width: 84px; height: 105px; margin-left: -42px; margin-top: -110px; }
+
+      #end-title { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 168px; line-height: 1; }
+      #end-handle { position: absolute; top: 372px; left: 0; right: 0; text-align: center; }
+      #end-logo-slot { position: absolute; top: 470px; left: 50%; width: 280px; height: 280px; margin-left: -140px; }
+      #end-stage svg { position: absolute; inset: 0; overflow: visible; }
+    </style>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute">
+      <defs>
+        <symbol id="i-badge-check" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#E8401A" stroke="#141210" stroke-width="4" /><path d="M18 33 L28 43 L47 22" fill="none" stroke="#E8E0D8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+        <symbol id="i-badge-cross" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#141210" stroke="#141210" stroke-width="4" /><path d="M21 21 L43 43 M43 21 L21 43" fill="none" stroke="#E8401A" stroke-width="8" stroke-linecap="round" /></symbol>
+        <symbol id="i-link" viewBox="0 0 64 64"><g fill="none" stroke="#141210" stroke-width="7" stroke-linecap="round"><path d="M27 37 L37 27" /><path d="M30 18 L35 13 A10.6 10.6 0 0 1 51 29 L46 34" /><path d="M34 46 L29 51 A10.6 10.6 0 0 1 13 35 L18 30" /></g></symbol>
+        <symbol id="i-arrow-up" viewBox="0 0 48 60"><path d="M24 56 L24 10 M8 26 L24 8 L40 26" fill="none" stroke="#E8401A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      </defs>
+    </svg>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="38.143" data-width="1080" data-height="1920" data-fps="60">
+      <div id="paper" class="clip" data-start="0" data-duration="38.143" data-track-index="0">
+        <div class="paper-sheet bp-paper is-quiet"></div>
+        <div class="paper-sheet bp-paper"></div>
+        <div class="paper-sheet bp-paper is-folded"></div>
+      </div>
+
+      <div id="scene" class="clip" data-start="0" data-duration="36.543" data-track-index="1">
+        <div id="world"></div>
+        <div id="labels" data-layout-allow-overflow data-layout-allow-overlap>
+          <svg id="badge" viewBox="0 0 64 64"><use id="badge-use" href="#i-badge-check" /></svg>
+          <svg id="arrow-up" viewBox="0 0 48 60"><use href="#i-arrow-up" /></svg>
+        </div>
+        <div id="overlay" data-layout-allow-overflow data-layout-allow-overlap>
+          <svg id="viewfinder" viewBox="0 0 1080 1920" width="1080" height="1920"><path id="vf-0" /><path id="vf-1" /><path id="vf-2" /><path id="vf-3" /></svg>
+        </div>
+
+        <div class="bp-safe">
+          <div id="line-hook" class="line bp-headline">Spilled coffee on<br />the <span class="bp-accent">QR code?</span></div>
+          <div id="stamps">
+            <div id="stamp-0" class="stamp bp-headline">Smudged.</div>
+            <div id="stamp-1" class="stamp bp-headline">Scratched.</div>
+            <div id="stamp-2" class="stamp bp-headline bp-accent">Torn.</div>
+          </div>
+          <div id="line-ask" class="line bp-headline">Ask for a<br />new menu?</div>
+          <div id="line-ugh" class="line" style="top: 200px"><span class="stamp tag bp-headline bp-accent">Ugh.</span></div>
+          <div id="line-anyway" class="line bp-headline">It scans <span class="bp-accent">anyway?</span></div>
+
+          <div id="chip-in" class="chip">
+            <svg class="link-icon" viewBox="0 0 64 64"><use href="#i-link" /></svg>
+            <span class="chip-text bp-code">example.com</span>
+            <svg id="chip-badge-in" class="chip-badge" viewBox="0 0 64 64"><use href="#i-badge-check" /></svg>
+          </div>
+          <div id="chip-out" class="chip">
+            <svg class="link-icon" viewBox="0 0 64 64"><use href="#i-link" /></svg>
+            <span class="chip-text bp-code">example.com</span>
+            <svg id="chip-badge-out" class="chip-badge" viewBox="0 0 64 64"><use href="#i-badge-check" /></svg>
+          </div>
+          <div id="bits" class="bp-code"><div class="row"><span>0100</span> <span>00001011</span></div><div class="row"><span>01100101</span> <span>01111000</span> <span>...</span></div></div>
+          <div id="bit-key" class="bp-caption">1 = dark square, 0 = light square</div>
+
+          <div id="line-finder" class="line bp-headline">Finder <span class="bp-accent">patterns</span></div>
+          <div id="line-repair" class="line bp-headline">Repair <span class="bp-accent">data</span></div>
+          <div id="bytes" class="bp-caption">16 message bytes + 28 repair bytes</div>
+          <div id="line-splash" class="line"><span class="stamp tag bp-headline bp-accent">Splash!</span></div>
+          <div id="line-rebuilt" class="line big bp-headline bp-accent">Rebuilt!</div>
+          <div id="line-name" class="line bp-headline" style="font-size: 104px">Reed&#8211;Solomon<br /><span class="bp-accent">error correction</span></div>
+          <div id="line-thirty" class="line bp-headline">Up to <span class="bp-accent">&#8776;30%</span> missing</div>
+          <div id="levels">
+            <div class="level" id="level-0" style="left: 15%"><div class="bar"></div><div class="pct bp-caption">&#8776;7%</div><div class="name bp-headline">L</div></div>
+            <div class="level" id="level-1" style="left: 38.3%"><div class="bar"></div><div class="pct bp-caption">&#8776;15%</div><div class="name bp-headline">M</div></div>
+            <div class="level" id="level-2" style="left: 61.7%"><div class="bar"></div><div class="pct bp-caption">&#8776;25%</div><div class="name bp-headline">Q</div></div>
+            <div class="level top" id="level-3" style="left: 85%"><div class="bar"></div><div class="pct bp-headline bp-accent">&#8776;30%</div><div class="name bp-headline bp-accent">H</div></div>
+            <div id="levels-note" class="bp-caption">of the codewords, at each level</div>
+          </div>
+          <div id="line-hide" class="line bp-headline">Hide <span class="bp-accent">too much?</span></div>
+          <div id="line-corner" class="line bp-headline">Or a <span class="bp-accent">corner?</span></div>
+          <div id="line-noscan" class="line big bp-headline">No <span class="bp-accent">scan.</span></div>
+          <div id="line-happy" class="line big bp-headline">Happy<br /><span class="bp-accent">scanning!</span></div>
+        </div>
+      </div>
+
+      <div id="end-card" class="clip" data-start="36.343" data-duration="1.8" data-track-index="2">
+        <div class="bp-safe">
+          <div id="end-title" class="bp-headline bp-accent">Follow for more</div>
+          <div id="end-handle" class="bp-caption">@BradAndPrad</div>
+          <div id="end-logo-slot"></div>
+        </div>
+        <div id="end-stage"></div>
+      </div>
+
+      <div id="sheet-top" class="clip bp-torn-top" data-start="0" data-duration="1.3" data-track-index="3"></div>
+      <div id="sheet-bottom" class="clip bp-torn-bottom" data-start="0" data-duration="1.3" data-track-index="4"></div>
+    </div>
+
+    <script type="module">
+      import { timeline } from "./source/main.js";
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = timeline;
+    </script>
+  </body>
+</html>

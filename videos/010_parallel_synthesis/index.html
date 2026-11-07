@@ -1,0 +1,182 @@
+<!doctype html>
+<!--
+  Parallel Synthesis, built on the Brad & Prad kit and the shared Reel kit (reel/). One
+  continuous Three.js world, with every frame computed from time alone. build_timeline.py
+  writes timeline.js, and index.html from this template with the times measured from the take.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Parallel Synthesis</title>
+    <link rel="stylesheet" href="brand/brand.css" />
+    <script src="brand/vendor/gsap.min.js"></script>
+    <script src="brand/stickman/stickman.js"></script>
+    <script src="brand/brand-kit.js"></script>
+    <script src="timeline.js"></script>
+    <script type="importmap">{ "imports": { "three": "./lib/three.module.js" } }</script>
+    <style>
+      #root { position: absolute; inset: 0; overflow: hidden; }
+      #world, #figures, #labels, #cards { position: absolute; inset: 0; }
+      #world canvas { display: block; }
+      #labels > *, #cards > * { position: absolute; left: 0; top: 0; opacity: 0; will-change: transform; }
+      .line { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 84px; line-height: 1.04; opacity: 0; }
+      .line.big { font-size: 112px; }
+
+      /* The app the developer is waiting on. */
+      #app { position: absolute; top: 290px; left: 100px; width: 880px; padding: 18px 30px 28px; background: var(--brand-background); border: 4px solid var(--brand-ink); opacity: 0; }
+      #app-head { display: flex; align-items: center; gap: 12px; height: 50px; font-size: 36px; border-bottom: 3px solid var(--brand-ink-faint); padding-bottom: 8px; }
+      #app-head i { display: block; width: 20px; height: 20px; border: 3px solid var(--brand-ink); border-radius: 50%; }
+      #app-head span { margin-left: 14px; }
+      #app-status { display: flex; align-items: center; gap: 22px; height: 130px; }
+      #spinner, #app-done { width: 84px; height: 84px; flex: none; }
+      #app-word { font-size: 56px; flex: 1; }
+      #app-timer { font-size: 76px; }
+      #app-bar { height: 34px; border: 4px solid var(--brand-ink); }
+      #app-fill { height: 100%; width: 0; background: var(--brand-ink); }
+      #app-fill.done { background: var(--brand-accent); }
+
+      /* The evidence board: three findings, the comparison bars, and the verdict. */
+      #board { position: absolute; top: 290px; left: 100px; width: 880px; height: 570px; background: var(--brand-background); border: 4px solid var(--brand-ink); opacity: 0; }
+      #board-head { position: absolute; top: 0; left: 0; right: 0; height: 74px; display: flex; align-items: center; justify-content: center; gap: 14px; font-size: 44px; border-bottom: 3px solid var(--brand-ink-faint); }
+      #board-head svg { width: 44px; height: 44px; }
+      #board-title, #verdict { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 14px; }
+      #verdict { opacity: 0; background: var(--brand-accent); color: var(--brand-ink); }
+      #verdict.wrong { background: var(--brand-ink); color: var(--brand-background); }
+      #bars { position: absolute; left: 0; right: 0; top: 362px; height: 190px; }
+      #bars .base { position: absolute; left: 30px; right: 30px; bottom: 0; height: 4px; background: var(--brand-ink); }
+      .bar { position: absolute; bottom: 4px; width: 110px; height: 0; background: var(--brand-ink); }
+      .bar.hot { background: var(--brand-accent); }
+      .clash { width: 46px; height: 180px; }
+
+      /* A findings card. Its centre is placed by main.js. */
+      .card { width: 260px; height: 270px; margin-left: -130px; margin-top: -135px; background: var(--brand-background); border: 4px solid var(--brand-ink); padding: 12px 14px; }
+      .card.hot { border-color: var(--brand-accent); border-width: 8px; padding: 8px 10px; }
+      .card-top { display: flex; align-items: center; gap: 10px; height: 54px; font-size: 36px; }
+      .card-top svg { width: 48px; height: 48px; flex: none; }
+      .card-find { font-size: 34px; line-height: 44px; margin-top: 4px; }
+      .card-metric { font-size: 52px; line-height: 64px; position: relative; }
+      .card-claim { margin-top: 8px; height: 50px; background: var(--brand-ink); color: var(--brand-background); font-size: 34px; line-height: 50px; text-align: center; opacity: 0; }
+      .smudge { position: absolute; left: 118px; top: -34px; width: 150px; height: 80px; opacity: 0; }
+
+      .scene-label { width: 360px; margin-left: -180px; margin-top: -32px; text-align: center; font-size: 56px; line-height: 64px; }
+      .qmark { width: 80px; margin-left: -40px; margin-top: -60px; text-align: center; font-size: 110px; line-height: 120px; }
+      #answer-tag { display: flex; align-items: center; justify-content: center; gap: 12px; width: 600px; height: 84px; margin-left: -300px; margin-top: -42px; background: var(--brand-accent); color: var(--brand-ink); border: 4px solid var(--brand-ink); font-size: 48px; white-space: nowrap; }
+      #answer-tag svg { width: 52px; height: 52px; }
+
+      #stamp { position: absolute; top: 600px; left: 50%; width: 740px; margin-left: -370px; padding: 14px 0 8px; text-align: center; font-size: 100px; line-height: 1; border: 10px solid var(--brand-accent); outline: 4px solid var(--brand-accent); outline-offset: 8px; opacity: 0; }
+
+      #end-title { position: absolute; top: 0; left: 0; right: 0; text-align: center; font-size: 168px; line-height: 1; }
+      #end-handle { position: absolute; top: 372px; left: 0; right: 0; text-align: center; }
+      #end-logo-slot { position: absolute; top: 470px; left: 50%; width: 280px; height: 280px; margin-left: -140px; }
+      #end-stage svg { position: absolute; inset: 0; overflow: visible; }
+    </style>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute">
+      <defs>
+        <symbol id="i-check" viewBox="0 0 64 64"><path d="M14 33 L27 46 L51 19" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+        <symbol id="i-cross" viewBox="0 0 64 64"><path d="M17 17 L47 47 M47 17 L17 47" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" /></symbol>
+        <symbol id="i-db" viewBox="0 0 64 64"><g fill="var(--brand-background)" stroke="var(--brand-ink)" stroke-width="4"><path d="M12 14 L12 50 C12 58 52 58 52 50 L52 14" /><ellipse cx="32" cy="14" rx="20" ry="7" /><path d="M12 26 C12 34 52 34 52 26 M12 38 C12 46 52 46 52 38" fill="none" /></g></symbol>
+        <symbol id="i-screen" viewBox="0 0 64 64"><g stroke="var(--brand-ink)" stroke-width="4" stroke-linejoin="round"><rect x="6" y="10" width="52" height="36" rx="3" fill="var(--brand-background)" /><path d="M26 46 L24 56 M38 46 L40 56 M20 56 L44 56" fill="none" /><path d="M6 20 L58 20" fill="none" /></g><rect x="13" y="26" width="16" height="13" fill="var(--brand-ink)" /><rect x="34" y="26" width="17" height="5" fill="var(--brand-ink)" /></symbol>
+        <symbol id="i-tower" viewBox="0 0 64 64"><g fill="none" stroke="var(--brand-ink)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 22 L20 58 M32 22 L44 58 M24 46 L40 46" /><path d="M22 14 C26 9 38 9 42 14 M15 8 C23 0 41 0 49 8" /></g><circle cx="32" cy="20" r="5" fill="var(--brand-ink)" /></symbol>
+        <symbol id="i-pin" viewBox="0 0 64 64"><circle cx="32" cy="24" r="14" fill="var(--brand-accent)" stroke="var(--brand-ink)" stroke-width="4" /><path d="M32 38 L32 60" stroke="var(--brand-ink)" stroke-width="5" stroke-linecap="round" /></symbol>
+        <symbol id="i-blot" viewBox="0 0 230 120"><path fill="var(--brand-ink)" d="M30 52 C18 28 52 10 78 22 C96 4 132 6 146 24 C170 8 208 20 204 48 C226 60 220 94 192 96 C184 116 146 118 132 104 C112 120 74 116 66 100 C36 112 8 92 24 74 C10 66 14 54 30 52 Z M212 22 a7 7 0 1 0 0.1 0 Z M14 104 a6 6 0 1 0 0.1 0 Z" /></symbol>
+        <symbol id="i-spin" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="var(--brand-ink-faint)" stroke-width="8" /><path d="M32 8 A24 24 0 0 1 56 32" fill="none" stroke="var(--brand-ink)" stroke-width="8" stroke-linecap="round" /></symbol>
+        <symbol id="i-zig" viewBox="0 0 46 180"><path d="M30 4 L8 62 L36 70 L10 126 L34 132 L16 176" fill="none" stroke="var(--brand-accent)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      </defs>
+    </svg>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="35.105" data-width="1080" data-height="1920" data-fps="60">
+      <div id="paper" class="clip" data-start="0" data-duration="35.105" data-track-index="0">
+        <div class="paper-sheet bp-paper is-quiet"></div>
+        <div class="paper-sheet bp-paper"></div>
+        <div class="paper-sheet bp-paper is-folded"></div>
+      </div>
+
+      <div id="scene" class="clip" data-start="0" data-duration="33.105" data-track-index="1">
+        <div id="world"></div>
+        <svg id="figures" viewBox="0 0 1080 1920" width="1080" height="1920" style="overflow: visible; pointer-events: none"></svg>
+        <div id="app" data-layout-allow-overflow>
+          <div id="app-head" class="bp-caption"><i></i><i></i><i></i><span>my-app</span></div>
+          <div id="app-status">
+            <svg id="spinner"><use href="#i-spin" /></svg>
+            <svg id="app-done" style="display: none; color: var(--brand-accent)"><use href="#i-check" /></svg>
+            <span id="app-word" class="bp-caption">Loading…</span>
+            <span id="app-timer" class="bp-code">0.0 s</span>
+          </div>
+          <div id="app-bar"><div id="app-fill"></div></div>
+        </div>
+
+        <div id="board" data-layout-allow-overflow data-layout-allow-overlap>
+          <div id="board-head" class="bp-caption">
+            <div id="board-title"><svg><use href="#i-pin" /></svg><span>Evidence</span></div>
+            <div id="verdict"><svg id="verdict-icon"><use id="verdict-use" href="#i-check" /></svg><span id="verdict-text">Most likely: slow query</span></div>
+          </div>
+          <div id="bars">
+            <div id="bar-0" class="bar" style="left: 101px"></div>
+            <div id="bar-1" class="bar" style="left: 381px"></div>
+            <div id="bar-2" class="bar" style="left: 661px"></div>
+            <div class="base"></div>
+          </div>
+        </div>
+
+        <div id="cards" data-layout-allow-overflow data-layout-allow-overlap>
+          <svg class="clash" id="clash-0" style="left: 377px; top: 424px"><use href="#i-zig" /></svg>
+          <svg class="clash" id="clash-1" style="left: 657px; top: 424px"><use href="#i-zig" /></svg>
+          <div id="card-0" class="card">
+            <div class="card-top bp-caption"><svg><use href="#i-db" /></svg><span>Database</span></div>
+            <div class="card-find bp-caption">slow query</div>
+            <div class="card-metric bp-code">2.4 s</div>
+            <div class="card-claim bp-caption">It's the DB!</div>
+          </div>
+          <div id="card-1" class="card">
+            <div class="card-top bp-caption"><svg><use href="#i-screen" /></svg><span>Frontend</span></div>
+            <div class="card-find bp-caption">big images</div>
+            <div class="card-metric bp-code"><span id="ui-value">0.3 s</span><svg class="smudge" id="smudge"><use href="#i-blot" /></svg></div>
+            <div class="card-claim bp-caption">It's the UI!</div>
+          </div>
+          <div id="card-2" class="card">
+            <div class="card-top bp-caption"><svg><use href="#i-tower" /></svg><span>Network</span></div>
+            <div class="card-find bp-caption">API latency</div>
+            <div class="card-metric bp-code">0.4 s</div>
+            <div class="card-claim bp-caption">It's the net!</div>
+          </div>
+        </div>
+
+        <div id="labels" data-layout-allow-overflow data-layout-allow-overlap>
+          <div id="label-db" class="scene-label bp-headline">Database</div>
+          <div id="label-ui" class="scene-label bp-headline">Frontend</div>
+          <div id="label-net" class="scene-label bp-headline">Network</div>
+          <div id="q-0" class="qmark bp-headline">?</div>
+          <div id="q-1" class="qmark bp-headline">?</div>
+          <div id="answer-tag" class="bp-caption"><svg style="color: var(--brand-ink)"><use href="#i-check" /></svg><span>slow database query</span></div>
+        </div>
+
+        <div id="stamp" class="bp-headline bp-accent">CASE CLOSED</div>
+
+        <div class="bp-safe">
+          <div id="line-hiding" class="line bp-headline">Where's the problem<br /><span class="bp-accent">hiding?</span></div>
+          <div id="line-named" class="line big bp-headline">Parallel<br /><span class="bp-accent">Synthesis</span></div>
+        </div>
+      </div>
+
+      <div id="end-card" class="clip" data-start="32.905" data-duration="2.2" data-track-index="2">
+        <div class="bp-safe">
+          <div id="end-title" class="bp-headline bp-accent">Follow for more</div>
+          <div id="end-handle" class="bp-caption">@BradAndPrad</div>
+          <div id="end-logo-slot"></div>
+        </div>
+        <div id="end-stage"></div>
+      </div>
+
+      <div id="sheet-top" class="clip bp-torn-top" data-start="0" data-duration="1.3" data-track-index="3"></div>
+      <div id="sheet-bottom" class="clip bp-torn-bottom" data-start="0" data-duration="1.3" data-track-index="4"></div>
+    </div>
+
+    <script type="module">
+      import { timeline } from "./source/main.js";
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = timeline;
+    </script>
+  </body>
+</html>
